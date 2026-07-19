@@ -84,4 +84,4 @@ Bencekri, M., & Moreno, C. Assessing accessibility of cultural sites through the
 ---
 
 **Full dataset, code, and reproducible pipeline**: github.com/sakshimaske303-commits/GHOST-INFRASTRUCTURE
-**Live interactive dashboard**: *(link to be added upon deployment)*
+**Live interactive dashboard**: *(https://ghostinfrastructure-areytvp4x8ofu6l5tosj2z.streamlit.app/)*
