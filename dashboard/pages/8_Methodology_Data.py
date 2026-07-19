@@ -111,7 +111,7 @@ render_card("""
     <div style="text-align:center;">
         <p style="color:#333333; font-weight:700; text-transform:uppercase; letter-spacing:2px; font-size:0.85rem; margin:0 0 10px 0;">GitHub Repository</p>
         <p style="color:#111111; font-weight:700; font-size:1rem; margin:0;">
-            <a href="https://github.com/sakshimaske303-commits/GHOST-INFRASTRUCTURE" target="_blank" style="color:#111111;">github.com/sakshimaske303-commits/GHOST-INFRASTRUCTURE</a>
+            <a href="https://github.com/sakshimaske303-commits/GHOST_INFRASTRUCTURE" target="_blank" style="color:#111111;">github.com/sakshimaske303-commits/GHOST-INFRASTRUCTURE</a>
         </p>
     </div>
 """, height=140)

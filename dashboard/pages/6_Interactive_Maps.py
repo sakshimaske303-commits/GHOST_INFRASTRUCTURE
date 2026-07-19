@@ -51,7 +51,7 @@ render_card("""
         🟢 Green Dot — High 15-Min Accessibility &nbsp;|&nbsp;
         🔴 Red Dot — Low 15-Min Accessibility
     </p>
-""", height=110)
+""", height=200)
 
 st.markdown("---")
 st.markdown(
