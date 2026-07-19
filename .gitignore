@@ -1,0 +1,3 @@
+*.tif
+.streamlit/
+data/boundaries/gadm41_DEU.gpkg
