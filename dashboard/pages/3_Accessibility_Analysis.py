@@ -43,7 +43,7 @@ with col1:
     render_card("""
         <p style="color:#111111; font-weight:800; font-size:0.8rem; text-transform:uppercase; margin:0 0 8px 0;">NETWORK NODES</p>
         <p style="color:#111111; font-weight:800; font-size:1.5rem; margin:0;">69,393</p>
-    """, height=130)
+    """, height=150)
 with col2:
     render_card("""
         <p style="color:#111111; font-weight:800; font-size:0.8rem; text-transform:uppercase; margin:0 0 8px 0;">STREET EDGES</p>
@@ -69,17 +69,17 @@ with s1:
     render_card("""
         <p style="color:#111111; font-weight:800; font-size:0.95rem; margin:0 0 8px 0;">🏥 Health</p>
         <p style="color:#333333; font-weight:900; font-size:0.95rem; margin:0;">Hospitals, clinics, pharmacies</p>
-    """, height=150)
+    """, height=170)
 with s2:
     render_card("""
         <p style="color:#111111; font-weight:800; font-size:0.95rem; margin:0 0 8px 0;">🎓 Education</p>
         <p style="color:#333333; font-weight:900; font-size:0.95rem; margin:0;">Schools, kindergartens</p>
-    """, height=150)
+    """, height=170)
 with s3:
     render_card("""
         <p style="color:#111111; font-weight:800; font-size:0.95rem; margin:0 0 8px 0;">🛒 Daily Needs</p>
         <p style="color:#333333; font-weight:900; font-size:0.95rem; margin:0;">Supermarkets, convenience stores, parks</p>
-    """, height=150)
+    """, height=170)
 
 st.markdown("---")
 

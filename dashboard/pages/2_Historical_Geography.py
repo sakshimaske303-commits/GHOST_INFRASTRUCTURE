@@ -49,7 +49,7 @@ with col3:
 
 st.markdown("---")
 
-st.markdown("<h3 style='color:#7FB8BE;'>The Industrial Skeleton of Bochum</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='color:#7FB8BE; text-align:center; margin-top:-10px;'>The Industrial Skeleton of Bochum</h3>", unsafe_allow_html=True)
 
 image_path = os.path.join(PROJECT_ROOT, "outputs", "plots", "historical_geography.png")
 if os.path.exists(image_path):
@@ -65,11 +65,11 @@ render_card("""
         (Stahlhausen) was explicitly excluded during review since it belonged to a different 
         industry (steel, not coal).
     </p>
-""", height=180)
+""", height=210)
 
 st.markdown("---")
 
-st.markdown("<h3 style='color:#7FB8BE;'>The Full Ghost Infrastructure Overlay</h3>", unsafe_allow_html=True)
+st.markdown("<h3 style='color:#7FB8BE; text-align:center; margin-top:-10px;'>The Full Ghost Infrastructure Overlay</h3>", unsafe_allow_html=True)
 
 image_path2 = os.path.join(PROJECT_ROOT, "outputs", "plots", "ghost_infrastructure_overlay.png")
 if os.path.exists(image_path2):
