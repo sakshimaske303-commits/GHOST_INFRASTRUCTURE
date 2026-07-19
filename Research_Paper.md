@@ -1,6 +1,4 @@
-Chalo-**literature-review-ke-liye-searches** karti-hoon, genuinely-grounded-paper-ke-liye.# GHOST INFRASTRUCTURE: Testing Whether 19th-Century Industrial Geography Structurally Predicts Present-Day Urban Accessibility
-
-**Sakshi D. Maske**
+# Sakshi D. Maske
 Independent Geospatial Researcher
 
 ## Abstract
