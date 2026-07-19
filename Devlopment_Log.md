@@ -196,3 +196,20 @@ coordinate values and confirmed as genuine historical geography). In both cases,
 investigated to a specific, verifiable cause before being accepted or dismissed — consistent with the 
 project's broader commitment to treating unexpected results as questions to resolve, not outcomes to 
 either suppress or uncritically accept.
+
+## Definitive Distance Verification — Ghost Infrastructure Overlay Anomalies
+
+Following repeated independent visual verification flagging "12 vs 13 mines" and colony-marker 
+overlap across multiple map outputs, exact Haversine distances were calculated between the 
+specific point pairs in question, rather than relying on further visual inspection.
+
+Mansfeld and Heinrich Gustav coal mines: 1.75 km apart.
+Kolonie Hannover and Am Rübenkamp worker colonies: 0.33 km apart.
+
+Both distances are small enough to visually merge into single markers at full-city map scale 
+(Bochum spans approximately 14 km), definitively confirming these are genuine close-proximity 
+historical sites rather than data errors, duplicate entries, or pipeline bugs. This closes the 
+verification loop initiated by external visual review: the underlying data was independently 
+confirmed correct via direct coordinate inspection (13 mines present, all coordinates valid) and 
+now via exact distance calculation, rather than accepted or dismissed based on visual impression 
+alone.
