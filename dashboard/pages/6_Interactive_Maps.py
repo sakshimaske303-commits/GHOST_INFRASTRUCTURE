@@ -10,12 +10,13 @@ from styles import apply_custom_style, PALETTE
 apply_custom_style()
 
 
-def render_card(content_html):
-    st.markdown(f"""
-        <div style="background: #B4D5D6; border-radius: 10px; padding: 20px; margin-bottom: 16px;">
+def render_card(content_html, height=200):
+    components.html(f"""
+        <div style="background: #B4D5D6; border-radius: 10px; padding: 24px;
+                    font-family: 'Inter', sans-serif; box-sizing: border-box; height: {height-48}px;">
             {content_html}
         </div>
-    """, unsafe_allow_html=True)
+    """, height=height)
 
 
 st.markdown("<h1 style='text-align: center;'>🗺️ INTERACTIVE MAPS</h1>", unsafe_allow_html=True)
@@ -50,7 +51,7 @@ render_card("""
         🟢 Green Dot — High 15-Min Accessibility &nbsp;|&nbsp;
         🔴 Red Dot — Low 15-Min Accessibility
     </p>
-""")
+""", height=170)
 
 st.markdown("---")
 st.markdown(
