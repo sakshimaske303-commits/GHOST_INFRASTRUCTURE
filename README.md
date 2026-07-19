@@ -4,7 +4,7 @@
 
 ## 🔗 Live Dashboard
 
-**[View the interactive dashboard →](https://ghostinfrastructure-areytvp4x8ofu6l5tosj2z.streamlit.app/)**
+**[View the interactive dashboard →](https://ghostinfrastructure-areytvp4x8ofu6l5tosj2z.streamlit.app/)
 
 ## 📄 Project Documentation
 
