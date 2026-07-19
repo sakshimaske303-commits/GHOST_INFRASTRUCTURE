@@ -46,7 +46,6 @@ def apply_custom_style():
             font-weight: 700 !important;
         }
 
-        /* Text only on dark background */
         .stMarkdown p,
         .stMarkdown li {
             color: #FFFFFF;
@@ -81,29 +80,19 @@ def apply_custom_style():
             font-weight: 600;
         }
 
-        /* Force black text inside blueprint cards */
-        .blueprint-card {
-            background: #B4D5D6;
-            border-radius: 10px;
-            padding: 20px;
+        [data-testid="stExpander"] {
+            background-color: #B4D5D6 !important;
+            border-radius: 8px !important;
         }
-        .blueprint-card * {
+        [data-testid="stExpander"] summary p {
+            font-size: 1.05rem !important;
+            font-weight: 800 !important;
             color: #111111 !important;
-            font-weight: 700 !important;
         }
-        .blueprint-card h1,
-        .blueprint-card h2,
-        .blueprint-card h3,
-        .blueprint-card h4,
-        .blueprint-card h5,
-        .blueprint-card p,
-        .blueprint-card span,
-        .blueprint-card strong,
-        .blueprint-card b {
+        [data-testid="stExpanderDetails"] p, [data-testid="stExpanderDetails"] li {
             color: #111111 !important;
         }
 
-        /* Metric cards */
         div[data-testid="stMetric"] {
             background-color: #B4D5D6;
             border-radius: 10px;

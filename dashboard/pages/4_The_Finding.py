@@ -1,5 +1,4 @@
 import streamlit as st
-import streamlit.components.v1 as components
 import sys
 import os
 
@@ -10,13 +9,12 @@ from styles import apply_custom_style, PALETTE
 apply_custom_style()
 
 
-def render_card(content_html, height=250):
-    components.html(f"""
-        <div style="background: #B4D5D6; border-radius: 10px; padding: 24px;
-                    font-family: 'Inter', sans-serif; box-sizing: border-box; height: {height-48}px;">
+def render_card(content_html):
+    st.markdown(f"""
+        <div style="background: #B4D5D6; border-radius: 10px; padding: 24px; margin-bottom: 16px;">
             {content_html}
         </div>
-    """, height=height)
+    """, unsafe_allow_html=True)
 
 
 st.markdown("<h1 style='text-align: center;'>📊 THE FINDING</h1>", unsafe_allow_html=True)
@@ -45,7 +43,7 @@ with col1:
         <p style="color:#333333; font-weight:600; font-size:0.95rem; margin:0;">
             Average distance to nearest historical industrial site (n=9,858)
         </p>
-    """, height=200)
+    """)
 with col2:
     render_card("""
         <p style="color:#111111; font-weight:800; font-size:0.85rem; text-transform:uppercase; margin:0 0 12px 0;">High-Accessibility Nodes</p>
@@ -53,7 +51,7 @@ with col2:
         <p style="color:#333333; font-weight:600; font-size:0.95rem; margin:0;">
             Average distance to nearest historical industrial site (n=59,535)
         </p>
-    """, height=200)
+    """)
 
 st.markdown("---")
 
@@ -66,7 +64,7 @@ render_card("""
         Proximity to historical industrial sites predicts <strong>better</strong> present-day 
         accessibility, not worse.
     </p>
-""", height=220)
+""")
 
 st.markdown("---")
 
@@ -84,14 +82,14 @@ render_card("""
         A logistic regression confirms the historical-site effect remains significant 
         (coefficient = -0.0005, p &lt; 0.001) even after controlling for city-center distance.
     </p>
-""", height=320)
+""")
 
 st.markdown("---")
 
 st.markdown("<h3 style='color:#7FB8BE;'>Interpretation</h3>", unsafe_allow_html=True)
 
 render_card("""
-    <p style="color:#111111; font-weight:800; font-size:1.1rem; line-height:1.85; margin:0;">
+    <p style="color:#111111; font-weight:700; font-size:1.1rem; line-height:1.85; margin:0;">
         19th-century industrial cores were built dense, by necessity — around the mines and 
         colonies where workers actually lived. That density appears to persist as present-day 
         street connectivity and service coverage, decades after the mines closed. This is a 
@@ -99,7 +97,7 @@ render_card("""
         "path dependency of neglect." Genuine accessibility gaps concentrate further from, 
         not closer to, the historical industrial core.
     </p>
-""", height=300)
+""")
 
 st.markdown("---")
 st.markdown(
