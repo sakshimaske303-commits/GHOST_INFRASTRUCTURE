@@ -4,7 +4,9 @@
 
 ## 🔗 Live Dashboard
 
-**[View the interactive dashboard →](https://ghostinfrastructure-areytvp4x8ofu6l5tosj2z.streamlit.app/)**
+**Live Dashboard**: `https://ghostinfrastructure-areytvp4x8ofu6l5tosj2z.streamlit.app/`
+
+*(Copy and paste this URL directly into your browser's address bar for correct rendering — clicking through GitHub's link preview can occasionally cause a temporary layout glitch on first load, which resolves after a single page refresh.)*
 
 ## 📄 Project Documentation
 
