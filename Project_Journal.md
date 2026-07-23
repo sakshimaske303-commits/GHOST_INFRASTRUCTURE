@@ -56,6 +56,3 @@ A digitized, georeferenced historical-industrial-geography dataset for Bochum (1
 
 The worker-colony dataset (4 sites) is smaller than the coal-mine dataset (13 sites), somewhat limiting the statistical power of colony-specific analysis — an honestly disclosed sample-size constraint rather than an omitted weakness. This project relies on point-based historical site locations rather than full manual boundary digitization of mine and colony extents, a deliberate scope decision given project timeline constraints. The 15-minute accessibility model treats all essential-service categories as equally weighted, which does not capture genuine differences in how urgently each service type matters to daily life.
 
-## Current Status
-
-Core historical data compilation, present-day accessibility modeling, statistical testing with confound verification, cartographic visualization, and the interactive dashboard are complete. Interactive QGIS-based mapping and GitHub deployment are in progress.

@@ -143,7 +143,7 @@ and network connectivity than more peripheral areas — a "path dependency of ce
 disadvantage; the evidence instead suggests industrial-era centrality predicts present-day advantage, 
 with genuine accessibility gaps concentrated in areas further from the historical industrial core.
 
-## Module 6 — Confound Verification: The Finding Holds Independently
+## Module 6A — Confound Verification: The Finding Holds Independently
 
 Before accepting the reversed relationship as genuine, a confound was tested: since historical 
 industrial sites might simply cluster near Bochum's city center (which independently predicts 

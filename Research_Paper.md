@@ -29,9 +29,21 @@ The 15-minute city framework, prioritizing proximity-based access to essential s
 
 Bochum, North Rhine-Westphalia, Germany — a defining Ruhr Valley coal and steel city from the mid-19th century through the 1950s, with its final coal mine closing in 1974.
 
+<p align="center">
+  <img src="outputs/plots/study_area_bochum.png" width="700">
+</p>
+
+**Figure 1.** Study area showing the administrative boundary of Bochum, North Rhine-Westphalia, Germany. Bochum was selected as the study area because of its well-documented coal-mining history and its transformation into a post-industrial city, providing an ideal setting to examine whether nineteenth- and twentieth-century industrial geography continues to influence present-day 15-minute-city accessibility.
+
 ### 3.2 Historical Data
 
 Thirteen coal mines and four worker-housing colonies (Zechensiedlungen) were compiled from Mindat.org and German heritage archival sources, kept as two independent, structurally distinct GIS layers given their categorically different nature (extraction site versus residential housing). A proposed steelworker colony was explicitly excluded during data review, since it was linked to steel rather than coal production.
+
+<p align="center">
+  <img src="outputs/plots/historical_geography.png" width="700">
+</p>
+
+**Figure 2.** Historical coal-mining geography of Bochum derived from nineteenth-century industrial maps. Former mining sites are shown alongside the modern administrative boundary, providing the historical spatial framework used to evaluate whether legacy industrial infrastructure continues to influence present-day urban accessibility.
 
 ### 3.3 Present-Day Accessibility Model
 
@@ -47,9 +59,21 @@ Distance from each network node to its nearest historical industrial site was co
 
 85.8% of network nodes fell within a 15-minute walk of at least one essential service; 14.2% (9,858 nodes) did not.
 
+<p align="center">
+  <img src="outputs/plots/ghost_infrastructure_overlay.png" width="700">
+</p>
+
+**Figure 3.** Overlay of historical coal-mining infrastructure and present-day 15-minute walking accessibility in Bochum. The visualization illustrates the spatial relationship between former industrial sites and modern accessibility patterns, providing the geographical basis for the statistical comparison presented in the following sections.
+
 ### 4.2 The Reversed Relationship
 
 Low-accessibility nodes were, on average, further from historical industrial sites (1,984m) than high-accessibility nodes (1,450m) — a highly significant difference (Welch's t-test, t=42.887, p<0.00001), opposite in direction to the original hypothesis that industrial legacy would predict present-day neglect.
+
+<p align="center">
+  <img src="outputs/plots/distance_comparison_boxplot.png" width="700">
+</p>
+
+**Figure 4.** Boxplot comparing the distance from historical coal-mining sites for high-accessibility and low-accessibility locations. Contrary to the original hypothesis, low-accessibility locations are significantly farther from former mining sites than high-accessibility locations, indicating that historical industrial geography does not predict present-day accessibility in the expected direction.
 
 ### 4.3 Confound Verification
 
