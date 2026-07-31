@@ -105,7 +105,3 @@ Systematic literature review: An assessment of proximity in the 15-Minute City. 
 
 Bencekri, M., & Moreno, C. Assessing accessibility of cultural sites through the 15-minute city framework in Seoul. *International Journal of Urban Sciences* (2025).
 
----
-
-**Full dataset, code, and reproducible pipeline**: github.com/sakshimaske303-commits/GHOST-INFRASTRUCTURE
-**Live interactive dashboard**: *(https://ghostinfrastructure-areytvp4x8ofu6l5tosj2z.streamlit.app/)*
