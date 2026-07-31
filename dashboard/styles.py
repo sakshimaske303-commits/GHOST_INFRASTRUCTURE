@@ -9,12 +9,14 @@ def apply_custom_style():
             font-family: 'Inter', sans-serif;
         }
 
+        /* Rich midnight-blue gradient — not flat, has depth */
         .stApp {
-            background-color: #2E3A61;
+            background: linear-gradient(135deg, #0F3C65 0%, #0A2E4F 55%, #0F3C65 100%);
         }
 
         section[data-testid="stSidebar"] {
-            background-color: #253250;
+            background: linear-gradient(180deg, #092542 0%, #0A2E4F 100%);
+            border-right: 1px solid rgba(255, 242, 186, 0.15);
         }
 
         section[data-testid="stSidebar"] label,
@@ -26,23 +28,24 @@ def apply_custom_style():
 
         h1 {
             font-family: 'Bitter', serif !important;
-            color: #FFFFFF !important;
+            color: #FFF2BA !important;
             font-weight: 900 !important;
             font-size: 3.4rem !important;
+            text-shadow: 0 0 30px rgba(255, 242, 186, 0.22);
         }
 
         h2 {
             font-family: 'Bitter', serif;
-            color: #FFFFFF !important;
+            color: #FFF2BA !important;
             font-weight: 700 !important;
-            border-left: 4px solid #7FB8BE;
+            border-left: 4px solid #FFF2BA;
             padding-left: 14px;
             font-size: 1.8rem !important;
         }
 
         h3 {
             font-family: 'Bitter', serif;
-            color: #7FB8BE !important;
+            color: #E4D28C !important;
             font-weight: 700 !important;
         }
 
@@ -56,13 +59,13 @@ def apply_custom_style():
         }
 
         strong, b {
-            color: #7FB8BE;
+            color: #FFF2BA;
             font-weight: 800;
         }
 
         .stButton>button {
-            background-color: #7FB8BE;
-            color: #253250;
+            background-color: #FFF2BA;
+            color: #0F3C65;
             border-radius: 6px;
             border: none;
             font-weight: 700;
@@ -71,24 +74,24 @@ def apply_custom_style():
         hr {
             border: none;
             height: 1px;
-            background-color: #7FB8BE;
+            background-color: #FFF2BA;
             margin: 1.6rem 0;
         }
 
         .caption-text {
-            color: #D9D9D9;
+            color: #C7D3DE;
             font-size: 0.9rem;
             font-weight: 600;
         }
 
-        /* Force black text inside blueprint cards */
+        /* Force midnight-blue text inside buttermilk blueprint cards */
         .blueprint-card {
-            background: #B4D5D6;
+            background: #FFF2BA;
             border-radius: 10px;
             padding: 20px;
         }
         .blueprint-card * {
-            color: #111111 !important;
+            color: #0F3C65 !important;
             font-weight: 700 !important;
         }
         .blueprint-card h1,
@@ -100,29 +103,47 @@ def apply_custom_style():
         .blueprint-card span,
         .blueprint-card strong,
         .blueprint-card b {
-            color: #111111 !important;
+            color: #0F3C65 !important;
         }
 
         /* Metric cards */
         div[data-testid="stMetric"] {
-            background-color: #B4D5D6;
+            background-color: #FFF2BA;
             border-radius: 10px;
             padding: 20px;
         }
         div[data-testid="stMetric"] * {
-            color: #111111 !important;
+            color: #0F3C65 !important;
             font-weight: 800 !important;
         }
+
+        /* Remove top-of-page gap */
+[data-testid="stHeader"] {
+    background-color: transparent !important;
+    height: 0rem !important;
+}
+[data-testid="stToolbar"] {
+    display: none !important;
+}
+[data-testid="stDecoration"] {
+    display: none !important;
+}
+#MainMenu {
+    visibility: hidden !important;
+}
+.block-container {
+    padding-top: 1.5rem !important;
+}
         </style>
     """, unsafe_allow_html=True)
 
 
 PALETTE = {
-    "bg_main": "#2E3A61",
-    "bg_card": "#B4D5D6",
-    "bg_sidebar": "#253250",
+    "bg_main": "#0F3C65",
+    "bg_card": "#FFF2BA",
+    "bg_sidebar": "#092542",
     "text_primary": "#FFFFFF",
-    "text_muted": "#D9D9D9",
-    "accent_rust": "#7FB8BE",
-    "accent_steel": "#7FB8BE",
+    "text_muted": "#C7D3DE",
+    "accent_rust": "#FFF2BA",
+    "accent_steel": "#FFF2BA",
 }
