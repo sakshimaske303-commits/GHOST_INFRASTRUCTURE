@@ -2,9 +2,32 @@
 
 ## Mapping How 19th-Century Coal and Steel Geography Still Silently Controls Who Gets a "15-Minute Life" in the Ruhr Valley Today
 
+## Index
+
+1. [Project Overview](#project-overview)
+2. [Problem Statement](#problem-statement)
+3. [Aim](#aim)
+4. [Research Question](#research-question)
+5. [Objectives](#objectives)
+6. [Methodology Summary](#methodology-summary)
+7. [Study Area](#study-area)
+8. [Expected Outputs](#expected-outputs)
+9. [Relevance](#relevance)
+10. [Current Status](#current-status)
+11. [Module Architecture](#ghost-infrastructure-module-architecture)
+12. [Study Area — Decision Log](#study-area-decision-log)
+13. [Module 3 — Historical Data Acquisition & Georeferencing](#module-3-historical-data-acquisition-georeferencing)
+14. [Module 5 — Present-Day Network Accessibility Modeling](#module-5-present-day-network-accessibility-modeling)
+15. [Module 6 — Spatial Statistical Test: An Unexpected, Reversed Finding](#module-6-spatial-statistical-test-an-unexpected-reversed-finding)
+16. [Module 6A — Confound Verification: The Finding Holds Independently](#module-6a-confound-verification-the-finding-holds-independently)
+17. [Module 6B — Local Moran's I: Fulfilling the Spatial-Clustering Objective](#module-6b-local-morans-i-fulfilling-the-spatial-clustering-objective)
+18. [Module 7 — Geospatial Visualization](#module-7-geospatial-visualization)
+19. [Design Principle Reinforced](#design-principle-reinforced)
+20. [Definitive Distance Verification — Ghost Infrastructure Overlay Anomalies](#definitive-distance-verification-ghost-infrastructure-overlay-anomalies)
+
 ## Project Overview
 
-GHOST INFRASTRUCTURE is a historical-cartographic and spatial-network research project testing whether the Ruhr Valley's 19th and 20th-century industrial geography — coal-mine locations, steel-works, worker-housing colonies (Zechensiedlungen), and the railway networks built to serve them — continues to structurally determine present-day accessibility inequality, more than half a century after industrial decline began and years after the last mine's closure in 2018.
+GHOST INFRASTRUCTURE is a historical-cartographic and spatial-network research project testing whether the Ruhr Valley's 19th and 20th-century industrial geography — coal-mine locations and worker-housing colonies (Zechensiedlungen) — continues to structurally predict present-day accessibility inequality, more than half a century after industrial decline began and years after the last mine's closure in 1974. (Steel-works and industrial-era railway networks were part of this project's original conceptual scope; the dataset actually compiled and analyzed covers coal mines and worker colonies specifically — the two feature types with sufficiently complete archival records for reliable digitization. Steel-works and historical transportation-network digitization are identified as Future Work in the Research Paper rather than claimed as completed here.)
 
 Rather than treating "industrial legacy" as a qualitative, narrative concept — as it is predominantly treated in existing heritage and economic-geography literature — this project makes it spatially and statistically measurable, directly overlaying digitized historical industrial geography against a quantitative, network-based measure of present-day urban accessibility: the "15-minute city" framework.
 
@@ -22,7 +45,7 @@ Does the historical geography of Ruhr Valley coal and steel industry infrastruct
 
 ## Objectives
 
-- Digitize and georeference historical industrial-era spatial data for a defined Ruhr Valley study area, including former coal-mine locations, worker-housing colonies (Zechensiedlungen), and industrial-era transportation infrastructure.
+- Digitize and georeference historical industrial-era spatial data for a defined Ruhr Valley study area, including former coal-mine locations and worker-housing colonies (Zechensiedlungen). Industrial-era transportation infrastructure (rail and road networks) was part of the original scope but was ultimately deferred to Future Work — see the Research Paper's Future Work section.
 - Construct a present-day network-based accessibility model (walking/cycling isochrones to essential services — healthcare, groceries, education, green space) using current road and path network data.
 - Apply spatial statistical methods (Local Moran's I / hot-spot analysis) to test whether low-accessibility zones today are statistically clustered around historical industrial-era locations, rather than randomly distributed.
 - Produce a direct cartographic overlay of historical industrial geography against present-day accessibility patterns, visually and statistically demonstrating (or disconfirming) a "ghost infrastructure" effect.
@@ -156,6 +179,16 @@ regression predicting 15-minute accessibility from both distances simultaneously
 to historical industrial sites remained a significant independent predictor (coefficient=-0.0005, 
 p<0.001) even after controlling for distance to the city center — confirming the "ghost 
 infrastructure" effect is genuine and independent, not an artifact of city-center clustering.
+
+## Module 6B — Local Moran's I: Fulfilling the Spatial-Clustering Objective
+
+The project's stated Objectives (Module 6, above) committed to applying Local Moran's I / hot-spot analysis to test whether low-accessibility zones are statistically clustered, rather than randomly distributed. The Welch's t-test and logistic regression reported in Module 6 and 6A tested a related but distinct question — whether *distance* to historical sites differs between accessibility groups — not spatial *clustering* of accessibility itself. This module closes that gap with the originally-promised test.
+
+A K-nearest-neighbor (k=8) spatial weights matrix was constructed over all 69,393 street-network nodes (row-standardized), and Local Moran's I was computed on the binary within-15-minute accessibility variable using 99 conditional permutations (`libpysal`/`esda`, seed=42, significance at p<0.05).
+
+Results: mean local I = 0.923. 10,266 of 69,393 nodes (14.8%) were statistically significant spatial clusters — of these, 9,568 were Low-Low ("cold-spot") clusters (contiguous zones of low accessibility surrounded by other low-accessibility nodes) and 698 were High-Low spatial outliers. No significant High-High or Low-High clusters were found. Cross-tabulating against distance to historical sites: nodes in significant LL cold-spot clusters average 1,992.3m from historical industrial sites, versus 1,447.1m for non-significant nodes — and 97.1% of all low-accessibility nodes fall within a statistically significant LL cluster.
+
+This is a genuinely independent corroboration of the Module 6 finding via a different statistical method: low accessibility in Bochum is not randomly scattered but forms significant, spatially contiguous cold-spots that are measurably farther from historical industrial infrastructure than the rest of the city — directly answering the objective as originally stated. The cluster map (`outputs/plots/lisa_cluster_map.png`) and the reproducible script (`spatial_clustering_lisa.py`, project root) are checked into the repository. Full write-up in Research_Paper.md Section 4.4.
 
 ## Module 7 — Geospatial Visualization
 

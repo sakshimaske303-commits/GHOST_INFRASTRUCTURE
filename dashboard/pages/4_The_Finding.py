@@ -1,33 +1,17 @@
 import streamlit as st
-import streamlit.components.v1 as components
 import sys
 import os
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
-from styles import apply_custom_style, PALETTE
+from styles import apply_custom_style, page_header, footer_caption, card, stat_card, card_body
 
 apply_custom_style()
 
-
-def render_card(content_html, height=250):
-    components.html(f"""
-        <div style="background: #B4D5D6; border-radius: 10px; padding: 24px;
-                    font-family: 'Inter', sans-serif; box-sizing: border-box; height: {height-48}px;">
-            {content_html}
-        </div>
-    """, height=height)
-
-
-st.markdown("<h1 style='text-align: center;'>📊 THE FINDING</h1>", unsafe_allow_html=True)
-st.markdown(
-    "<h3 style='text-align: center; color: #FFFFFF; font-size: 1.5rem;'>"
-    "A Reversed Effect, Verified Against Its Most Obvious Confound</h3>",
-    unsafe_allow_html=True,
-)
+page_header("📊", "THE FINDING", "A Reversed Effect, Verified Against Its Most Obvious Confound")
 st.markdown("---")
 
-st.markdown("<h3 style='color:#7FB8BE;'>Distance to Historical Sites: High vs. Low Accessibility</h3>", unsafe_allow_html=True)
+st.markdown("<h3>Distance to Historical Sites: High vs. Low Accessibility</h3>", unsafe_allow_html=True)
 
 image_path = os.path.join(PROJECT_ROOT, "outputs", "plots", "distance_comparison_boxplot.png")
 if os.path.exists(image_path):
@@ -39,70 +23,81 @@ st.markdown("---")
 
 col1, col2 = st.columns(2)
 with col1:
-    render_card("""
-        <p style="color:#111111; font-weight:800; font-size:0.85rem; text-transform:uppercase; margin:0 0 12px 0;">Low-Accessibility Nodes</p>
-        <p style="color:#111111; font-weight:900; font-size:2rem; margin:0 0 8px 0;">1,984 m</p>
-        <p style="color:#333333; font-weight:600; font-size:0.95rem; margin:0;">
-            Average distance to nearest historical industrial site (n=9,858)
-        </p>
-    """, height=200)
+    stat_card("Low-Accessibility Nodes", "1,984 m", "Average distance to nearest historical site (n=9,858)")
 with col2:
-    render_card("""
-        <p style="color:#111111; font-weight:800; font-size:0.85rem; text-transform:uppercase; margin:0 0 12px 0;">High-Accessibility Nodes</p>
-        <p style="color:#111111; font-weight:900; font-size:2rem; margin:0 0 8px 0;">1,450 m</p>
-        <p style="color:#333333; font-weight:600; font-size:0.95rem; margin:0;">
-            Average distance to nearest historical industrial site (n=59,535)
-        </p>
-    """, height=200)
+    stat_card("High-Accessibility Nodes", "1,450 m", "Average distance to nearest historical site (n=59,535)")
 
 st.markdown("---")
 
-st.markdown("<h3 style='color:#7FB8BE;'>Statistical Confirmation</h3>", unsafe_allow_html=True)
+st.markdown("<h3>Statistical Confirmation</h3>", unsafe_allow_html=True)
 
-render_card("""
-    <p style="color:#111111; font-weight:700; font-size:1.15rem; line-height:1.8; margin:0;">
-        A Welch's t-test comparing the two groups produced <strong>t=42.887, p&lt;0.00001</strong> — 
-        a highly significant relationship, but in the opposite direction to the original hypothesis. 
-        Proximity to historical industrial sites predicts <strong>better</strong> present-day 
-        accessibility, not worse.
-    </p>
-""", height=220)
-
-st.markdown("---")
-
-st.markdown("<h3 style='color:#7FB8BE;'>Checking the Obvious Confound: City Center</h3>", unsafe_allow_html=True)
-
-render_card("""
-    <p style="color:#111111; font-weight:700; font-size:1.05rem; line-height:1.8; margin:0 0 16px 0;">
-        Before accepting this result, the most obvious alternative explanation was tested directly: 
-        historical sites might simply cluster near the city center, which independently predicts 
-        better accessibility regardless of any genuine historical effect.
-    </p>
-    <p style="color:#111111; font-weight:800; font-size:1.05rem; line-height:1.8; margin:0;">
-        Correlation between distance-to-historical-site and distance-to-city-center: 
-        <strong>r = 0.063</strong> — genuinely independent variables, not proxies for one another.
-        A logistic regression confirms the historical-site effect remains significant 
-        (coefficient = -0.0005, p &lt; 0.001) even after controlling for city-center distance.
-    </p>
-""", height=320)
+card(card_body(
+    "A Welch's t-test comparing the two groups produced <strong>t=42.887, p&lt;0.00001</strong> "
+    "(Cohen's d=0.589, a medium-to-large effect) — a highly significant, practically meaningful "
+    "relationship, but in the opposite direction to the original hypothesis. Proximity to "
+    "historical industrial sites predicts <strong>better</strong> present-day accessibility, "
+    "not worse.",
+    large=True,
+))
 
 st.markdown("---")
 
-st.markdown("<h3 style='color:#7FB8BE;'>Interpretation</h3>", unsafe_allow_html=True)
+st.markdown("<h3>Checking the Obvious Confound: City Center</h3>", unsafe_allow_html=True)
 
-render_card("""
-    <p style="color:#111111; font-weight:800; font-size:1.1rem; line-height:1.85; margin:0;">
-        19th-century industrial cores were built dense, by necessity — around the mines and 
-        colonies where workers actually lived. That density appears to persist as present-day 
-        street connectivity and service coverage, decades after the mines closed. This is a 
-        <strong>"path dependency of centrality"</strong> rather than the originally hypothesized 
-        "path dependency of neglect." Genuine accessibility gaps concentrate further from, 
-        not closer to, the historical industrial core.
-    </p>
-""", height=300)
-
-st.markdown("---")
-st.markdown(
-    "<p class='caption-text' style='text-align:center;'>GHOST INFRASTRUCTURE — Welch's t-test + logistic regression confound verification</p>",
-    unsafe_allow_html=True,
+card(
+    card_body(
+        "Before accepting this result, the most obvious alternative explanation was tested "
+        "directly: historical sites might simply cluster near the city center, which "
+        "independently predicts better accessibility regardless of any genuine historical effect."
+    )
+    + "<div style='height:12px;'></div>"
+    + card_body(
+        "Correlation between distance-to-historical-site and distance-to-city-center: "
+        "<strong>r = 0.063</strong> — genuinely independent variables, not proxies for one "
+        "another. A logistic regression confirms the historical-site effect remains significant "
+        "(coefficient = -0.0005, p &lt; 0.001) even after controlling for city-center distance.",
+        large=True,
+    )
 )
+
+st.markdown("---")
+
+st.markdown("<h3>Independent Corroboration: Local Moran's I Spatial Clustering</h3>", unsafe_allow_html=True)
+
+card(
+    card_body(
+        "The t-test above shows distance to historical sites <em>differs</em> between accessibility "
+        "groups. A separate question is whether low accessibility is spatially <em>clustered</em> — "
+        "the specific test this project's own Objectives named. A Local Moran's I analysis "
+        "(KNN k=8, 99 permutations) answers this directly."
+    )
+    + "<div style='height:12px;'></div>"
+    + card_body(
+        "<strong>97.1%</strong> of all low-accessibility nodes fall inside a statistically "
+        "significant Low-Low (\"cold-spot\") spatial cluster — confirming low accessibility is not "
+        "randomly scattered, but forms genuine, spatially contiguous zones that are measurably "
+        "farther from historical industrial sites (1,992 m vs. 1,447 m for non-clustered nodes).",
+        large=True,
+    )
+)
+
+lisa_image_path = os.path.join(PROJECT_ROOT, "outputs", "plots", "lisa_cluster_map.png")
+if os.path.exists(lisa_image_path):
+    st.image(lisa_image_path, use_container_width=True, caption="Local Moran's I cluster map — significant Low-Low cold-spot clusters in blue")
+
+st.markdown("---")
+
+st.markdown("<h3>Interpretation</h3>", unsafe_allow_html=True)
+
+card(card_body(
+    "19th-century industrial cores were built dense, by necessity — around the mines and "
+    "colonies where workers actually lived. That density appears to persist as present-day "
+    "street connectivity and service coverage, decades after the mines closed. This is a "
+    "<strong>\"path dependency of centrality\"</strong> rather than the originally hypothesized "
+    "\"path dependency of neglect.\" Genuine accessibility gaps concentrate further from, "
+    "not closer to, the historical industrial core.",
+    large=True,
+), dark=True)
+
+st.markdown("---")
+footer_caption("GHOST INFRASTRUCTURE — Welch's t-test + logistic regression confound verification + Local Moran's I spatial clustering")

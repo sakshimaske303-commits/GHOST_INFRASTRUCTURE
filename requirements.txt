@@ -1,6 +1,11 @@
 streamlit
 pandas
 geopandas
+shapely
+osmnx
+networkx
+matplotlib
+scipy
+statsmodels
 plotly
-rasterio
 numpy

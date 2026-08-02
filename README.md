@@ -18,7 +18,7 @@
 
 ---
 
-GHOST INFRASTRUCTURE is a historical-cartographic and spatial-network research project testing whether Bochum's 19th and 20th-century coal-mining industrial geography — mine locations and worker-housing colonies (Zechensiedlungen) — continues to structurally determine present-day "15-minute city" accessibility, more than half a century after the region's last coal mine closed.
+GHOST INFRASTRUCTURE is a historical-cartographic and spatial-network research project testing whether Bochum's 19th and 20th-century coal-mining industrial geography — mine locations and worker-housing colonies (Zechensiedlungen) — continues to structurally predict present-day "15-minute city" accessibility, more than half a century after the region's last coal mine closed.
 
 Rather than treating "industrial legacy" as a qualitative, narrative concept, this project makes it spatially and statistically measurable — directly testing digitized historical geography against a network-based measure of present-day urban accessibility.
 
@@ -34,11 +34,12 @@ Interactive geospatial map hosted via GitHub Pages: **[View the interactive over
 - Builds a true network-based 15-minute accessibility model across Bochum's complete 69,393-node pedestrian street network (not a simplified straight-line radius)
 - Statistically tests whether historical industrial-site proximity predicts present-day accessibility
 - Explicitly verifies the finding against its most obvious confound — city-center proximity — using correlation analysis and logistic regression
+- Independently corroborates the finding with a Local Moran's I (LISA) spatial-clustering analysis across all 69,393 nodes
 - Presents all findings through an interactive dashboard with a live distance-threshold explorer and QGIS-based interactive maps
 
 ## 🔬 Key Finding
 
-**A reversed, independently-verified effect.** The hypothesis was that historical industrial sites would predict present-day neglect. The evidence showed the opposite: low-accessibility zones are, on average, *further* from historical industrial sites (1,984m) than high-accessibility zones (1,450m) — a highly significant relationship (Welch's t-test, t=42.887, p<0.00001). This holds independently of city-center proximity (correlation r=0.063; logistic regression coefficient=-0.0005, p<0.001, controlling for city-center distance) — a genuine **"path dependency of centrality"** rather than the originally hypothesized "path dependency of neglect."
+**A reversed, independently-verified effect.** The hypothesis was that historical industrial sites would predict present-day neglect. The evidence showed the opposite: low-accessibility zones are, on average, *further* from historical industrial sites (1,984m) than high-accessibility zones (1,450m) — a highly significant relationship (Welch's t-test, t=42.887, p<0.00001, Cohen's d=0.589). This holds independently of city-center proximity (correlation r=0.063; logistic regression coefficient=-0.0005, p<0.001, controlling for city-center distance) — a genuine **"path dependency of centrality"** rather than the originally hypothesized "path dependency of neglect." A Local Moran's I spatial-clustering analysis independently corroborates this: 97.1% of low-accessibility nodes fall inside statistically significant spatial cold-spot clusters, confirming low accessibility is not randomly scattered but forms genuine, spatially contiguous zones farther from historical industrial sites.
 
 Full methodology, including two independently-verified map anomalies traced to genuine historical geography (not data errors), is documented in the dashboard's Methodology page and in `Project_Journal.md`.
 
@@ -59,6 +60,7 @@ GHOST_INFRASTRUCTURE/
 ├── Research_Paper.md                # Formal academic research paper
 ├── Devlopment_Log.md                # Full technical development log
 ├── map*.py                          # Visualization scripts
+├── spatial_clustering_lisa.py       # Local Moran's I (LISA) spatial-clustering analysis
 └── requirements.txt
 ```
 

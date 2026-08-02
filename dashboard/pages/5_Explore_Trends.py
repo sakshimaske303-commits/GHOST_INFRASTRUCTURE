@@ -6,26 +6,19 @@ import os
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
-from styles import apply_custom_style, PALETTE
+from styles import apply_custom_style, page_header, lead, footer_caption, PALETTE
 
 apply_custom_style()
 
-st.markdown("<h1 style='text-align: center;'>📈 EXPLORE TRENDS</h1>", unsafe_allow_html=True)
-st.markdown(
-    "<h3 style='text-align: center; color: #FFFFFF; font-size: 1.5rem;'>"
-    "Live Distance-Threshold Explorer</h3>",
-    unsafe_allow_html=True,
-)
+page_header("📈", "EXPLORE TRENDS", "Live Distance-Threshold Explorer")
 st.markdown("---")
 
-st.markdown("""
-<p style='color:#FFFFFF; font-weight:600; font-size:1.1rem; line-height:1.7;'>
-The core finding used a fixed comparison between "low" and "high" accessibility nodes. Use the 
-slider below to define your own distance threshold for "close to a historical site" and see 
-how accessibility coverage changes on either side of that line, recalculated live from the 
-underlying 69,393-node dataset.
-</p>
-""", unsafe_allow_html=True)
+lead(
+    "The core finding used a fixed comparison between \"low\" and \"high\" accessibility nodes. Use the "
+    "slider below to define your own distance threshold for \"close to a historical site\" and see "
+    "how accessibility coverage changes on either side of that line, recalculated live from the "
+    "underlying 69,393-node dataset."
+)
 
 st.markdown("---")
 
@@ -73,16 +66,11 @@ fig.update_layout(
 
 st.plotly_chart(fig, use_container_width=True)
 
-st.markdown(f"""
-<p style='color:#FFFFFF; font-weight:600; font-size:1rem;'>
-At a {threshold}m threshold: {len(close_nodes):,} nodes are classified "close," 
-{len(far_nodes):,} nodes are classified "far." The gap between the two bars visualizes the 
-ghost infrastructure effect at this specific threshold.
-</p>
-""", unsafe_allow_html=True)
+lead(
+    f"At a {threshold}m threshold: {len(close_nodes):,} nodes are classified \"close,\" "
+    f"{len(far_nodes):,} nodes are classified \"far.\" The gap between the two bars visualizes the "
+    "ghost infrastructure effect at this specific threshold."
+)
 
 st.markdown("---")
-st.markdown(
-    "<p class='caption-text' style='text-align:center;'>GHOST INFRASTRUCTURE — Recalculated live from 69,393 network nodes</p>",
-    unsafe_allow_html=True,
-)
+footer_caption("GHOST INFRASTRUCTURE — Recalculated live from 69,393 network nodes")
