@@ -1,0 +1,45 @@
+cff-version: 1.2.0
+message: "If you use this software or its findings, please cite it using the metadata below."
+title: "Ghost Infrastructure: Historical Industrial Geography and the Persistence of Path-Dependent Accessibility in Bochum, Germany"
+type: software
+authors:
+  - family-names: "Maske"
+    given-names: "Sakshi D."
+repository-code: "https://github.com/sakshimaske303-commits/GHOST_INFRASTRUCTURE"
+url: "https://github.com/sakshimaske303-commits/GHOST_INFRASTRUCTURE"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21761320"
+    description: "Zenodo archive of GHOST INFRASTRUCTURE v1.0.0"
+doi: "10.5281/zenodo.21761320"
+abstract: >-
+  A historical-cartographic and spatial-network study testing whether Bochum's
+  19th and 20th-century coal-mining industrial geography — mine locations and
+  worker-housing colonies (Zechensiedlungen) — continues to structurally
+  predict present-day "15-minute city" walking accessibility, more than five
+  decades after the region's last coal mine closed. Thirteen historical coal
+  mines and four worker colonies were digitized from archival sources, and
+  present-day accessibility was modeled using true network-distance
+  isochrones across Bochum's complete 69,393-node pedestrian street network.
+  Contrary to the hypothesis that historical industrial sites would predict
+  present-day neglect, a Welch's t-test found the opposite (t=42.887,
+  p<0.00001, Cohen's d=0.589), verified against city-center proximity as a
+  confound via logistic regression, and independently corroborated by a
+  Local Moran's I spatial-clustering analysis showing 97.1% of
+  low-accessibility nodes fall within statistically significant cold-spot
+  clusters. The evidence supports a "path dependency of centrality" rather
+  than a "path dependency of neglect."
+keywords:
+  - path dependency
+  - 15-minute city
+  - urban accessibility
+  - historical GIS
+  - network analysis
+  - post-industrial geography
+  - spatial statistics
+  - Local Moran's I
+  - Germany
+  - Ruhr Valley
+license: CC-BY-4.0
+version: 1.0.0
+date-released: "2026-08-02"

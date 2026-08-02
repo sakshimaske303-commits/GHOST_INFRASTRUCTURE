@@ -26,6 +26,14 @@ page_header(
     "How 19th-Century Coal Geography Still Shapes Who Gets a \"15-Minute Life\" Today",
 )
 
+st.markdown(
+    "<div style='text-align: center; margin-top: 10px;'>"
+    "<a href='https://doi.org/10.5281/zenodo.21761320' target='_blank'>"
+    "<img src='https://zenodo.org/badge/DOI/10.5281/zenodo.21761320.svg' alt='DOI'>"
+    "</a></div>",
+    unsafe_allow_html=True,
+)
+
 st.markdown("---")
 
 col1, col2, col3, col4 = st.columns(4)
@@ -176,8 +184,6 @@ card(f"""
         {kicker("Developed by")}
         <p style="font-family:'Bitter',serif; font-weight:900; font-size:2rem; margin:0 0 6px 0;">SAKSHI D. MASKE</p>
         <p style="font-weight:700; font-size:0.95rem; margin:0 0 16px 0;">Independent Geospatial Researcher</p>
-        <a href="{GITHUB_URL}" target="_blank" style="text-decoration:none;">
-            <span style="display:inline-block; background-color:#111111; color:#FFF2BA; font-weight:800; font-size:0.9rem; padding:10px 24px; border-radius:6px;">🔗 View on GitHub</span>
-        </a>
+        <a href="{GITHUB_URL}" target="_blank" class="gi-pill-btn">🔗 View on GitHub</a>
     </div>
 """)

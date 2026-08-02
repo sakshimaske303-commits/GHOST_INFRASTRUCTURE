@@ -53,18 +53,14 @@ def apply_custom_style():
         h2 {
             font-family: 'Bitter', serif;
             color: #FFF2BA !important;
-            font-weight: 700 !important;
-            border-left: 4px solid #FFF2BA;
-            padding-left: 14px;
+            font-weight: 800 !important;
             font-size: 1.7rem !important;
         }
 
         h3 {
             font-family: 'Bitter', serif;
             color: #E4D28C !important;
-            font-weight: 700 !important;
-            border-left: 3px solid rgba(228, 210, 140, 0.5);
-            padding-left: 12px;
+            font-weight: 800 !important;
             font-size: 1.35rem !important;
             margin: 1.6rem 0 1rem 0 !important;
         }
@@ -74,7 +70,7 @@ def apply_custom_style():
             text-align: center;
             color: #FFFFFF;
             font-family: 'Bitter', serif;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1.25rem;
             line-height: 1.5;
             max-width: 900px;
@@ -84,7 +80,7 @@ def apply_custom_style():
         /* Lead / body paragraphs directly on the dark background */
         .gi-lead {
             color: #FFFFFF;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1rem;
             line-height: 1.75;
             margin: 0 0 0.5rem 0;
@@ -94,7 +90,7 @@ def apply_custom_style():
         .stMarkdown p,
         .stMarkdown li {
             color: #FFFFFF;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 1rem;
             line-height: 1.7;
         }
@@ -122,7 +118,7 @@ def apply_custom_style():
         .caption-text {
             color: #C7D3DE;
             font-size: 0.85rem;
-            font-weight: 600;
+            font-weight: 700;
             letter-spacing: 0.5px;
         }
 
@@ -136,13 +132,14 @@ def apply_custom_style():
             padding: 22px 24px;
             box-sizing: border-box;
             height: 100%;
+            margin-bottom: 20px;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
         }
         .gi-card {
             background: #FFF2BA;
         }
         .gi-card * {
-            color: #0F3C65 !important;
+            color: #081D33 !important;
         }
         .gi-card-dark {
             background: rgba(9, 37, 66, 0.55);
@@ -163,7 +160,7 @@ def apply_custom_style():
             font-size: 0.72rem;
             letter-spacing: 1.5px;
             text-transform: uppercase;
-            color: #3D5A73 !important;
+            color: #1F3B54 !important;
             margin: 0 0 10px 0;
         }
         .gi-stat {
@@ -173,7 +170,7 @@ def apply_custom_style():
             margin: 0 0 4px 0;
         }
         .gi-card-title {
-            font-weight: 800;
+            font-weight: 900;
             font-size: 1.02rem;
             margin: 0 0 8px 0;
         }
@@ -182,28 +179,44 @@ def apply_custom_style():
             margin: 0 0 8px 0;
         }
         .gi-card-body {
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.92rem;
             line-height: 1.65;
             margin: 0;
         }
         .gi-card-body-lg {
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.02rem;
             line-height: 1.8;
             margin: 0;
         }
         .gi-subtext {
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.82rem;
             margin: 6px 0 0 0;
-            opacity: 0.8;
+            opacity: 0.85;
         }
         .gi-highlight {
             background-color: #FFF2BA;
-            color: #0F3C65 !important;
+            color: #081D33 !important;
             padding: 0 5px;
             border-radius: 3px;
+        }
+
+        /* Dark pill button (e.g. "View on GitHub") sitting inside a
+        light .gi-card — needs to win over the card's `.gi-card * { color }`
+        rule, which otherwise forces every descendant to navy text,
+        making yellow-on-black button text unreadable. Two classes beats
+        one, so this wins regardless of source order. */
+        .gi-card .gi-pill-btn, .gi-card-dark .gi-pill-btn {
+            display: inline-block;
+            background-color: #111111 !important;
+            color: #FFF2BA !important;
+            font-weight: 800;
+            font-size: 0.9rem;
+            padding: 10px 24px;
+            border-radius: 6px;
+            text-decoration: none;
         }
 
         /* Equal-height cards across a row: Streamlit's column wrapper is
@@ -211,9 +224,11 @@ def apply_custom_style():
         stretch to the row's full height. */
         div[data-testid="stHorizontalBlock"] {
             align-items: stretch;
+            gap: 1.2rem;
         }
         div[data-testid="column"] {
             display: flex;
+            flex-direction: column;
         }
         div[data-testid="column"] > div {
             width: 100%;

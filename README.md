@@ -2,6 +2,8 @@
 
 **How 19th-Century Coal Geography Still Shapes Who Gets a "15-Minute Life" Today**
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21761320.svg)](https://doi.org/10.5281/zenodo.21761320)
+
 ## 🔗 Live Dashboard
 
 **Live Dashboard**: `https://ghostinfrastructure-areytvp4x8ofu6l5tosj2z.streamlit.app/`
@@ -92,6 +94,10 @@ streamlit run app.py
 **Sakshi D. Maske**
 
 Independent Geospatial Researcher
+
+## 📜 License
+
+This project is licensed under [CC BY 4.0](LICENSE). See `CITATION.cff` for citation metadata.
 
 ---
 
