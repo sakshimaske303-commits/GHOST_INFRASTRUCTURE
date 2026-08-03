@@ -2,7 +2,7 @@
 
 ## Mapping How 19th-Century Coal and Steel Geography Still Silently Controls Who Gets a "15-Minute Life" in the Ruhr Valley Today
 
-## Project Journal
+## Project Report
 
 ## Project Overview
 

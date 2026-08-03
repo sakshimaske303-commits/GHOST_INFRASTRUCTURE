@@ -29,9 +29,14 @@ page_header(
 
 st.markdown(
     f"""
+    <style>
+        .doi-badge-link {{ text-decoration:none; }}
+        .doi-badge-card {{ transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease; cursor: pointer; }}
+        .doi-badge-link:hover .doi-badge-card {{ transform: translateY(-3px) scale(1.02); box-shadow: 0 10px 32px rgba(255, 242, 186, 0.6); filter: brightness(1.08); }}
+    </style>
     <div style="display:flex; justify-content:center; margin: 10px 0 18px 0;">
-        <a href="https://doi.org/10.5281/zenodo.21761320" target="_blank" style="text-decoration:none;">
-            <div style="
+        <a href="https://doi.org/10.5281/zenodo.21761320" target="_blank" class="doi-badge-link" style="text-decoration:none;">
+            <div class="doi-badge-card" style="
                 display:flex; align-items:center; gap:18px;
                 background: linear-gradient(145deg, {PALETTE['bg_sidebar']}, {PALETTE['bg_main']});
                 border: 2px solid {PALETTE['accent']};
@@ -41,8 +46,9 @@ st.markdown(
             ">
                 <span style="font-size:2.1rem; line-height:1;">📦</span>
                 <div style="text-align:left;">
-                    <div style="color:#E4D28C; font-family:'Bitter',serif; font-weight:800; font-size:1.05rem; letter-spacing:0.4px;">
-                        ARCHIVED &amp; CITABLE ON ZENODO
+                    <div style="color:#E4D28C; font-family:'Bitter',serif; font-weight:800; font-size:1.05rem; letter-spacing:0.4px; display:flex; align-items:center; gap:8px;">
+                        <span>ARCHIVED &amp; CITABLE ON ZENODO</span>
+                        <span style="opacity:0.8; font-size:0.95rem;">↗</span>
                     </div>
                     <div style="color:{PALETTE['text_primary']}; font-family:'Bitter',serif; font-weight:900; font-size:1.35rem; margin-top:2px;">
                         DOI: 10.5281/zenodo.21761320
@@ -158,11 +164,11 @@ doc1, doc2, doc3 = st.columns(3)
 
 with doc1:
     try:
-        with open(os.path.join(ROOT_DIR, "Research_Paper.pdf"), "rb") as f:
+        with open(os.path.join(ROOT_DIR, "GI_Research_Paper.pdf"), "rb") as f:
             st.download_button(
                 label="📘 Research Paper (PDF)",
                 data=f,
-                file_name="GHOST_INFRASTRUCTURE_Research_Paper.pdf",
+                file_name="GI_Research_Paper.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
@@ -171,11 +177,11 @@ with doc1:
 
 with doc2:
     try:
-        with open(os.path.join(ROOT_DIR, "Project_Journal.pdf"), "rb") as f:
+        with open(os.path.join(ROOT_DIR, "GI_Project_Report.pdf"), "rb") as f:
             st.download_button(
-                label="📗 Project Journal (PDF)",
+                label="📗 Project Report (PDF)",
                 data=f,
-                file_name="GHOST_INFRASTRUCTURE_Project_Journal.pdf",
+                file_name="GI_Project_Report.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
@@ -184,11 +190,11 @@ with doc2:
 
 with doc3:
     try:
-        with open(os.path.join(ROOT_DIR, "Devlopment_Log.pdf"), "rb") as f:
+        with open(os.path.join(ROOT_DIR, "GI_Development_Log.pdf"), "rb") as f:
             st.download_button(
                 label="📙 Development Log (PDF)",
                 data=f,
-                file_name="GHOST_INFRASTRUCTURE_Devlopment_Log.pdf",
+                file_name="GI_Development_Log.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
