@@ -8,6 +8,7 @@ sys.path.append(BASE_DIR)
 from styles import (
     apply_custom_style, page_header, lead,
     card, kicker, card_title, card_body, stat_card, nav_card,
+    PALETTE,
 )
 
 st.set_page_config(
@@ -27,10 +28,30 @@ page_header(
 )
 
 st.markdown(
-    "<div style='text-align: center; margin-top: 10px;'>"
-    "<a href='https://doi.org/10.5281/zenodo.21761320' target='_blank'>"
-    "<img src='https://zenodo.org/badge/DOI/10.5281/zenodo.21761320.svg' alt='DOI'>"
-    "</a></div>",
+    f"""
+    <div style="display:flex; justify-content:center; margin: 10px 0 18px 0;">
+        <a href="https://doi.org/10.5281/zenodo.21761320" target="_blank" style="text-decoration:none;">
+            <div style="
+                display:flex; align-items:center; gap:18px;
+                background: linear-gradient(145deg, {PALETTE['bg_sidebar']}, {PALETTE['bg_main']});
+                border: 2px solid {PALETTE['accent']};
+                border-radius: 14px;
+                padding: 16px 32px;
+                box-shadow: 0 4px 20px rgba(255, 242, 186, 0.35);
+            ">
+                <span style="font-size:2.1rem; line-height:1;">📦</span>
+                <div style="text-align:left;">
+                    <div style="color:#E4D28C; font-family:'Bitter',serif; font-weight:800; font-size:1.05rem; letter-spacing:0.4px;">
+                        ARCHIVED &amp; CITABLE ON ZENODO
+                    </div>
+                    <div style="color:{PALETTE['text_primary']}; font-family:'Bitter',serif; font-weight:900; font-size:1.35rem; margin-top:2px;">
+                        DOI: 10.5281/zenodo.21761320
+                    </div>
+                </div>
+            </div>
+        </a>
+    </div>
+    """,
     unsafe_allow_html=True,
 )
 
