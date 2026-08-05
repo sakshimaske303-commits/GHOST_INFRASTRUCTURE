@@ -142,6 +142,7 @@ st.markdown("<h3>Explore the Research</h3>", unsafe_allow_html=True)
 
 nav_items = [
     ("🏛️", "Study Design", "Bochum, methodology, why this city"),
+    ("⛏️", "Theoretical Foundations", "How mining subsidence and legacy landform shaped today's accessibility"),
     ("⛏️", "Historical Geography", "13 mines, 4 worker colonies"),
     ("🚶", "Accessibility Analysis", "The 15-minute network model"),
     ("📊", "The Finding", "Statistical test + confound + spatial clustering"),
@@ -168,12 +169,12 @@ with doc1:
             st.download_button(
                 label="📘 Research Paper (PDF)",
                 data=f,
-                file_name="GI_Research_Paper.pdf",
+                file_name="GHOST_INFRASTRUCTURE_Research_Paper.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
     except FileNotFoundError:
-        st.warning("Research_Paper.pdf not found.")
+        st.warning("GI_Research_Paper.pdf not found.")
 
 with doc2:
     try:
@@ -181,12 +182,12 @@ with doc2:
             st.download_button(
                 label="📗 Project Report (PDF)",
                 data=f,
-                file_name="GI_Project_Report.pdf",
+                file_name="GHOST_INFRASTRUCTURE_Project_Report.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
     except FileNotFoundError:
-        st.warning("Project_Journal.pdf not found.")
+        st.warning("GI_Project_Report.pdf not found.")
 
 with doc3:
     try:
@@ -194,12 +195,12 @@ with doc3:
             st.download_button(
                 label="📙 Development Log (PDF)",
                 data=f,
-                file_name="GI_Development_Log.pdf",
+                file_name="GHOST_INFRASTRUCTURE_Development_Log.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
     except FileNotFoundError:
-        st.warning("Development_Log.pdf not found.")
+        st.warning("GI_Development_Log.pdf not found.")
 
 st.markdown("---")
 
