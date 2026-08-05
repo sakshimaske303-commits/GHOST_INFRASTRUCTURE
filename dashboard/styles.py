@@ -29,7 +29,7 @@ def apply_custom_style():
 
         section[data-testid="stSidebar"] {
             background: linear-gradient(180deg, #092542 0%, #0A2E4F 100%);
-            border-right: 1px solid rgba(255, 242, 186, 0.15);
+            border-right: 1px solid rgba(255, 242, 186, 0.2);
         }
 
         section[data-testid="stSidebar"] label,
@@ -37,6 +37,21 @@ def apply_custom_style():
         section[data-testid="stSidebar"] span {
             color: #FFFFFF !important;
             font-weight: 600;
+        }
+
+        section[data-testid="stSidebar"] a {
+            border-radius: 8px !important;
+            padding: 8px 14px !important;
+            transition: all 0.2s ease;
+        }
+        section[data-testid="stSidebar"] a:hover {
+            background: rgba(255, 242, 186, 0.12) !important;
+            border-left: 3px solid #FFF2BA;
+        }
+        section[data-testid="stSidebar"] a[aria-current="page"] {
+            background: rgba(228, 210, 140, 0.18) !important;
+            border-left: 3px solid #E4D28C;
+            font-weight: 700 !important;
         }
 
         /* ============ Headings — one accent color, one scale ============ */
@@ -137,6 +152,7 @@ def apply_custom_style():
         }
         .gi-card {
             background: #FFF2BA;
+            border: 2.5px solid #0F3C65;
         }
         .gi-card * {
             color: #081D33 !important;
