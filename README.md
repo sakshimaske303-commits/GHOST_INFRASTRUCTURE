@@ -14,9 +14,10 @@
 
 | Document | What's Inside |
 |---|---|
-| 📘 [`Project_Journal.md`](./Project_Journal.md) | Polished project summary — methodology, findings, conclusions (start here) |
-| 📗 [`Research_Paper.md`](./Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
-| 📙 [`Devlopment_Log.md`](./Devlopment_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
+| ⚡ [`GI_Executive_Summary.pdf`](./GI_Executive_Summary.pdf) | One-page snapshot — question, method, headline finding, robustness checklist, and links (fastest overview) |
+| 📘 [`GI_Project_Report.md`](./GI_Project_Report.md) | Polished project summary — methodology, findings, conclusions (start here) |
+| 📗 [`GI_Research_Paper.md`](./GI_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
+| 📙 [`GI_Development_Log.md`](./GI_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
 
 ---
 
@@ -43,7 +44,7 @@ Interactive geospatial map hosted via GitHub Pages: **[View the interactive over
 
 **A reversed, independently-verified effect.** The hypothesis was that historical industrial sites would predict present-day neglect. The evidence showed the opposite: low-accessibility zones are, on average, *further* from historical industrial sites (1,984m) than high-accessibility zones (1,450m) — a highly significant relationship (Welch's t-test, t=42.887, p<0.00001, Cohen's d=0.589). This holds independently of city-center proximity (correlation r=0.063; logistic regression coefficient=-0.0005, p<0.001, controlling for city-center distance) — a genuine **"path dependency of centrality"** rather than the originally hypothesized "path dependency of neglect." A Local Moran's I spatial-clustering analysis independently corroborates this: 97.1% of low-accessibility nodes fall inside statistically significant spatial cold-spot clusters, confirming low accessibility is not randomly scattered but forms genuine, spatially contiguous zones farther from historical industrial sites.
 
-Full methodology, including two independently-verified map anomalies traced to genuine historical geography (not data errors), is documented in the dashboard's Methodology page and in `Project_Journal.md`.
+Full methodology, including two independently-verified map anomalies traced to genuine historical geography (not data errors), is documented in the dashboard's Methodology page and in `GI_Project_Report.md`.
 
 ## 🗂️ Repository Structure
 
@@ -58,9 +59,9 @@ GHOST_INFRASTRUCTURE/
 ├── outputs/
 │   ├── plots/                       # Static visualizations
 │   └── maps/                        # Interactive QGIS2Web map export
-├── Project_Journal.md               # Polished project summary and methodology
-├── Research_Paper.md                # Formal academic research paper
-├── Devlopment_Log.md                # Full technical development log
+├── GI_Project_Report.md             # Polished project summary and methodology
+├── GI_Research_Paper.md             # Formal academic research paper
+├── GI_Development_Log.md            # Full technical development log
 ├── map*.py                          # Visualization scripts
 ├── spatial_clustering_lisa.py       # Local Moran's I (LISA) spatial-clustering analysis
 └── requirements.txt
@@ -101,4 +102,4 @@ This project is licensed under [CC BY 4.0](LICENSE). See `CITATION.cff` for cita
 
 ---
 
-*This project's full development process — including every debugging session and independently-verified map anomaly — is documented in `Devlopment_Log.md` for full transparency and reproducibility.*
+*This project's full development process — including every debugging session and independently-verified map anomaly — is documented in `GI_Development_Log.md` for full transparency and reproducibility.*

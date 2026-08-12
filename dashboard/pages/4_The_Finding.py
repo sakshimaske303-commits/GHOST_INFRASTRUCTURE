@@ -4,11 +4,37 @@ import os
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 sys.path.append(PROJECT_ROOT)
-from styles import apply_custom_style, page_header, footer_caption, card, stat_card, card_body
+from styles import apply_custom_style, page_header, footer_caption, card, stat_card, card_body, PALETTE
 
 apply_custom_style()
 
 page_header("📊", "THE FINDING", "A Reversed Effect, Verified Against Its Most Obvious Confound")
+st.markdown("---")
+
+_checks = [
+    "Full Network-Based Model (69,393 nodes, not straight-line radius)",
+    "Most Obvious Confound Explicitly Tested (city-center proximity)",
+    "Logistic Regression Confirms Independence",
+    "Independent Corroboration (Local Moran's I, 99 permutations)",
+    "Effect Size Reported, Not Just Significance (Cohen's d=0.589)",
+    "Reversed-Hypothesis Result Reported Honestly",
+]
+_badges = "".join(
+    f"""<span style="display:inline-flex; align-items:center; gap:6px; background:rgba(255,242,186,0.10);
+        border:1px solid rgba(255,242,186,0.35); border-radius:20px; padding:6px 14px; margin:4px;
+        font-size:0.82rem; color:{PALETTE['text_primary']}; font-weight:600;">
+        <span style="color:{PALETTE['accent']}; font-weight:900;">✓</span>{c}</span>"""
+    for c in _checks
+)
+st.markdown(
+    f"""
+    <p style="color:{PALETTE['accent']}; text-transform:uppercase; letter-spacing:1.5px;
+              font-weight:700; font-size:0.85rem; margin-bottom:6px;">🔍 Robustness At a Glance</p>
+    <div style="display:flex; flex-wrap:wrap; margin-bottom: 6px;">{_badges}</div>
+    """,
+    unsafe_allow_html=True,
+)
+
 st.markdown("---")
 
 st.markdown("<h3>Distance to Historical Sites: High vs. Low Accessibility</h3>", unsafe_allow_html=True)

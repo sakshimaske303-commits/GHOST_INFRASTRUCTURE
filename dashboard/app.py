@@ -75,6 +75,24 @@ with col4:
 
 st.markdown("---")
 
+card(
+    kicker("⚡ Why This Matters")
+    + card_body(
+        "Urban planners often assume that former industrial zones are the neighborhoods most likely "
+        "to be left behind — under-served, poorly connected, needing the most investment. This project "
+        "tested that assumption directly, on real network data, and found the opposite: it's "
+        "neighborhoods <em>further</em> from historical industrial cores that form genuine accessibility "
+        "cold-spots today. Getting this backwards isn't academic — it's the difference between planning "
+        "resources reaching the areas that actually need them and reinforcing an intuitive but wrong "
+        "assumption about where \"neglect\" concentrates. And this isn't unique to Bochum: hundreds of "
+        "European cities share this same 19th-century industrial-core urban form.",
+        large=True,
+    ),
+    dark=True,
+)
+
+st.markdown("---")
+
 col_left, col_right = st.columns([1.1, 1])
 
 with col_left:
@@ -161,7 +179,20 @@ st.markdown("---")
 st.markdown("<h3>📄 Full Project Documentation</h3>", unsafe_allow_html=True)
 lead("Download the complete research paper, project journal, and development log.")
 
-doc1, doc2, doc3 = st.columns(3)
+doc0, doc1, doc2, doc3 = st.columns(4)
+
+with doc0:
+    try:
+        with open(os.path.join(ROOT_DIR, "GI_Executive_Summary.pdf"), "rb") as f:
+            st.download_button(
+                label="⚡ Executive Summary (PDF)",
+                data=f,
+                file_name="GHOST_INFRASTRUCTURE_Executive_Summary.pdf",
+                mime="application/pdf",
+                use_container_width=True,
+            )
+    except FileNotFoundError:
+        st.warning("GI_Executive_Summary.pdf not found.")
 
 with doc1:
     try:
