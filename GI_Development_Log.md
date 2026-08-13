@@ -24,6 +24,10 @@
 18. [Module 7 — Geospatial Visualization](#module-7-geospatial-visualization)
 19. [Design Principle Reinforced](#design-principle-reinforced)
 20. [Definitive Distance Verification — Ghost Infrastructure Overlay Anomalies](#definitive-distance-verification-ghost-infrastructure-overlay-anomalies)
+21. [Module 10 — Walking-Threshold Sensitivity Analysis](#module-10-walking-threshold-sensitivity-analysis)
+22. [Module 11 — Multi-City Replication: Essen Historical Data Digitization](#module-11-multi-city-replication-essen-historical-data-digitization)
+23. [Module 12 — Multi-City Replication: Essen Pipeline & Results](#module-12-multi-city-replication-essen-pipeline-results)
+24. [Module 13 — Mixed Replication, Reported Honestly](#module-13-mixed-replication-reported-honestly)
 
 ## Project Overview
 
@@ -246,3 +250,117 @@ verification loop initiated by external visual review: the underlying data was i
 confirmed correct via direct coordinate inspection (13 mines present, all coordinates valid) and 
 now via exact distance calculation, rather than accepted or dismissed based on visual impression 
 alone.
+
+## Module 10 — Walking-Threshold Sensitivity Analysis
+
+Per the user's instruction to make each completed portfolio project "next level" — adding missing
+datasets, expanding scope, and reducing documented limitations wherever genuinely possible — this
+project was selected as the first, on the reasoning that it has zero Google Earth Engine dependency
+(pure OSMnx/OpenStreetMap + public GADM boundaries) and an already-documented, concrete Future Work
+list (Section 8 of the Research Paper) naming exactly the kind of expansion requested.
+
+The first, zero-new-data item tackled was Future Work's "Walking-time-threshold sensitivity
+analysis." `threshold_sensitivity.py` (new, project root) re-ran the full accessibility-classification
+→ distance-to-historical-site → Welch's t-test → logistic-regression-confound pipeline at 10-minute
+(750m) and 20-minute (1,500m) network-distance thresholds, reusing the already-downloaded Bochum
+network graph and the already-computed `dist_to_historical_m`/`dist_to_center_m` fields — no new
+data acquisition required.
+
+Result: the reversed relationship holds at every threshold and *strengthens* as the threshold widens.
+10-min: t=47.062, p<0.00001, Cohen's d=0.413. 15-min (original): t=42.887, d=0.589. 20-min: t=32.150,
+p<0.00001, d=0.661. The odds ratio per 100m closer to a historical site stays stable across all three
+(4.24%, 4.88%, 4.49%), confirming the original 15-minute result was not a threshold-dependent
+artifact. Full results in `outputs/threshold_sensitivity_results.json`; comparison figure in
+`outputs/plots/threshold_sensitivity_comparison.png`. Write-up in Research_Paper.md Section 4.5.
+
+## Module 11 — Multi-City Replication: Essen Historical Data Digitization
+
+The second Future Work item tackled was multi-city comparison, explicitly named in the paper's own
+Future Work section ("Replicating this methodology in comparable Ruhr Valley cities (e.g., Dortmund,
+Essen)"). Essen was selected as the comparison city — 15km northeast of Bochum, sharing the same
+19th-century Ruhr coal-mining industrial history, and considerably better-documented in German
+heritage-GIS sources than most alternatives.
+
+**Geocoding constraint encountered and worked around.** The cloud sandbox this session runs in has
+OpenStreetMap's own infrastructure (Overpass API, Nominatim) blocked on its network allowlist — the
+same category of environment limitation already documented for GEE-dependent projects elsewhere in
+the portfolio. Wikidata's live API was also unavailable (cache-only), and Mindat.org (the source used
+for Bochum's original mine dataset) returned 403 on automated fetch. The workaround: KuLaDig
+(Kultur.Landschaft.Digital), North Rhine-Westphalia's own state cultural-heritage GIS database, proved
+reliably fetchable and gives precise WGS84 coordinates (degree-minute-second format) for surviving
+heritage-listed mine structures; German Wikipedia settlement/colony articles reliably carry geo-tagged
+`{{Coordinate}}` infoboxes (unlike most demolished mine-shaft articles, which typically do not).
+
+Four major coal mines were digitized this way: Zeche Zollverein (Schacht XII, Katernberg, 1851-1986 —
+Essen's UNESCO World Heritage site), Zeche Carl Funke (Heisingen, 1804-1973), Zeche Vereinigte Helene
+& Amalie (Altendorf, 1873-1965), Zeche Pörtingsiepen (Fischlaken, 1779-1972). Four worker colonies:
+Siedlung Carl Funke (Heisingen, 1900-1901), Mathias-Stinnes-Siedlung (Karnap, 1890-1910), Kolonie
+Zollverein III (Katernberg, 1880-~1901), Kolonie Beisen (Katernberg, 1902-1903). All 8 coordinates were
+independently verified to fall within Essen's official administrative boundary (GADM v4.1, extracted
+locally from the already-downloaded `gadm41_DEU.gpkg` covering all of Germany — no new download
+needed for this step) before proceeding, as a basic sanity check on the geocoding.
+
+This is explicitly a smaller dataset than Bochum's 17 sites (13 mines + 4 colonies) — Essen's own
+historical portal (historischesportal.essen.de) documents approximately 1,700 historical mining
+facilities citywide, and this round digitizes only the major, precisely-geocodable subset, an
+honestly-scoped limitation rather than a claim of completeness (see Module 13 and Research_Paper.md
+Section 7). An initial 3-mine/3-colony (6-site) version was expanded to the current 4-mine/4-colony
+(8-site) version after the confound-check result (Module 12) suggested sample size might be
+materially affecting the result — documented transparently below rather than silently revised.
+
+The OSM walking-network download itself (`download_network_essen.py`, new — same method as the
+original `download_network.py`, pointed at Essen) could not be run in this sandbox for the same
+Overpass-API-blocked reason above; this one step was handed to the user to run locally, who ran it
+and returned a 72,027-node, 188,198-edge network with 1,410 essential-service points (before
+point-geometry filtering to 366 usable point locations, matching the original Bochum script's own
+`pois[pois.geometry.type == "Point"]` filter).
+
+## Module 12 — Multi-City Replication: Essen Pipeline & Results
+
+`run_essen_pipeline.py` (new) replicates Modules 5, 6, 6A, and 6B end-to-end for Essen, reusing every
+parameter and method unchanged from the Bochum pipeline (1,125m/15-min threshold, Welch's t-test,
+Essen Hauptbahnhof as city-center reference, KNN k=8 LISA with 99 permutations, seed=42).
+
+88.5% of Essen's 72,027 nodes fall within a 15-minute walk of a service (vs. Bochum's 85.8%). The raw
+reversed relationship replicates: low-access nodes (n=8,267) average 3,693m from the nearest
+historical site vs. 3,130m for high-access nodes (n=63,760) — Welch's t=24.731, p<0.00001, Cohen's
+d=0.338 (smaller than Bochum's 0.589, but the same direction and highly significant). The Local
+Moran's I result replicates closely: mean local I=0.917 (Bochum: 0.923), 95.5% of low-access nodes in
+significant LL cold-spot clusters (Bochum: 97.1%), zero significant HH hot-spot clusters in either
+city.
+
+The confound check, however, does **not** replicate cleanly. Correlation between dist-to-historical
+and dist-to-center is r=0.405 in Essen vs. r=0.063 in Bochum — a genuinely different result, not
+noise. The confound-controlled logistic regression's historical-site coefficient flips sign in Essen
+(+0.0001, p<0.00001) relative to Bochum (-0.0005): once city-center distance is controlled for,
+greater distance from a historical site associates with *higher*, not lower, odds of accessibility in
+Essen. This was checked twice — the 6-site version of the dataset gave r=0.475 and a still-reversed
+coefficient; expanding to 8 sites reduced the correlation to r=0.405 but did not eliminate the sign
+flip, suggesting sample-size/coverage-density inflation is a partial but not complete explanation
+(see Module 13).
+
+## Module 13 — Mixed Replication, Reported Honestly
+
+Consistent with this project's established practice (Module 6/6A, Design Principle Reinforced, above)
+of investigating unexpected results to a specific cause rather than suppressing or accepting them at
+face value, the Essen confound-check discrepancy was not treated as a bug to fix or a result to
+downplay. Two possible explanations were tested and documented rather than picked based on which one
+was more convenient: (1) a genuine difference in each city's own industrial-versus-administrative
+geography — Essen's coal-mining history may be more spatially concentrated near its present-day
+center than Bochum's more dispersed sites; (2) a sampling-density artifact of Essen's smaller (8 vs.
+17-site) historical dataset. The correlation's measured decline from r=0.475 (6 sites) to r=0.405 (8
+sites) as more sites were added is evidence consistent with explanation (2) being at least a partial
+contributor, though it does not, on its own, rule out explanation (1). Rather than force a conclusion
+either way, both possibilities — and the specific evidence for each — are documented in
+Research_Paper.md Sections 4.6 and 7, and expanding the Essen dataset further is named as Future Work
+(Section 8) rather than pursued further this round, given the practical geocoding-precision limits
+already reached on Essen's remaining, less-documented historical mining sites (see Module 11).
+
+The overall conclusion drawn from this multi-city round: the "path dependency of centrality" effect
+itself — the raw reversed relationship and its independent spatial-clustering corroboration — appears
+to generalize across at least these two Ruhr Valley cities. The narrower, stronger claim that this
+effect operates *independently* of city-center proximity is, on current two-city evidence, a
+Bochum-specific rather than universal finding. Reporting a genuinely mixed multi-city result in full —
+rather than only replicating the parts that confirm Bochum's own findings — is treated as the more
+valuable and honest outcome of this round, consistent with how this project has handled every prior
+unexpected result.

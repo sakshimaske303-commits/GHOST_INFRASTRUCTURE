@@ -126,4 +126,16 @@ card(card_body(
 ), dark=True)
 
 st.markdown("---")
+
+st.markdown("<h3>Does This Hold Beyond Bochum and Beyond 15 Minutes?</h3>", unsafe_allow_html=True)
+card(card_body(
+    "This finding was tested for robustness two ways: across three walking-time thresholds "
+    "(10/15/20-minute — it holds and strengthens at every one), and via an independent full-methodology "
+    "replication in Essen, a second Ruhr Valley city. The raw effect and the spatial-clustering result "
+    "both replicate there; the confound-independence result does not, and that mixed result is reported "
+    "in full — see the <strong>Robustness: Thresholds &amp; Essen</strong> page.",
+    large=True,
+))
+
+st.markdown("---")
 footer_caption("GHOST INFRASTRUCTURE — Welch's t-test + logistic regression confound verification + Local Moran's I spatial clustering")

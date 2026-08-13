@@ -38,4 +38,34 @@ card(
 )
 
 st.markdown("---")
-footer_caption("GHOST INFRASTRUCTURE — Maps built in QGIS, exported via QGIS2Web")
+
+st.markdown("<h3>Essen — Interactive Map (Python / folium)</h3>", unsafe_allow_html=True)
+
+lead(
+    "Built directly in Python (folium) rather than QGIS, as a working stand-in until a polished "
+    "QGIS2Web export — matching the Bochum map above — is built later. Historical sites are clickable "
+    "markers with full detail; the 8,267 low-accessibility nodes are rendered as a heatmap layer rather "
+    "than individual points, since that many live markers would overwhelm a browser."
+)
+
+essen_map_path = os.path.join(PROJECT_ROOT, "outputs", "maps", "essen_interactive_map.html")
+if os.path.exists(essen_map_path):
+    with open(essen_map_path, "r", encoding="utf-8") as f:
+        essen_map_html = f.read()
+    components.html(essen_map_html, height=650, scrolling=True)
+else:
+    st.warning("Essen interactive map not found.")
+
+card(
+    kicker("Map Legend")
+    + card_body(
+        "🟠 Orange Marker — Coal Mine (click for name, dates, source) &nbsp;|&nbsp; "
+        "🔵 Light-Blue Marker — Worker Colony (click for name, dates, source) &nbsp;|&nbsp; "
+        "🔴 Heatmap — Low 15-Min Accessibility (n=8,267 of 72,027 nodes) &nbsp;|&nbsp; "
+        "Use the layer control (top-right) to toggle layers on/off",
+        large=True,
+    )
+)
+
+st.markdown("---")
+footer_caption("GHOST INFRASTRUCTURE — Bochum map built in QGIS (QGIS2Web); Essen map built in Python (folium)")

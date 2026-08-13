@@ -74,12 +74,29 @@ with col2:
         + card_body(
             "Street network — OpenStreetMap via OSMnx<br>"
             "Essential services — OpenStreetMap points of interest<br>"
-            "69,393 nodes, 169,668 edges, 786 services"
+            "Bochum: 69,393 nodes, 169,668 edges, 786 services<br>"
+            "Essen: 72,027 nodes, 188,198 edges, 366 services"
         )
     )
     mc1, mc2 = st.columns([0.87, 0.13])
     with mc2:
         proof_popover("01_bochum_accessibility_qgis.png", "Bochum's 15-minute accessibility classification (green = within 15min, red = low-accessibility) with essential-services points, styled in QGIS — the modern-day baseline the historical industrial sites are compared against.")
+
+st.markdown("---")
+
+st.markdown("<h3>Essen (Multi-City Replication) Data Sources</h3>", unsafe_allow_html=True)
+card(card_body(
+    "Coal mines and worker colonies for the Essen replication were digitized from "
+    "<strong>KuLaDig</strong> (Kultur.Landschaft.Digital, North Rhine-Westphalia's state "
+    "cultural-heritage GIS database) and German Wikipedia — Mindat.org, the source used for Bochum, "
+    "returned a 403 error on automated fetch for Essen entries, and Wikidata's live API was "
+    "unavailable in this session's environment, so KuLaDig was used instead once it proved reliably "
+    "fetchable and precise (WGS84 degree-minute-second coordinates for surviving heritage-listed "
+    "structures). All 8 Essen coordinates were independently verified to fall inside Essen's official "
+    "administrative boundary (GADM v4.1) before use. Full detail on the Robustness page and in "
+    "Research_Paper.md Section 3.7.",
+    large=True,
+))
 
 st.markdown("---")
 
@@ -163,14 +180,17 @@ card(card_body(
     "This project relies on point-based historical site locations rather than full manual "
     "boundary digitization of mine and colony extents — a deliberate scope decision given "
     "project timeline constraints, disclosed transparently rather than presented as complete. "
-    "The 13 mines and 4 colonies digitized here are the major, well-documented industrial-era "
+    "The 13 mines and 4 colonies digitized for Bochum are the major, well-documented industrial-era "
     "sites, not the full historical mining register (which includes several hundred smaller "
     "operations spanning multiple centuries and is not a fair comparison set). Industrial-era "
     "rail and road infrastructure was part of the original scope but was not digitized this "
     "phase. The 15-minute accessibility model treats all essential-service categories as equally "
     "weighted, and socioeconomic confounders (income, age, tenure) are not controlled for — "
     "the reported relationships are descriptive spatial associations, not fully adjusted causal "
-    "estimates. Full detail in the Research Paper's Limitations and Future Work sections.",
+    "estimates. The Essen replication's 8-site dataset is smaller, relative to Essen's own much "
+    "larger historical mining register, than the Bochum dataset is to Bochum's — and this appears "
+    "to materially affect the confound-independence result specifically (see the Robustness page). "
+    "Full detail in the Research Paper's Limitations and Future Work sections.",
     large=True,
 ))
 

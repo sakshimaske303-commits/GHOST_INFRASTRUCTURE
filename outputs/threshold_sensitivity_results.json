@@ -1,0 +1,50 @@
+{
+  "10": {
+    "max_dist_m": 750,
+    "pct_covered": 67.1,
+    "n_low": 22826,
+    "n_high": 46567,
+    "mean_dist_low": 1777.9,
+    "mean_dist_high": 1402.1,
+    "t_stat": 47.062,
+    "p_value": 0.0,
+    "cohens_d": 0.413,
+    "corr_hist_center": 0.063,
+    "logit_coef_historical": -0.0004152328104243342,
+    "logit_p_historical": 0.0,
+    "odds_pct_per_100m_historical": -4.07,
+    "odds_pct_per_100m_center": -1.95
+  },
+  "15": {
+    "max_dist_m": 1125,
+    "pct_covered": 85.8,
+    "n_low": 9858,
+    "n_high": 59535,
+    "mean_dist_low": 1984.1,
+    "mean_dist_high": 1449.8,
+    "t_stat": 42.887,
+    "p_value": 0.0,
+    "cohens_d": 0.589,
+    "corr_hist_center": 0.063,
+    "logit_coef_historical": -0.0004762646737611956,
+    "logit_p_historical": 0.0,
+    "odds_pct_per_100m_historical": -4.65,
+    "odds_pct_per_100m_center": -2.81
+  },
+  "20": {
+    "max_dist_m": 1500,
+    "pct_covered": 94.4,
+    "n_low": 3877,
+    "n_high": 65516,
+    "mean_dist_low": 2097.5,
+    "mean_dist_high": 1491.9,
+    "t_stat": 32.15,
+    "p_value": 9.479962563606127e-203,
+    "cohens_d": 0.661,
+    "corr_hist_center": 0.063,
+    "logit_coef_historical": -0.00043904042889657144,
+    "logit_p_historical": 5.264594442539269e-237,
+    "odds_pct_per_100m_historical": -4.3,
+    "odds_pct_per_100m_center": -3.39
+  }
+}

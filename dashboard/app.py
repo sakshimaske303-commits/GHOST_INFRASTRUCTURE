@@ -84,8 +84,10 @@ card(
         "neighborhoods <em>further</em> from historical industrial cores that form genuine accessibility "
         "cold-spots today. Getting this backwards isn't academic — it's the difference between planning "
         "resources reaching the areas that actually need them and reinforcing an intuitive but wrong "
-        "assumption about where \"neglect\" concentrates. And this isn't unique to Bochum: hundreds of "
-        "European cities share this same 19th-century industrial-core urban form.",
+        "assumption about where \"neglect\" concentrates. And this isn't unique to Bochum: the raw effect "
+        "and its spatial-clustering signature both independently replicate in Essen, a second Ruhr Valley "
+        "city tested the same way — see the Robustness page for the full multi-city comparison, including "
+        "the one result that does <em>not</em> cleanly replicate, reported honestly rather than left out.",
         large=True,
     ),
     dark=True,
@@ -167,6 +169,7 @@ nav_items = [
     ("📈", "Explore Trends", "Live distance-threshold explorer"),
     ("🗺️", "Interactive Maps", "Live geospatial exploration"),
     ("📖", "Methodology & Data", "Sources, debugging journey, limitations"),
+    ("🧪", "Robustness: Thresholds & Essen", "10/20-min sensitivity + a second-city replication"),
 ]
 
 cols = st.columns(3)
