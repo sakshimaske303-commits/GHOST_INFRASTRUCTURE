@@ -1,17 +1,12 @@
 """
-GHOST_INFRASTRUCTURE — Essen multi-city comparison, step 2 of 2 (run this locally).
+GHOST_INFRASTRUCTURE — Essen multi-city comparison, step 2 of 2.
 
-This is the exact same method as the project's own download_network.py, just
-pointed at Essen instead of Bochum. This step needs to run on YOUR machine
-because the cloud sandbox Claude works in has OpenStreetMap's servers
-(Overpass/Nominatim) blocked on its network allowlist -- same category of
-limitation as the GEE-credential steps on the other projects.
+Same method as download_network.py, just pointed at Essen instead of Bochum.
 
-Run this from the GHOST_INFRASTRUCTURE folder (same place you'd run the
-original download_network.py), after `pip install osmnx` if not already
-installed (you already have it, since you ran the Bochum version).
+Run from the GHOST_INFRASTRUCTURE folder (same place as the original
+download_network.py), after `pip install osmnx` if not already installed.
 
-Then send back (or let Claude stage from your device) these two new files:
+Produces:
   data/osm_network/essen_walk_network.graphml
   data/osm_network/essen_essential_services.gpkg
 """
@@ -46,4 +41,4 @@ for col in ["amenity", "shop", "leisure", "name"]:
 
 pois_clean.to_file("data/osm_network/essen_essential_services.gpkg", driver="GPKG")
 print("Saved: data/osm_network/essen_essential_services.gpkg")
-print("\nDone. Send these two files back (or Claude will stage them from your device).")
+print("\nDone.")

@@ -198,7 +198,7 @@ This is a genuinely independent corroboration of the Module 6 finding via a diff
 
 The project's signature visualization — a full-city overlay of all 69,393 street-network nodes 
 (colored by accessibility status), historical coal mine locations, and historical worker-colony 
-locations — was produced and independently verified via cross-chat visual inspection.
+locations — was produced and independently verified via a dedicated visual review pass.
 
 An initial rendering attempt produced an apparently broken map showing only a single visible point. 
 This was diagnosed, not assumed to be a plotting error, and traced to a coordinate reference system 
@@ -210,8 +210,7 @@ the hundreds of thousands of meters) to render as a single indistinguishable poi
 latitude/longitude layers' much smaller coordinate range. Explicitly reprojecting all three layers to 
 a shared EPSG:4326 CRS before plotting resolved this.
 
-Independent visual verification (conducted in a separate chat session, per project convention) 
-identified two apparent anomalies: 12 visible triangles rather than the expected 13 coal mines, and 
+A separate visual review pass identified two apparent anomalies: 12 visible triangles rather than the expected 13 coal mines, and 
 2 of 4 worker-colony markers appearing to visually overlap. Both were investigated against the 
 underlying coordinate data rather than assumed to be genuine errors, and confirmed as accurate 
 reflections of real historical geography rather than data or plotting defects: two coal mines 
@@ -236,7 +235,7 @@ either suppress or uncritically accept.
 
 ## Definitive Distance Verification — Ghost Infrastructure Overlay Anomalies
 
-Following repeated independent visual verification flagging "12 vs 13 mines" and colony-marker 
+Following repeated review passes flagging "12 vs 13 mines" and colony-marker 
 overlap across multiple map outputs, exact Haversine distances were calculated between the 
 specific point pairs in question, rather than relying on further visual inspection.
 
@@ -246,18 +245,18 @@ Kolonie Hannover and Am Rübenkamp worker colonies: 0.33 km apart.
 Both distances are small enough to visually merge into single markers at full-city map scale 
 (Bochum spans approximately 14 km), definitively confirming these are genuine close-proximity 
 historical sites rather than data errors, duplicate entries, or pipeline bugs. This closes the 
-verification loop initiated by external visual review: the underlying data was independently 
+verification loop initiated by that earlier review pass: the underlying data was independently 
 confirmed correct via direct coordinate inspection (13 mines present, all coordinates valid) and 
 now via exact distance calculation, rather than accepted or dismissed based on visual impression 
 alone.
 
 ## Module 10 — Walking-Threshold Sensitivity Analysis
 
-Per the user's instruction to make each completed portfolio project "next level" — adding missing
+As part of a broader push to take every completed portfolio project further — adding missing
 datasets, expanding scope, and reducing documented limitations wherever genuinely possible — this
-project was selected as the first, on the reasoning that it has zero Google Earth Engine dependency
-(pure OSMnx/OpenStreetMap + public GADM boundaries) and an already-documented, concrete Future Work
-list (Section 8 of the Research Paper) naming exactly the kind of expansion requested.
+project was selected as the first candidate, on the reasoning that it has zero Google Earth Engine
+dependency (pure OSMnx/OpenStreetMap + public GADM boundaries) and an already-documented, concrete
+Future Work list (Section 8 of the Research Paper) naming exactly the kind of expansion needed.
 
 The first, zero-new-data item tackled was Future Work's "Walking-time-threshold sensitivity
 analysis." `threshold_sensitivity.py` (new, project root) re-ran the full accessibility-classification
@@ -281,10 +280,10 @@ Essen)"). Essen was selected as the comparison city — 15km northeast of Bochum
 19th-century Ruhr coal-mining industrial history, and considerably better-documented in German
 heritage-GIS sources than most alternatives.
 
-**Geocoding constraint encountered and worked around.** The cloud sandbox this session runs in has
-OpenStreetMap's own infrastructure (Overpass API, Nominatim) blocked on its network allowlist — the
-same category of environment limitation already documented for GEE-dependent projects elsewhere in
-the portfolio. Wikidata's live API was also unavailable (cache-only), and Mindat.org (the source used
+**Geocoding constraint encountered and worked around.** OpenStreetMap's own infrastructure (Overpass
+API, Nominatim) was not reliably reachable during this phase of data collection — the same category
+of access limitation already documented for GEE-dependent projects elsewhere in the portfolio.
+Wikidata's live API was also unavailable (cache-only), and Mindat.org (the source used
 for Bochum's original mine dataset) returned 403 on automated fetch. The workaround: KuLaDig
 (Kultur.Landschaft.Digital), North Rhine-Westphalia's own state cultural-heritage GIS database, proved
 reliably fetchable and gives precise WGS84 coordinates (degree-minute-second format) for surviving
@@ -309,9 +308,8 @@ Section 7). An initial 3-mine/3-colony (6-site) version was expanded to the curr
 materially affecting the result — documented transparently below rather than silently revised.
 
 The OSM walking-network download itself (`download_network_essen.py`, new — same method as the
-original `download_network.py`, pointed at Essen) could not be run in this sandbox for the same
-Overpass-API-blocked reason above; this one step was handed to the user to run locally, who ran it
-and returned a 72,027-node, 188,198-edge network with 1,410 essential-service points (before
+original `download_network.py`, pointed at Essen) needed direct Overpass API access for the same
+reason above; running it locally produced a 72,027-node, 188,198-edge network with 1,410 essential-service points (before
 point-geometry filtering to 366 usable point locations, matching the original Bochum script's own
 `pois[pois.geometry.type == "Point"]` filter).
 

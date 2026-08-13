@@ -1,13 +1,12 @@
 # Zenodo Record Update — GHOST_INFRASTRUCTURE
 
-Existing DOI stays the same (`10.5281/zenodo.21761320`) — Zenodo versions a record rather than
-replacing it. To publish this update: cut a new GitHub release (e.g. tag `v1.1.0`) once all the
-files above are pushed; your existing GitHub↔Zenodo integration will auto-mint a new version under
-the same concept DOI. Suggested release title: **"v1.1.0 — Multi-City Robustness (Essen) +
-Threshold Sensitivity"**.
+Notes for the next release. The existing DOI stays the same (`10.5281/zenodo.21761320`) — Zenodo
+versions a record rather than replacing it. Plan: cut a new GitHub release (tag `v1.1.0`) once all
+the files above are pushed; the GitHub↔Zenodo integration will auto-mint a new version under the
+same concept DOI. Release title: **"v1.1.0 — Multi-City Robustness (Essen) + Threshold
+Sensitivity"**.
 
-Suggested new **Zenodo Description** field (replace the existing one — everything before the final
-paragraph can stay if you'd rather append; this version is written as a full replacement):
+New **Zenodo Description** field (replaces the existing one):
 
 ---
 
@@ -50,8 +49,8 @@ Local Moran's I, spatial statistics
 
 **License**: unchanged (CC BY 4.0).
 
-**Related identifiers**: if Zenodo asks whether this is a new version of the existing record,
+**Related identifiers**: when Zenodo asks whether this is a new version of the existing record,
 select "is a new version of" and link the existing DOI — this keeps both versions linked under one
-concept DOI, which is what you want (citations to the concept DOI always resolve to the latest
-version; citations to `zenodo.21761320` specifically will keep pointing at v1.0.0, which is correct
-scholarly behavior).
+concept DOI, which is the goal (citations to the concept DOI always resolve to the latest version;
+citations to `zenodo.21761320` specifically will keep pointing at v1.0.0, which is correct scholarly
+behavior).

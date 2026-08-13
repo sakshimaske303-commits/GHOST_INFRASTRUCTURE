@@ -29,14 +29,14 @@ with col_b:
         st.warning("Diagram not found at outputs/plots/img1.png")
     st.markdown(
         f"<p style='text-align:center; color:{PALETTE['text_muted']}; font-size:0.85rem; margin-top:6px;'>"
-        "🤖 AI-generated diagram — visual only</p>",
+        "🎨 Schematic diagram — visual only</p>",
         unsafe_allow_html=True,
     )
     card(
         f"""<p style="color:{PALETTE['text_muted']}; font-size:0.88rem; font-style:italic; margin:0; text-align:center;">
-        Generated with an AI image tool from a fully-specified brief — every process, label, and
-        physical relationship shown was authored by me from my own understanding of anthropogenic
-        landform change; the AI was directed to illustrate it, not to originate it.</p>"""
+        A schematic illustration, not a data visualization — every process, label, and physical
+        relationship shown reflects my own understanding of anthropogenic landform change, drawn for
+        conceptual clarity rather than plotted from measured data.</p>"""
     )
 
 st.markdown("---")

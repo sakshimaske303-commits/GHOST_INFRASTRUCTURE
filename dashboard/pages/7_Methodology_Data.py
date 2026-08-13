@@ -90,7 +90,7 @@ card(card_body(
     "<strong>KuLaDig</strong> (Kultur.Landschaft.Digital, North Rhine-Westphalia's state "
     "cultural-heritage GIS database) and German Wikipedia — Mindat.org, the source used for Bochum, "
     "returned a 403 error on automated fetch for Essen entries, and Wikidata's live API was "
-    "unavailable in this session's environment, so KuLaDig was used instead once it proved reliably "
+    "unavailable at the time, so KuLaDig was used instead once it proved reliably "
     "fetchable and precise (WGS84 degree-minute-second coordinates for surviving heritage-listed "
     "structures). All 8 Essen coordinates were independently verified to fall inside Essen's official "
     "administrative boundary (GADM v4.1) before use. Full detail on the Robustness page and in "
