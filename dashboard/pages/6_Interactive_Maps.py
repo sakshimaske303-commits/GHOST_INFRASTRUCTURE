@@ -9,12 +9,13 @@ from styles import apply_custom_style, page_header, lead, footer_caption, card, 
 
 apply_custom_style()
 
-page_header("🗺️", "INTERACTIVE MAPS", "Explore the Historical and Accessibility Data Live")
+page_header("🗺️", "INTERACTIVE MAPS & PLOTS", "Explore the Historical and Accessibility Data Live")
 st.markdown("---")
 
 lead(
-    "An interactive QGIS-built map of Bochum's historical industrial sites and present-day "
-    "accessibility network, hosted via GitHub Pages."
+    "Interactive QGIS- and Python-built maps of Bochum's and Essen's historical industrial sites "
+    "and present-day accessibility networks, plus the three headline replication charts as "
+    "hoverable, toggleable plots instead of flat images."
 )
 
 st.markdown("---")
@@ -42,9 +43,8 @@ st.markdown("---")
 st.markdown("<h3>Essen — Interactive Map (Python / folium)</h3>", unsafe_allow_html=True)
 
 lead(
-    "Built directly in Python (folium) rather than QGIS, as a working stand-in until a polished "
-    "QGIS2Web export — matching the Bochum map above — is built later. Historical sites are clickable "
-    "markers with full detail; the 8,267 low-accessibility nodes are rendered as a heatmap layer rather "
+    "Built directly in Python (folium) rather than QGIS. Historical sites are clickable markers "
+    "with full detail; the 8,267 low-accessibility nodes are rendered as a heatmap layer rather "
     "than individual points, since that many live markers would overwhelm a browser."
 )
 
@@ -68,4 +68,28 @@ card(
 )
 
 st.markdown("---")
-footer_caption("GHOST INFRASTRUCTURE — Bochum map built in QGIS (QGIS2Web); Essen map built in Python (folium)")
+
+st.markdown("<h3>Interactive Plots — Replication &amp; Sensitivity</h3>", unsafe_allow_html=True)
+
+lead(
+    "The three headline statistical charts, hoverable and toggleable instead of locked into a "
+    "flat image."
+)
+
+PLOTS = {
+    "Bochum vs. Essen Multi-City Comparison": "outputs/plots/interactive/bochum_essen_comparison.html",
+    "Walking-Time-Threshold Sensitivity": "outputs/plots/interactive/threshold_sensitivity.html",
+    "Distance-to-Historical-Site Comparison": "outputs/plots/interactive/distance_comparison_boxplot.html",
+}
+
+plot_choice = st.selectbox("Select a chart", list(PLOTS.keys()))
+plot_path = os.path.join(PROJECT_ROOT, PLOTS[plot_choice])
+if os.path.exists(plot_path):
+    with open(plot_path, "r", encoding="utf-8") as f:
+        plot_html = f.read()
+    components.html(plot_html, height=600, scrolling=True)
+else:
+    st.warning("Chart file not found.")
+
+st.markdown("---")
+footer_caption("GHOST INFRASTRUCTURE — Bochum map built in QGIS (QGIS2Web); Essen map built in Python (folium); plots built with Plotly")

@@ -29,7 +29,20 @@ The core finding is tested for robustness two ways: across three walking-time th
 
 ---
 
-Interactive geospatial map hosted via GitHub Pages: **[View the interactive overlay map →](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/maps/ghost_infrastructure_overlay_map/index.html)**
+## 🗺️ Interactive Maps & Plots
+
+Interactive maps and headline charts are hosted via GitHub Pages:
+
+**Maps**
+- [Bochum — Historical Sites + Accessibility Overlay (QGIS)](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/maps/ghost_infrastructure_overlay_map/index.html)
+- [Essen — Historical Sites + Accessibility Overlay (Python/folium)](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/maps/essen_interactive_map.html)
+
+**Plots**
+- [Bochum vs. Essen Multi-City Comparison](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/plots/interactive/bochum_essen_comparison.html)
+- [Walking-Time-Threshold Sensitivity](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/plots/interactive/threshold_sensitivity.html)
+- [Distance-to-Historical-Site Comparison](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/plots/interactive/distance_comparison_boxplot.html)
+
+*(All five are also embedded together on the dashboard's Interactive Maps & Plots page.)*
 
 ---
 
@@ -41,7 +54,7 @@ Interactive geospatial map hosted via GitHub Pages: **[View the interactive over
 - Explicitly verifies the finding against its most obvious confound — city-center proximity — using correlation analysis and logistic regression
 - Independently corroborates the finding with a Local Moran's I (LISA) spatial-clustering analysis across all network nodes, in both cities
 - Tests robustness at three walking-time thresholds (10/15/20-minute) and confirms the effect holds — and strengthens — at every one
-- Presents all findings through an interactive dashboard with a live distance-threshold explorer and QGIS-based interactive maps
+- Presents all findings through an interactive dashboard with a live distance-threshold explorer, QGIS- and Python-based interactive maps, and Plotly interactive plots
 
 ## 🔬 Key Finding
 
@@ -63,7 +76,8 @@ GHOST_INFRASTRUCTURE/
 │   └── osm_network/                 # Street networks + essential services (OSMnx), both cities
 ├── outputs/
 │   ├── plots/                       # Static visualizations, including multi-city + threshold comparisons
-│   └── maps/                        # Interactive QGIS2Web map export
+│   │   └── interactive/             # Plotly interactive HTML charts
+│   └── maps/                        # Interactive QGIS2Web + folium map exports
 ├── GI_Project_Report.md             # Polished project summary and methodology
 ├── GI_Research_Paper.md             # Formal academic research paper
 ├── GI_Development_Log.md            # Full technical development log

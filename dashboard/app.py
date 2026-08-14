@@ -167,7 +167,7 @@ nav_items = [
     ("🚶", "Accessibility Analysis", "The 15-minute network model"),
     ("📊", "The Finding", "Statistical test + confound + spatial clustering"),
     ("📈", "Explore Trends", "Live distance-threshold explorer"),
-    ("🗺️", "Interactive Maps", "Live geospatial exploration"),
+    ("🗺️", "Interactive Maps & Plots", "Live geospatial exploration plus the three headline charts"),
     ("📖", "Methodology & Data", "Sources, debugging journey, limitations"),
     ("🧪", "Robustness: Thresholds & Essen", "10/20-min sensitivity + a second-city replication"),
 ]
