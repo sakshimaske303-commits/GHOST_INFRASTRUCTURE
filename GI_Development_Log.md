@@ -28,6 +28,7 @@
 22. [Module 11 — Multi-City Replication: Essen Historical Data Digitization](#module-11-multi-city-replication-essen-historical-data-digitization)
 23. [Module 12 — Multi-City Replication: Essen Pipeline & Results](#module-12-multi-city-replication-essen-pipeline-results)
 24. [Module 13 — Mixed Replication, Reported Honestly](#module-13-mixed-replication-reported-honestly)
+25. [Module 14 — Bochum Interactive Map Rebuilt in Python (2026-08-18)](#module-14-bochum-interactive-map-rebuilt-in-python-2026-08-18)
 
 ## Project Overview
 
@@ -362,3 +363,39 @@ Bochum-specific rather than universal finding. Reporting a genuinely mixed multi
 rather than only replicating the parts that confirm Bochum's own findings — is treated as the more
 valuable and honest outcome of this round, consistent with how this project has handled every prior
 unexpected result.
+
+## Module 14 — Bochum Interactive Map Rebuilt in Python (2026-08-18)
+
+The Bochum overlay map was still the QGIS2Web export from early in the project, while Essen's
+equivalent had already been rebuilt directly in Python (folium) — an inconsistency worth fixing since
+both cities' underlying data and analysis were otherwise on equal footing.
+
+Rebuilt `outputs/maps/bochum_interactive_map.html` from the same source geopackages
+(`bochum_accessibility_with_distance.gpkg`, `bochum_coal_mines.gpkg`, `bochum_zechensiedlungen.gpkg`,
+`gadm41_DEU.gpkg` filtered to Bochum) using the identical style established for the Essen map: dark
+CartoDB tiles, an orange "industry"-icon marker per coal mine and a light-blue "home"-icon marker per
+worker colony (each with a click popup showing name, district, and active/construction years), and
+the 9,858 low-15-minute-accessibility nodes rendered as a heatmap layer rather than individual
+markers, since that many live points would overwhelm the browser the same way Essen's 8,267 would
+have. The city-boundary outline uses the same teal/cream style as Essen's.
+
+One difference from Essen's popups: Essen's markers include a `Source:` citation line
+(KuLaDig/Wikipedia references gathered during that city's digitization); Bochum's source geopackages
+don't carry a per-site citation field, so Bochum's popups show name, district, and dates only. Nothing
+about the underlying digitized site locations or dates changed — only the export mechanism.
+
+No underlying data changed as part of this rebuild — the terrace-equivalent core datasets for Bochum
+(historical site digitization, the 69,393-node accessibility network, the city boundary) are the same
+inputs the original QGIS export used. This was purely a rendering/tooling fix: replacing a bulky,
+multi-file QGIS2Web export (separate `layers/`, `resources/`, `styles/`, `webfonts/` folders) with a
+single self-contained HTML file generated straight from the project's own geopackages, consistent with
+how Essen's map — and every interactive map in the STOLEN STRATA project — is now built.
+
+Updated `dashboard/pages/6_Interactive_Maps.py` to embed the new Bochum map the same way Essen's is
+embedded (read the local HTML file and render via `components.html`, instead of an iframe pointing at
+the old QGIS2Web export folder), updated its map legend text, and updated `README.md`'s map links and
+tech stack to drop the now-retired QGIS/QGIS2Web references.
+
+**Outcome:** both cities' interactive maps are now built the same way, from the same kind of source
+data, with the same visual language — no QGIS dependency left in the interactive-map pipeline for
+either city.

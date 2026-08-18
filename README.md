@@ -34,7 +34,7 @@ The core finding is tested for robustness two ways: across three walking-time th
 Interactive maps and headline charts are hosted via GitHub Pages:
 
 **Maps**
-- [Bochum — Historical Sites + Accessibility Overlay (QGIS)](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/maps/ghost_infrastructure_overlay_map/index.html)
+- [Bochum — Historical Sites + Accessibility Overlay (Python/folium)](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/maps/bochum_interactive_map.html)
 - [Essen — Historical Sites + Accessibility Overlay (Python/folium)](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/maps/essen_interactive_map.html)
 
 **Plots**
@@ -54,7 +54,7 @@ Interactive maps and headline charts are hosted via GitHub Pages:
 - Explicitly verifies the finding against its most obvious confound — city-center proximity — using correlation analysis and logistic regression
 - Independently corroborates the finding with a Local Moran's I (LISA) spatial-clustering analysis across all network nodes, in both cities
 - Tests robustness at three walking-time thresholds (10/15/20-minute) and confirms the effect holds — and strengthens — at every one
-- Presents all findings through an interactive dashboard with a live distance-threshold explorer, QGIS- and Python-based interactive maps, and Plotly interactive plots
+- Presents all findings through an interactive dashboard with a live distance-threshold explorer, Python (folium) interactive maps, and Plotly interactive plots
 
 ## 🔬 Key Finding
 
@@ -77,7 +77,7 @@ GHOST_INFRASTRUCTURE/
 ├── outputs/
 │   ├── plots/                       # Static visualizations, including multi-city + threshold comparisons
 │   │   └── interactive/             # Plotly interactive HTML charts
-│   └── maps/                        # Interactive QGIS2Web + folium map exports
+│   └── maps/                        # Interactive folium map exports
 ├── GI_Project_Report.md             # Polished project summary and methodology
 ├── GI_Research_Paper.md             # Formal academic research paper
 ├── GI_Development_Log.md            # Full technical development log
@@ -91,7 +91,7 @@ GHOST_INFRASTRUCTURE/
 
 ## 🛠️ Tech Stack
 
-Python · GeoPandas · OSMnx · NetworkX · Statsmodels · Plotly · Streamlit · QGIS · QGIS2Web · GitHub Pages
+Python · GeoPandas · OSMnx · NetworkX · Statsmodels · Plotly · Folium · Streamlit · GitHub Pages
 
 ## 📚 Data Sources
 

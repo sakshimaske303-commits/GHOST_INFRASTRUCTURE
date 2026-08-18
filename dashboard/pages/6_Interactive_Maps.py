@@ -13,27 +13,36 @@ page_header("🗺️", "INTERACTIVE MAPS & PLOTS", "Explore the Historical and A
 st.markdown("---")
 
 lead(
-    "Interactive QGIS- and Python-built maps of Bochum's and Essen's historical industrial sites "
+    "Interactive Python (folium) maps of Bochum's and Essen's historical industrial sites "
     "and present-day accessibility networks, plus the three headline replication charts as "
     "hoverable, toggleable plots instead of flat images."
 )
 
 st.markdown("---")
 
-st.markdown("<h3>Historical Geography + Accessibility Overlay</h3>", unsafe_allow_html=True)
+st.markdown("<h3>Bochum — Interactive Map (Python / folium)</h3>", unsafe_allow_html=True)
 
-MAP_SERVER_BASE = "https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/maps"
-map_url = f"{MAP_SERVER_BASE}/ghost_infrastructure_overlay_map/index.html"
+lead(
+    "Built directly in Python (folium) rather than QGIS. Historical sites are clickable markers "
+    "with full detail; the 9,858 low-accessibility nodes are rendered as a heatmap layer rather "
+    "than individual points, since that many live markers would overwhelm a browser."
+)
 
-components.iframe(src=map_url, height=650, scrolling=True)
+bochum_map_path = os.path.join(PROJECT_ROOT, "outputs", "maps", "bochum_interactive_map.html")
+if os.path.exists(bochum_map_path):
+    with open(bochum_map_path, "r", encoding="utf-8") as f:
+        bochum_map_html = f.read()
+    components.html(bochum_map_html, height=650, scrolling=True)
+else:
+    st.warning("Bochum interactive map not found.")
 
 card(
     kicker("Map Legend")
     + card_body(
-        "🔵 Blue Triangle — Coal Mine (1829-1974) &nbsp;|&nbsp; "
-        "🟡 Yellow Diamond — Worker Colony (1870-1915) &nbsp;|&nbsp; "
-        "🟢 Green Dot — High 15-Min Accessibility &nbsp;|&nbsp; "
-        "🔴 Red Dot — Low 15-Min Accessibility",
+        "🟠 Orange Marker — Coal Mine (click for name, dates) &nbsp;|&nbsp; "
+        "🔵 Light-Blue Marker — Worker Colony (click for name, associated mine, dates) &nbsp;|&nbsp; "
+        "🔴 Heatmap — Low 15-Min Accessibility (n=9,858 of 69,393 nodes) &nbsp;|&nbsp; "
+        "Use the layer control (top-right) to toggle layers on/off",
         large=True,
     )
 )
@@ -92,4 +101,4 @@ else:
     st.warning("Chart file not found.")
 
 st.markdown("---")
-footer_caption("GHOST INFRASTRUCTURE — Bochum map built in QGIS (QGIS2Web); Essen map built in Python (folium); plots built with Plotly")
+footer_caption("GHOST INFRASTRUCTURE — Bochum and Essen maps built directly in Python (folium); plots built with Plotly")
