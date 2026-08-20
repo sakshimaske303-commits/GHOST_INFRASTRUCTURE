@@ -1,15 +1,5 @@
-"""
-Builds a single combined PDF of every static plot/map figure in GHOST_INFRASTRUCTURE,
-with a cover page and an index, matching the pattern used for the other projects'
-Maps_and_Plots PDFs.
-
-Note: this project's one INTERACTIVE map (the QGIS2Web overlay,
-outputs/maps/ghost_infrastructure_overlay_map/) is not included as a static capture here.
-Its main data layer (all 69,393 accessibility nodes) is a ~21MB embedded JS file that
-could not be transferred into the build environment. Its content is not actually missing
-from this PDF, though: Figure 3 below (ghost_infrastructure_overlay.png) is a static
-render of the exact same three layers (historical sites + accessibility nodes), produced
-by the same underlying data via map1_ghost_infrastructure.py.
+"""Combines the static plot/map figures into one PDF with a cover page + index.
+QGIS2Web overlay map (~21MB JS data layer) isn't captured as a static image; Figure 3 is a static render of the same layers instead.
 """
 
 import os
@@ -97,7 +87,7 @@ def cover_page(c, width, height):
     )
     c.drawCentredString(
         width / 2, 1.1 * inch,
-        "image (its 69,393-node data layer could not be transferred for rendering); Figure 3"
+        "image (its 69,393-node data layer is too large to render statically); Figure 3"
     )
     c.drawCentredString(
         width / 2, 0.9 * inch,

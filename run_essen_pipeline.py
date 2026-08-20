@@ -1,15 +1,6 @@
-"""
-Full GHOST_INFRASTRUCTURE pipeline for Essen (the multi-city comparison case),
-replicating the exact Bochum methodology:
-  1. compute_isochrones.py  -> 15-min network accessibility
-  2. verify_distances.py    -> distance to nearest historical site, Welch's t-test
-  3. test_confound.py       -> city-center confound, logistic regression
-  4. spatial_clustering_lisa.py -> Local Moran's I
-
-Essential-service points that fall outside the true Essen boundary but inside
-its OSMnx-returned convex-ish place polygon are NOT explicitly filtered here,
-matching the original Bochum script's own behavior (ox.features_from_place
-already scopes to the administrative place boundary).
+"""Full Essen pipeline (multi-city comparison), replicating the Bochum methodology:
+isochrones -> distance to historical sites (Welch's t) -> city-center confound (logit) -> LISA.
+Doesn't filter services outside the true boundary, same as the Bochum scripts (ox.features_from_place already scopes to it).
 """
 import json
 import numpy as np

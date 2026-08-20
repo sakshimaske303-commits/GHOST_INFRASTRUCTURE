@@ -1,16 +1,6 @@
-"""
-Walking-time-threshold sensitivity analysis for GHOST_INFRASTRUCTURE (Bochum).
-
-Tests whether the reversed "path dependency of centrality" relationship
-(low-accessibility nodes further from historical industrial sites) holds at
-alternative accessibility thresholds (10-minute / 750m and 20-minute / 1500m
-network distance), not only the 15-minute / 1125m threshold used in the
-original study. Directly answers Research_Paper.md Section 8's named Future
-Work item: "Walking-time-threshold sensitivity analysis."
-
-Uses the same already-downloaded Bochum walking network, essential-services
-POIs, and dist_to_historical_m / dist_to_center_m computed in the original
-pipeline (verify_distances.py / test_confound.py) -- no new data acquisition.
+"""Walking-time-threshold sensitivity check (Bochum): does the reversed distance
+relationship hold at 10-min/750m and 20-min/1500m, not just 15-min/1125m?
+Reuses the existing network/POIs and distances from verify_distances.py / test_confound.py.
 """
 import json
 import numpy as np

@@ -200,15 +200,15 @@ Two subsequent robustness extensions reinforce and refine this conclusion rather
 
 ## References
 
-Arthur, W. B. (1988). Urban Systems and Historical Path Dependence, in *Cities and Their Vital Systems*. National Academies Press.
+Arthur, W. B. (1988). Urban Systems and Historical Path Dependence. In *Cities and Their Vital Systems: Infrastructure Past, Present, and Future* (pp. 85–97). National Academies Press. [https://www.nationalacademies.org/read/1093/chapter/5](https://www.nationalacademies.org/read/1093/chapter/5)
 
-Görmar, F., & Harfst, J. (2019). Path Renewal or Path Dependence? The Role of Industrial Culture in Regional Restructuring. *Urban Science*, 3(4), 106. https://doi.org/10.3390/urbansci3040106
+Görmar, F., & Harfst, J. (2019). Path Renewal or Path Dependence? The Role of Industrial Culture in Regional Restructuring. *Urban Science*, 3(4), 106. [https://doi.org/10.3390/urbansci3040106](https://doi.org/10.3390/urbansci3040106)
 
-Hein, C., & Schubert, D. (2021). Resilience and Path Dependence: A Comparative Study of the Port Cities of London, Hamburg, and Philadelphia. *Journal of Urban History*.
+Hein, C., & Schubert, D. (2021). Resilience and Path Dependence: A Comparative Study of the Port Cities of London, Hamburg, and Philadelphia. *Journal of Urban History*, 47(2), 389–419. [https://doi.org/10.1177/0096144220925098](https://doi.org/10.1177/0096144220925098)
 
-Sony Computer Science Laboratories. A Universal Framework for Inclusive 15-minute Cities. *Nature Cities* (2024), as reported via CNU.org.
+Bruno, M., Melo, H. P. M., Campanelli, B., & Loreto, V. (2024). A universal framework for inclusive 15-minute cities. *Nature Cities*, 1(10), 633–641. [https://doi.org/10.1038/s44284-024-00119-4](https://doi.org/10.1038/s44284-024-00119-4)
 
-Systematic literature review: An assessment of proximity in the 15-Minute City. *ScienceDirect* (2025).
+Omwamba, J., Rotaris, L., & Longo, G. (2025). An assessment of proximity in the 15-Minute City: A systematic literature review. *Urban Transitions*, 3, 100012. [https://doi.org/10.1016/j.ubtr.2025.100012](https://doi.org/10.1016/j.ubtr.2025.100012)
 
-Bencekri, M., & Moreno, C. Assessing accessibility of cultural sites through the 15-minute city framework in Seoul. *International Journal of Urban Sciences* (2025).
+Moreno, C., Gall, C., Woo, J., Lee, D., & Bencekri, M. (2025). Assessing accessibility of cultural sites through the 15-minute city framework in Seoul. *International Journal of Urban Sciences*, 29(1), 8–39. [https://doi.org/10.1080/12265934.2025.2462820](https://doi.org/10.1080/12265934.2025.2462820)
 

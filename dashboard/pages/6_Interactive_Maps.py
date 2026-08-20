@@ -39,9 +39,9 @@ else:
 card(
     kicker("Map Legend")
     + card_body(
-        "🟠 Orange Marker — Coal Mine (click for name, dates) &nbsp;|&nbsp; "
-        "🔵 Light-Blue Marker — Worker Colony (click for name, associated mine, dates) &nbsp;|&nbsp; "
-        "🔴 Heatmap — Low 15-Min Accessibility (n=9,858 of 69,393 nodes) &nbsp;|&nbsp; "
+        "Orange Marker — Coal Mine (click for name, dates) &nbsp;|&nbsp; "
+        "Light-Blue Marker — Worker Colony (click for name, associated mine, dates) &nbsp;|&nbsp; "
+        "Heatmap — Low 15-Min Accessibility (n=9,858 of 69,393 nodes) &nbsp;|&nbsp; "
         "Use the layer control (top-right) to toggle layers on/off",
         large=True,
     )
@@ -68,9 +68,9 @@ else:
 card(
     kicker("Map Legend")
     + card_body(
-        "🟠 Orange Marker — Coal Mine (click for name, dates, source) &nbsp;|&nbsp; "
-        "🔵 Light-Blue Marker — Worker Colony (click for name, dates, source) &nbsp;|&nbsp; "
-        "🔴 Heatmap — Low 15-Min Accessibility (n=8,267 of 72,027 nodes) &nbsp;|&nbsp; "
+        "Orange Marker — Coal Mine (click for name, dates, source) &nbsp;|&nbsp; "
+        "Light-Blue Marker — Worker Colony (click for name, dates, source) &nbsp;|&nbsp; "
+        "Heatmap — Low 15-Min Accessibility (n=8,267 of 72,027 nodes) &nbsp;|&nbsp; "
         "Use the layer control (top-right) to toggle layers on/off",
         large=True,
     )

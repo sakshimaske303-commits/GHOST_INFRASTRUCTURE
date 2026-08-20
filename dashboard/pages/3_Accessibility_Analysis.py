@@ -36,11 +36,11 @@ st.markdown("<h3>What Counts as an Essential Service</h3>", unsafe_allow_html=Tr
 
 s1, s2, s3 = st.columns(3)
 with s1:
-    card(card_body("🏥 <strong>Health</strong><br>Hospitals, clinics, pharmacies"))
+    card(card_body("<strong>Health</strong><br>Hospitals, clinics, pharmacies"))
 with s2:
-    card(card_body("🎓 <strong>Education</strong><br>Schools, kindergartens"))
+    card(card_body("<strong>Education</strong><br>Schools, kindergartens"))
 with s3:
-    card(card_body("🛒 <strong>Daily Needs</strong><br>Supermarkets, convenience stores, parks"))
+    card(card_body("<strong>Daily Needs</strong><br>Supermarkets, convenience stores, parks"))
 
 st.markdown("---")
 

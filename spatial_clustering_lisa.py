@@ -1,21 +1,6 @@
-"""
-Local Moran's I (LISA - Local Indicators of Spatial Association) analysis of
-15-minute accessibility across Bochum's street network.
-
-This directly implements the spatial-clustering test that this project's own
-stated Objectives promised ("Apply spatial statistical methods (Local Moran's I /
-hot-spot analysis) to test whether low-accessibility zones today are statistically
-clustered...") but which the original analysis pipeline did not actually run --
-the Welch's t-test and logistic regression tested *distance* to historical sites,
-not spatial *clustering* of accessibility itself. This script closes that gap with
-a genuine, independent spatial-statistics test, and produces the LISA cluster map
-(outputs/plots/lisa_cluster_map.png) referenced in Research_Paper.md Section 4.4.
-
-Method: K-nearest-neighbor (k=8) spatial weights matrix over all 69,393 street
-network nodes, row-standardized, Local Moran's I on the binary within_15min
-accessibility variable, 99 conditional permutations, significance at p<0.05.
-
-Requires: libpysal, esda  (pip install libpysal esda)
+"""LISA (Local Moran's I) on 15-min accessibility across Bochum's street network.
+KNN(k=8) row-standardized weights, binary within_15min, 99 permutations, p<0.05.
+Fills the spatial-clustering test the original t-test/logit pipeline didn't cover. Needs libpysal, esda.
 """
 
 import os

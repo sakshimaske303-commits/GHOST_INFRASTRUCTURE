@@ -1,14 +1,5 @@
-"""
-GHOST_INFRASTRUCTURE — Essen multi-city comparison, step 2 of 2.
-
-Same method as download_network.py, just pointed at Essen instead of Bochum.
-
-Run from the GHOST_INFRASTRUCTURE folder (same place as the original
-download_network.py), after `pip install osmnx` if not already installed.
-
-Produces:
-  data/osm_network/essen_walk_network.graphml
-  data/osm_network/essen_essential_services.gpkg
+"""Essen multi-city comparison, step 2/2 — same method as download_network.py, pointed at Essen.
+Outputs: data/osm_network/essen_walk_network.graphml, essen_essential_services.gpkg
 """
 import osmnx as ox
 import os

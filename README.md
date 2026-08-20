@@ -1,23 +1,23 @@
-# 🏭 GHOST INFRASTRUCTURE
+# GHOST INFRASTRUCTURE
 
 **How 19th-Century Coal Geography Still Shapes Who Gets a "15-Minute Life" Today**
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21761320.svg)](https://doi.org/10.5281/zenodo.21761320)
 
-## 🔗 Live Dashboard
+## Live Dashboard
 
 **Live Dashboard**: `https://ghostinfrastructure-areytvp4x8ofu6l5tosj2z.streamlit.app/`
 
 *(Copy and paste this URL directly into your browser's address bar for correct rendering — clicking through GitHub's link preview can occasionally cause a temporary layout glitch on first load, which resolves after a single page refresh.)*
 
-## 📄 Project Documentation
+## Project Documentation
 
 | Document | What's Inside |
 |---|---|
-| ⚡ [`GI_Executive_Summary.pdf`](./GI_Executive_Summary.pdf) | One-page snapshot — question, method, headline finding, robustness checklist, and links (fastest overview) |
-| 📘 [`GI_Project_Report.md`](./GI_Project_Report.md) | Polished project summary — methodology, findings, conclusions (start here) |
-| 📗 [`GI_Research_Paper.md`](./GI_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
-| 📙 [`GI_Development_Log.md`](./GI_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
+| [`GI_Executive_Summary.pdf`](./GI_Executive_Summary.pdf) | One-page snapshot — question, method, headline finding, robustness checklist, and links (fastest overview) |
+| [`GI_Project_Report.md`](./GI_Project_Report.md) | Polished project summary — methodology, findings, conclusions (start here) |
+| [`GI_Research_Paper.md`](./GI_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
+| [`GI_Development_Log.md`](./GI_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
 
 ---
 
@@ -29,7 +29,7 @@ The core finding is tested for robustness two ways: across three walking-time th
 
 ---
 
-## 🗺️ Interactive Maps & Plots
+## Interactive Maps & Plots
 
 Interactive maps and headline charts are hosted via GitHub Pages:
 
@@ -46,7 +46,7 @@ Interactive maps and headline charts are hosted via GitHub Pages:
 
 ---
 
-## 📊 What This Project Does
+## What This Project Does
 
 - Digitizes 13 historical coal mines and 4 worker-housing colonies in Bochum (from Mindat.org and German heritage archives), plus 4 mines and 4 colonies in Essen (from KuLaDig and Wikipedia) for an independent multi-city replication, kept as structurally distinct GIS layers
 - Builds a true network-based 15-minute accessibility model across Bochum's complete 69,393-node and Essen's 72,027-node pedestrian street networks (not a simplified straight-line radius)
@@ -56,7 +56,7 @@ Interactive maps and headline charts are hosted via GitHub Pages:
 - Tests robustness at three walking-time thresholds (10/15/20-minute) and confirms the effect holds — and strengthens — at every one
 - Presents all findings through an interactive dashboard with a live distance-threshold explorer, Python (folium) interactive maps, and Plotly interactive plots
 
-## 🔬 Key Finding
+## Key Finding
 
 **A reversed, independently-verified effect.** The hypothesis was that historical industrial sites would predict present-day neglect. The evidence showed the opposite: low-accessibility zones are, on average, *further* from historical industrial sites (1,984m) than high-accessibility zones (1,450m) — a highly significant relationship (Welch's t-test, t=42.887, p<0.00001, Cohen's d=0.589). This holds independently of city-center proximity (correlation r=0.063; logistic regression coefficient=-0.0005, p<0.001, controlling for city-center distance) — a genuine **"path dependency of centrality"** rather than the originally hypothesized "path dependency of neglect." A Local Moran's I spatial-clustering analysis independently corroborates this: 97.1% of low-accessibility nodes fall inside statistically significant spatial cold-spot clusters, confirming low accessibility is not randomly scattered but forms genuine, spatially contiguous zones farther from historical industrial sites.
 
@@ -64,7 +64,7 @@ Interactive maps and headline charts are hosted via GitHub Pages:
 
 Full methodology, including two independently-verified map anomalies traced to genuine historical geography (not data errors), is documented in the dashboard's Methodology page and in `GI_Project_Report.md`.
 
-## 🗂️ Repository Structure
+## Repository Structure
 
 ```text
 GHOST_INFRASTRUCTURE/
@@ -89,11 +89,11 @@ GHOST_INFRASTRUCTURE/
 └── requirements.txt
 ```
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 Python · GeoPandas · OSMnx · NetworkX · Statsmodels · Plotly · Folium · Streamlit · GitHub Pages
 
-## 📚 Data Sources
+## Data Sources
 
 | Dataset | Provider |
 |---|---|
@@ -103,7 +103,7 @@ Python · GeoPandas · OSMnx · NetworkX · Statsmodels · Plotly · Folium · S
 | City Boundary | GADM v4.1 |
 | Street Network & Essential Services | OpenStreetMap via OSMnx |
 
-## ▶️ Running Locally
+## Running Locally
 
 ```bash
 git clone https://github.com/sakshimaske303-commits/GHOST_INFRASTRUCTURE.git
@@ -113,13 +113,13 @@ cd dashboard
 streamlit run app.py
 ```
 
-## 👤 Author
+## Author
 
 **Sakshi D. Maske**
 
 Independent Geospatial Researcher
 
-## 📜 License
+## License
 
 This project is licensed under [CC BY 4.0](LICENSE). See `CITATION.cff` for citation metadata.
 

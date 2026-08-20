@@ -44,7 +44,7 @@ st.markdown(
                 padding: 16px 32px;
                 box-shadow: 0 4px 20px rgba(255, 242, 186, 0.35);
             ">
-                <span style="font-size:2.1rem; line-height:1;">📦</span>
+                
                 <div style="text-align:left;">
                     <div style="color:#E4D28C; font-family:'Bitter',serif; font-weight:800; font-size:1.05rem; letter-spacing:0.4px; display:flex; align-items:center; gap:8px;">
                         <span>ARCHIVED &amp; CITABLE ON ZENODO</span>
@@ -76,7 +76,7 @@ with col4:
 st.markdown("---")
 
 card(
-    kicker("⚡ Why This Matters")
+    kicker("Why This Matters")
     + card_body(
         "Urban planners often assume that former industrial zones are the neighborhoods most likely "
         "to be left behind — under-served, poorly connected, needing the most investment. This project "
@@ -161,15 +161,15 @@ st.markdown("---")
 st.markdown("<h3>Explore the Research</h3>", unsafe_allow_html=True)
 
 nav_items = [
-    ("🏛️", "Study Design", "Bochum, methodology, why this city"),
-    ("⛏️", "Theoretical Foundations", "How mining subsidence and legacy landform shaped today's accessibility"),
-    ("⛏️", "Historical Geography", "13 mines, 4 worker colonies"),
-    ("🚶", "Accessibility Analysis", "The 15-minute network model"),
-    ("📊", "The Finding", "Statistical test + confound + spatial clustering"),
-    ("📈", "Explore Trends", "Live distance-threshold explorer"),
-    ("🗺️", "Interactive Maps & Plots", "Live geospatial exploration plus the three headline charts"),
-    ("📖", "Methodology & Data", "Sources, debugging journey, limitations"),
-    ("🧪", "Robustness: Thresholds & Essen", "10/20-min sensitivity + a second-city replication"),
+    ("Study Design", "Bochum, methodology, why this city"),
+    ("Theoretical Foundations", "How mining subsidence and legacy landform shaped today's accessibility"),
+    ("Historical Geography", "13 mines, 4 worker colonies"),
+    ("Accessibility Analysis", "The 15-minute network model"),
+    ("The Finding", "Statistical test + confound + spatial clustering"),
+    ("Explore Trends", "Live distance-threshold explorer"),
+    ("Interactive Maps & Plots", "Live geospatial exploration plus the three headline charts"),
+    ("Methodology & Data", "Sources, debugging journey, limitations"),
+    ("Robustness: Thresholds & Essen", "10/20-min sensitivity + a second-city replication"),
 ]
 
 cols = st.columns(3)
@@ -179,7 +179,7 @@ for i, (icon, title, desc) in enumerate(nav_items):
 
 st.markdown("---")
 
-st.markdown("<h3>📄 Full Project Documentation</h3>", unsafe_allow_html=True)
+st.markdown("<h3>Full Project Documentation</h3>", unsafe_allow_html=True)
 lead("Download the complete research paper, project journal, and development log.")
 
 doc0, doc1, doc2, doc3 = st.columns(4)
@@ -188,7 +188,7 @@ with doc0:
     try:
         with open(os.path.join(ROOT_DIR, "GI_Executive_Summary.pdf"), "rb") as f:
             st.download_button(
-                label="⚡ Executive Summary (PDF)",
+                label="Executive Summary (PDF)",
                 data=f,
                 file_name="GHOST_INFRASTRUCTURE_Executive_Summary.pdf",
                 mime="application/pdf",
@@ -201,7 +201,7 @@ with doc1:
     try:
         with open(os.path.join(ROOT_DIR, "GI_Research_Paper.pdf"), "rb") as f:
             st.download_button(
-                label="📘 Research Paper (PDF)",
+                label="Research Paper (PDF)",
                 data=f,
                 file_name="GHOST_INFRASTRUCTURE_Research_Paper.pdf",
                 mime="application/pdf",
@@ -214,7 +214,7 @@ with doc2:
     try:
         with open(os.path.join(ROOT_DIR, "GI_Project_Report.pdf"), "rb") as f:
             st.download_button(
-                label="📗 Project Report (PDF)",
+                label="Project Report (PDF)",
                 data=f,
                 file_name="GHOST_INFRASTRUCTURE_Project_Report.pdf",
                 mime="application/pdf",
@@ -227,7 +227,7 @@ with doc3:
     try:
         with open(os.path.join(ROOT_DIR, "GI_Development_Log.pdf"), "rb") as f:
             st.download_button(
-                label="📙 Development Log (PDF)",
+                label="Development Log (PDF)",
                 data=f,
                 file_name="GHOST_INFRASTRUCTURE_Development_Log.pdf",
                 mime="application/pdf",
@@ -246,6 +246,6 @@ card(f"""
         {kicker("Developed by")}
         <p style="font-family:'Bitter',serif; font-weight:900; font-size:2rem; margin:0 0 6px 0;">SAKSHI D. MASKE</p>
         <p style="font-weight:700; font-size:0.95rem; margin:0 0 16px 0;">Independent Geospatial Researcher</p>
-        <a href="{GITHUB_URL}" target="_blank" class="gi-pill-btn">🔗 View on GitHub</a>
+        <a href="{GITHUB_URL}" target="_blank" class="gi-pill-btn">View on GitHub</a>
     </div>
 """)
