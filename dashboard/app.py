@@ -44,7 +44,6 @@ st.markdown(
                 padding: 16px 32px;
                 box-shadow: 0 4px 20px rgba(255, 242, 186, 0.35);
             ">
-                
                 <div style="text-align:left;">
                     <div style="color:#E4D28C; font-family:'Bitter',serif; font-weight:800; font-size:1.05rem; letter-spacing:0.4px; display:flex; align-items:center; gap:8px;">
                         <span>ARCHIVED &amp; CITABLE ON ZENODO</span>
