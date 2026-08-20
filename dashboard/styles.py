@@ -383,5 +383,5 @@ def stat_card(label, value, sub=None):
     card(inner)
 
 
-def nav_card(icon, title, desc):
-    card(card_icon(icon) + card_title(title) + card_body(desc))
+def nav_card(title, desc):
+    card(card_title(title) + card_body(desc))

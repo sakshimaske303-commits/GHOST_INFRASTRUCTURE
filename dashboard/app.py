@@ -172,9 +172,9 @@ nav_items = [
 ]
 
 cols = st.columns(3)
-for i, (icon, title, desc) in enumerate(nav_items):
+for i, (title, desc) in enumerate(nav_items):
     with cols[i % 3]:
-        nav_card(icon, title, desc)
+        nav_card(title, desc)
 
 st.markdown("---")
 
