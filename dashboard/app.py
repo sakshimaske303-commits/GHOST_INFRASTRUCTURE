@@ -10,6 +10,7 @@ from styles import (
     card, kicker, card_title, card_body, stat_card, nav_card,
     PALETTE,
 )
+from doc_viewer import render_doc_viewer
 
 st.set_page_config(
     page_title="GHOST INFRASTRUCTURE",
@@ -179,61 +180,30 @@ for i, (title, desc) in enumerate(nav_items):
 st.markdown("---")
 
 st.markdown("<h3>Full Project Documentation</h3>", unsafe_allow_html=True)
-lead("Download the complete research paper, project journal, and development log.")
+lead("The complete research paper, project journal, and development log open directly below, no download needed.")
 
-doc0, doc1, doc2, doc3 = st.columns(4)
+_all_docs = [
+    {"label": "Executive Summary", "filename": "GI_Executive_Summary.pdf"},
+    {"label": "Research Paper", "filename": "GI_Research_Paper.pdf"},
+    {"label": "Project Report", "filename": "GI_Project_Report.pdf"},
+    {"label": "Development Log", "filename": "GI_Development_Log.pdf"},
+]
+_docs = [d for d in _all_docs if os.path.exists(os.path.join(BASE_DIR, "static", d["filename"]))]
+_missing = [d for d in _all_docs if d not in _docs]
 
-with doc0:
-    try:
-        with open(os.path.join(ROOT_DIR, "GI_Executive_Summary.pdf"), "rb") as f:
-            st.download_button(
-                label="Executive Summary (PDF)",
-                data=f,
-                file_name="GHOST_INFRASTRUCTURE_Executive_Summary.pdf",
-                mime="application/pdf",
-                use_container_width=True,
-            )
-    except FileNotFoundError:
-        st.warning("GI_Executive_Summary.pdf not found.")
-
-with doc1:
-    try:
-        with open(os.path.join(ROOT_DIR, "GI_Research_Paper.pdf"), "rb") as f:
-            st.download_button(
-                label="Research Paper (PDF)",
-                data=f,
-                file_name="GHOST_INFRASTRUCTURE_Research_Paper.pdf",
-                mime="application/pdf",
-                use_container_width=True,
-            )
-    except FileNotFoundError:
-        st.warning("GI_Research_Paper.pdf not found.")
-
-with doc2:
-    try:
-        with open(os.path.join(ROOT_DIR, "GI_Project_Report.pdf"), "rb") as f:
-            st.download_button(
-                label="Project Report (PDF)",
-                data=f,
-                file_name="GHOST_INFRASTRUCTURE_Project_Report.pdf",
-                mime="application/pdf",
-                use_container_width=True,
-            )
-    except FileNotFoundError:
-        st.warning("GI_Project_Report.pdf not found.")
-
-with doc3:
-    try:
-        with open(os.path.join(ROOT_DIR, "GI_Development_Log.pdf"), "rb") as f:
-            st.download_button(
-                label="Development Log (PDF)",
-                data=f,
-                file_name="GHOST_INFRASTRUCTURE_Development_Log.pdf",
-                mime="application/pdf",
-                use_container_width=True,
-            )
-    except FileNotFoundError:
-        st.warning("GI_Development_Log.pdf not found.")
+if _docs:
+    render_doc_viewer(
+        docs=_docs,
+        colors={
+            "navy_dark": PALETTE["bg_sidebar"],
+            "navy_med": PALETTE["bg_main"],
+            "magenta": "#E6DAA7",
+            "teal": PALETTE["accent"],
+            "text_light": PALETTE["text_primary"],
+        },
+    )
+for d in _missing:
+    st.warning(f"{d['filename']} not found.")
 
 st.markdown("---")
 
