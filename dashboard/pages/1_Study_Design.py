@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 import sys
 import os
 
@@ -49,9 +50,15 @@ st.markdown("---")
 
 st.markdown("<h3>Study Area</h3>", unsafe_allow_html=True)
 
-study_area_path = os.path.join(PROJECT_ROOT, "outputs", "plots", "study_area_bochum.png")
-if os.path.exists(study_area_path):
-    st.image(study_area_path, use_container_width=True)
+interactive_map_path = os.path.join(PROJECT_ROOT, "outputs", "plots", "study_area_bochum.html")
+if os.path.exists(interactive_map_path):
+    with open(interactive_map_path, "r", encoding="utf-8") as f:
+        components.html(f.read(), height=520)
+    footer_caption("Hover the boundary for the city name.")
+else:
+    study_area_path = os.path.join(PROJECT_ROOT, "outputs", "plots", "study_area_bochum.png")
+    if os.path.exists(study_area_path):
+        st.image(study_area_path, use_container_width=True)
 
 st.markdown("---")
 
