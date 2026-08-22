@@ -10,7 +10,7 @@ url: "https://github.com/sakshimaske303-commits/GHOST_INFRASTRUCTURE"
 identifiers:
   - type: doi
     value: "10.5281/zenodo.21761320"
-    description: "Zenodo archive of GHOST INFRASTRUCTURE v1.0.0"
+    description: "Zenodo archive of GHOST INFRASTRUCTURE v1.1.0"
 doi: "10.5281/zenodo.21761320"
 abstract: >-
   A historical-cartographic and spatial-network study testing whether Bochum's
@@ -28,7 +28,17 @@ abstract: >-
   Local Moran's I spatial-clustering analysis showing 97.1% of
   low-accessibility nodes fall within statistically significant cold-spot
   clusters. The evidence supports a "path dependency of centrality" rather
-  than a "path dependency of neglect."
+  than a "path dependency of neglect." Two robustness extensions were added
+  in v1.1.0. First, the finding holds — and strengthens — at 10-minute and
+  20-minute walking thresholds, not only the original 15-minute threshold
+  (Cohen's d ranging 0.413-0.661). Second, the full methodology was
+  independently replicated in Essen, a second Ruhr Valley city (72,027-node
+  network, 4 mines + 4 worker colonies digitized from KuLaDig and Wikipedia).
+  The raw reversed effect and the spatial-clustering result both replicate in
+  Essen; the confound-independence result does not — Essen's historical-site
+  distance correlates moderately with city-center distance (r=0.405, versus
+  Bochum's r=0.063), and the historical-site effect's sign reverses once
+  city-center distance is controlled for. Both results are reported in full.
 keywords:
   - path dependency
   - 15-minute city
@@ -40,6 +50,8 @@ keywords:
   - Local Moran's I
   - Germany
   - Ruhr Valley
+  - multi-city replication
+  - robustness analysis
 license: CC-BY-4.0
-version: 1.0.0
-date-released: "2026-08-02"
+version: 1.1.0
+date-released: "2026-08-22"

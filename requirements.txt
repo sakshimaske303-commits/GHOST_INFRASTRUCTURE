@@ -9,3 +9,7 @@ scipy
 statsmodels
 plotly
 numpy
+esda
+libpysal
+Pillow
+reportlab
