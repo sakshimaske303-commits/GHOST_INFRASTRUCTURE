@@ -28,7 +28,7 @@ st.markdown("<h3>Why Bochum</h3>", unsafe_allow_html=True)
 card(card_body(
     "Bochum was a small agricultural town until iron, coal, and steel industries developed "
     "mid-19th century, becoming a defining Ruhr Valley industrial city through the 1950s. "
-    "The last coal mine in Bochum (Zeche Holland) closed in 1974. Bochum is also directly relevant "
+    "The last coal mine in Bochum closed in 1974. Bochum is also directly relevant "
     "to this research program's institutional context — home to Ruhr University Bochum.",
     large=True,
 ))

@@ -13,3 +13,4 @@ esda
 libpysal
 Pillow
 reportlab
+folium

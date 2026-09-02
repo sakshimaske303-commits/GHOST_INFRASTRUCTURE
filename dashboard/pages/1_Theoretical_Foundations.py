@@ -81,11 +81,13 @@ card(
         "Subsidence basins and spoil heaps were never just geological curiosities — mining "
         "companies built rail lines and roads specifically to reach shafts and move coal, and "
         "workers' colonies (Zechensiedlungen) were built beside them. That transport network and "
-        "settlement pattern is the literal <strong>legacy geomorphology</strong> that present-day "
-        "Bochum's road grid is still built on top of. This is the physical mechanism behind Ghost "
+        "settlement pattern is the leading hypothesized <strong>legacy geomorphology</strong> behind "
+        "present-day Bochum's road grid, though direct digitization of the historical rail and road "
+        "network — needed to test transportation connectivity independently of proximity to mines "
+        "and colonies — is still future work. This hypothesized mechanism is consistent with Ghost "
         "Infrastructure's central, hypothesis-reversing finding: proximity to historical mining "
         "sites statistically predicts <em>better</em> 15-minute accessibility today, not worse — "
-        "because those sites already came with the transport infrastructure a walkable "
+        "because those sites plausibly came with the transport infrastructure a walkable "
         "neighbourhood needs, laid down more than a century before urban planners ever used the "
         "term.",
         large=True,

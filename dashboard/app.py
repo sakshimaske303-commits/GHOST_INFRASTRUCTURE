@@ -185,7 +185,6 @@ lead("The complete research paper, project journal, and development log open dir
 _all_docs = [
     {"label": "Executive Summary", "filename": "GI_Executive_Summary.pdf"},
     {"label": "Research Paper", "filename": "GI_Research_Paper.pdf"},
-    {"label": "Project Report", "filename": "GI_Project_Report.pdf"},
     {"label": "Development Log", "filename": "GI_Development_Log.pdf"},
 ]
 _docs = [d for d in _all_docs if os.path.exists(os.path.join(BASE_DIR, "static", d["filename"]))]

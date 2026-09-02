@@ -14,18 +14,17 @@
 
 | Document | What's Inside |
 |---|---|
-| [`GI_Executive_Summary.pdf`](./GI_Executive_Summary.pdf) | One-page snapshot — question, method, headline finding, robustness checklist, and links (fastest overview) |
-| [`GI_Project_Report.md`](./GI_Project_Report.md) | Polished project summary — methodology, findings, conclusions (start here) |
+| [`GI_Executive_Summary.md`](./GI_Executive_Summary.md) / [`.pdf`](./GI_Executive_Summary.pdf) | One-page snapshot — project overview, question, method, headline finding, robustness checklist, and links (start here) |
 | [`GI_Research_Paper.md`](./GI_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
 | [`GI_Development_Log.md`](./GI_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
 
 ---
 
-GHOST INFRASTRUCTURE is a historical-cartographic and spatial-network research project testing whether Bochum's 19th and 20th-century coal-mining industrial geography — mine locations and worker-housing colonies (Zechensiedlungen) — continues to structurally predict present-day "15-minute city" accessibility, more than half a century after the region's last coal mine closed.
+The research project GHOST INFRASTRUCTURE investigates on the analytical level if the spatial distribution of coal mining areas and workers' quarters (Zechensiedlungen), which are characteristic elements of the industrial geography of Bochum’s 19th and 20th century, continues to structurally reflect the degree of present-day "15-minute city" accessibility – more than 50 years after the final closure of the last coal mine in the region.
 
-Rather than treating "industrial legacy" as a qualitative, narrative concept, this project makes it spatially and statistically measurable — directly testing digitized historical geography against a network-based measure of present-day urban accessibility.
+But instead of using the term “industrial legacy” as a qualitative narrative metric, this project provides a new spatially and statistically quantifiable alternative measure: it tests something derived from historical geography (the digitized data) against a measure of urban accessibility derived from the network.
 
-The core finding is tested for robustness two ways: across three walking-time thresholds (10/15/20-minute), and via an independent multi-city replication in Essen. Both extensions are reported in full, including the parts that don't cleanly replicate — see "What This Project Does" below.
+This core finding is tested for robustness, both across three walking-time thresholds - 10 – 15 – 20 minutes - and using an independent although comparable multi-city replication in Essen. Both extensions are reported in full, including the parts that are not easily replicable — see "What This Project Does" below.
 
 ---
 
@@ -48,21 +47,21 @@ Interactive maps and headline charts are hosted via GitHub Pages:
 
 ## What This Project Does
 
-- Digitizes 13 historical coal mines and 4 worker-housing colonies in Bochum (from Mindat.org and German heritage archives), plus 4 mines and 4 colonies in Essen (from KuLaDig and Wikipedia) for an independent multi-city replication, kept as structurally distinct GIS layers
-- Builds a true network-based 15-minute accessibility model across Bochum's complete 69,393-node and Essen's 72,027-node pedestrian street networks (not a simplified straight-line radius)
-- Statistically tests whether historical industrial-site proximity predicts present-day accessibility
-- Explicitly verifies the finding against its most obvious confound — city-center proximity — using correlation analysis and logistic regression
-- Independently corroborates the finding with a Local Moran's I (LISA) spatial-clustering analysis across all network nodes, in both cities
-- Tests robustness at three walking-time thresholds (10/15/20-minute) and confirms the effect holds — and strengthens — at every one
-- Presents all findings through an interactive dashboard with a live distance-threshold explorer, Python (folium) interactive maps, and Plotly interactive plots
+- Digitizes 13 historical coal mines and 4 worker housing colonies in Bochum from the Mindat.org archive and German heritage archives, stored as structurally separate GIS layers, plus 4 mines and 4 colonies in Essen from KuLaDig (Kultur.Landschaft.Digital) and Wikipedia for an independent multi-city replication
+- Creates a connecting web of 15 minutes walking time for the entire pedestrian street network in Bochum and Essen (72,027 nodes in Essen, 69,393 nodes in Bochum) and not the area that is traversed in a straight line (radius) as is often used in simplified scenarios.
+- Tests statistical significance of historical statistical link between industrial sites and accessibility
+- Correlates and/or conducts logistic regression analyses to explicitly determine that the observed finding is not due to the most readily available confounder (city-center proximity, in this case)
+- Runs a local spatial-cluster analysis (LISA) on finding at each node of network in both cities (using Local Moran's I)
+- Tests its robustness at 3 walking-time cutpoints (10, 15, 20 minutes-cut) and finds that its effect remains and is enhanced at each cut
+- Represents all results using a live distance-threshold explorer in an interactive dashboard, Python (folium) maps, and Plotly interactive plots
 
 ## Key Finding
 
-**A reversed, independently-verified effect.** The hypothesis was that historical industrial sites would predict present-day neglect. The evidence showed the opposite: low-accessibility zones are, on average, *further* from historical industrial sites (1,984m) than high-accessibility zones (1,450m) — a highly significant relationship (Welch's t-test, t=42.887, p<0.00001, Cohen's d=0.589). This holds independently of city-center proximity (correlation r=0.063; logistic regression coefficient=-0.0005, p<0.001, controlling for city-center distance) — a genuine **"path dependency of centrality"** rather than the originally hypothesized "path dependency of neglect." A Local Moran's I spatial-clustering analysis independently corroborates this: 97.1% of low-accessibility nodes fall inside statistically significant spatial cold-spot clusters, confirming low accessibility is not randomly scattered but forms genuine, spatially contiguous zones farther from historical industrial sites.
+An “inverted” effect with independent verification. The hypothesis was historical industrial sites would be predictive of current site neglect. Contrary to the hypothesis, the evidence showed the opposite — the distance of low accessibility zones from historical industrial sites (1,984m) was on average, *further* than the distance that high accessibility zones were from historical industrial sites (1,450m) (results were highly significant: Welch's t-test, t=42.887, p<0.00001, Cohen's d=0.589). This is independent of the city-center proximity: there was practically no correlation between the two (r=0.063), and no presence of a "path dependency of neglect" as originally hypothesized, but a "path dependency of centrality". This is also confirmed independently at the Local Moran's I spatial-clustering analysis, which shows that 97.1% of low-accessibility nodes are contained within statistically significant spatial cold-spot clusters that support the notion that low accessibility is not random; it creates genuine, statistically significant and contiguous spatial low-accessibility zones, further from historical industrial sites.
 
-**Replicated — with an honestly-reported nuance — in a second city.** The same methodology run on Essen reproduces the raw reversed effect (Cohen's d=0.338) and the spatial-clustering result (95.5% vs. Bochum's 97.1%) almost exactly. It does *not* reproduce the confound-independence result: in Essen, historical-site distance correlates moderately with city-center distance (r=0.405 vs. Bochum's r=0.063), and the historical-site effect's sign reverses once city-center distance is controlled for. Both cities' results are reported in full — the underlying "centrality legacy" mechanism appears to generalize; the stronger claim that it's independent of city-center proximity, on current evidence, does not.
+Replicated - with a sincere nuance - in a second city. The same method applied to Essen generates the same raw reversed effect (Cohen's d=0.338) and the same result for the spatial clustering (95.5% vs. Bochum's 97.1%). However, it does not replicate the confounds-independence result: There exists a modest correlation between historical-site distance and city-center distance in Essen (r=0.405) but not in Bochum (r=0.063); controlling for city-center distance causes the sign of the historical-site effect to flip. The underlying "centrality legacy" mechanism itself appears to generalize across both cities; the stronger claim that it is independent of city-center proximity, on current evidence, does not.
 
-Full methodology, including two independently-verified map anomalies traced to genuine historical geography (not data errors), is documented in the dashboard's Methodology page and in `GI_Project_Report.md`.
+The dashboard's Methodology page lists full methodology, as well as two independently-verified anomalies in the maps that are identified as genuine historical geography and not data errors, in the Project Overview of the `GI_Executive_Summary.md` and in the `GI_Development_Log.md`.
 
 ## Repository Structure
 
@@ -78,7 +77,6 @@ GHOST_INFRASTRUCTURE/
 │   ├── plots/                       # Static visualizations, including multi-city + threshold comparisons
 │   │   └── interactive/             # Plotly interactive HTML charts
 │   └── maps/                        # Interactive folium map exports
-├── GI_Project_Report.md             # Polished project summary and methodology
 ├── GI_Research_Paper.md             # Formal academic research paper
 ├── GI_Development_Log.md            # Full technical development log
 ├── map*.py                          # Visualization scripts
