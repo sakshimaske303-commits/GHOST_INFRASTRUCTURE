@@ -1,0 +1,13 @@
+{
+  "neighbor_definition": "network distance <= 750m",
+  "permutations": 999,
+  "n_nodes": 69393,
+  "n_islands": 1,
+  "mean_local_I": 0.645,
+  "pct_significant": 96.9,
+  "n_significant": 67210,
+  "n_LL_significant": 9340,
+  "n_HH_significant": 53421,
+  "n_HL_significant": 4283,
+  "n_LH_significant": 166
+}

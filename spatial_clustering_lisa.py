@@ -1,8 +1,3 @@
-"""LISA (Local Moran's I) on 15-min accessibility across Bochum's street network.
-KNN(k=8) row-standardized weights, binary within_15min, 99 permutations, p<0.05.
-Fills the spatial-clustering test the original t-test/logit pipeline didn't cover. Needs libpysal, esda.
-"""
-
 import os
 import numpy as np
 import geopandas as gpd
@@ -22,7 +17,7 @@ BACKGROUND = "#0F3C65"
 ACCENT = "#FFF2BA"
 
 K_NEIGHBORS = 8
-PERMUTATIONS = 99
+PERMUTATIONS = 999
 SEED = 42
 SIG_LEVEL = 0.05
 

@@ -1,0 +1,21 @@
+{
+  "n_blocks": 2611,
+  "block_target_size": 500,
+  "n_bootstrap_requested": 999,
+  "n_bootstrap_successful_logit": 999,
+  "observed_difference_m": 534.25,
+  "bootstrap_ci_difference_m": [
+    247.24,
+    873.73
+  ],
+  "original_logit_coef_historical": -0.00047626467376119555,
+  "bootstrap_ci_logit_coef_historical": [
+    -0.0007503704398185094,
+    -0.00025628299963183665
+  ],
+  "original_logit_coef_center": -0.00028516200542912795,
+  "bootstrap_ci_logit_coef_center": [
+    -0.00044003017291982115,
+    -0.00015276621389103271
+  ]
+}

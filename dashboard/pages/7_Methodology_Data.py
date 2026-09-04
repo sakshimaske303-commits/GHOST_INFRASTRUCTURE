@@ -156,9 +156,12 @@ with lca:
         testing whether low-accessibility zones are spatially clustered. The Welch's t-test and logistic
         regression above test a related but distinct question — whether *distance* to historical sites
         differs between accessibility groups — not spatial *clustering* of accessibility itself. A
-        Local Moran's I analysis (KNN k=8 spatial weights, 99 permutations, `libpysal`/`esda`) was run
+        Local Moran's I analysis (KNN k=8 spatial weights, 999 permutations, `libpysal`/`esda`) was run
         directly to close this gap: 97.1% of low-accessibility nodes fall inside a statistically
-        significant Low-Low ("cold-spot") cluster, independently corroborating the reversed relationship.
+        significant Low-Low ("cold-spot") cluster, a complementary result supporting the reversed relationship.
+        A network-block bootstrap (`network_block_bootstrap.py`) was also run to check that treating
+        69,393 correlated street nodes as independent observations wasn't inflating this result — the
+        95% confidence interval for the distance difference ([247.24m, 873.73m]) stays clear of zero.
         See "The Finding" page for the full cluster map, and `spatial_clustering_lisa.py` in the
         repository root for the reproducible script.
         """)

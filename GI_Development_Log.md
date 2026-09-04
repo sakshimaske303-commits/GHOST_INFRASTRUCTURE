@@ -19,6 +19,7 @@ The diary is split into clear parts. I have different entries tracking how I cam
 11. [Entry 11](#entry-11)
 12. [Entry 12](#entry-12)
 13. [Entry 13](#entry-13)
+14. [Entry 14](#entry-14)
 
 ## Entry 1
 
@@ -161,4 +162,18 @@ My Bochum popups have one small difference from Essen. My Essen pins show a dire
 The main database stayed completely untouched. Every single starting file for Bochum—like my hand-digitized coal pits, the main 69,393-point network grid, and the outer border shape—uses the exact same inputs that my old QGIS software read weeks ago. This task was a 100% code rendering clean up. I successfully threw out that heavy, multi-file QGIS2Web export folder and replaced it with a single, lightweight HTML file built directly from my own geopackages. 
 
 I updated my dashboard code files next. I opened `dashboard/pages/6_Interactive_Maps.py` to embed the fresh Bochum map file using `components.html` syntax so it matches my Essen page structure perfectly instead of calling that old broken iframe folder path. Then, I adjusted the text for the map legends and edited my main `README.md` file to delete all mentions of the old QGIS2Web software tools. Now, both cities have their web maps built the exact same way from scratch using the same visual look, which means I have zero QGIS dependencies left in my map pipeline.
+
+## Entry 14
+
+I went back to check something that kept bugging me. My Local Moran's I check from Entry 6 only ran on 99 random permutations, and while that was a fine number to pick while I was still learning `esda`, a higher permutation count gives a more stable p-value, especially when I'm testing 69,393 points at once. So I bumped the `PERMUTATIONS` setting in `spatial_clustering_lisa.py` from 99 to 999 and reran the whole script.
+
+The numbers barely moved. My new run found 10,273 significant road points out of 69,393 (versus my old 10,266), with 9,571 Low-Low cold-spots and 702 High-Low outliers (versus my old 9,568 and 698). My average local I score landed on the exact same 0.923 as before. So my headline 97.1% number stays 97.1% — this was basically a free precision upgrade, not a real change to my finding.
+
+I also got curious about something else. My KNN(k=8) weights pick a fixed 8 nearest neighbors by straight-line distance, but this whole study is about a street network, not straight lines. So I wrote a second script, `spatial_clustering_lisa_network.py`, that defines "neighbor" as any road point reachable within 750 meters walking along the actual street network instead.
+
+This one gave me a genuinely different picture, not a matching one. Instead of 14.8% of points being significant, 96.9% came back significant, and instead of being dominated by Low-Low cold-spots like my KNN version, this one was dominated by High-High hot-spots (53,421 out of 67,210 significant points). I think the most likely reason is that a 750-meter network buffer picks up way more than 8 neighbors per point in dense areas — some points probably had hundreds of neighbors instead of a fixed 8 — and that changes how the whole test behaves. This is not a fair apples-to-apples comparison to my original check, so I am not treating it as a validated robustness result. I am parking this script and this result as an unfinished side-experiment for now. If I want to make it a fair comparison later, I would need to shrink the network cutoff down to something that gives roughly 8 neighbors per point on average, and rerun it.
+
+The result I do trust is my third check. My t-test and logistic regression from Entries 4 and 5 treat all 69,393 street points as independent observations, but they are not — a point on a street is obviously correlated with the point right next to it. To properly test this, I wrote `network_block_bootstrap.py`, which splits the whole street network into about 2,600 contiguous chunks (targeting roughly 500 connected points per chunk, grown outward with a randomized search), and then resamples whole chunks with replacement 999 times, refitting my original difference-of-means and logistic regression each time.
+
+My original finding survived this stricter test. The observed difference (534.25 meters) came back with a 95% bootstrap confidence interval of [247.24, 873.73] meters — nowhere close to zero. Both of my logistic regression coefficients also stayed clearly away from zero in their own confidence intervals. This means that even when I treat my street network's own clumpy, connected structure as the source of resampling instead of pretending every point is independent, my main result — that low-accessibility areas sit farther from the old industrial sites, not closer — still holds up. I added this bootstrap result to Section 7 (Limitations) of my `GI_Research_Paper.md` file, right next to my existing honest note about the 69,393 points not being truly independent, and I listed the network-distance LISA attempt and a block-size sensitivity check under Section 8 (Future Work) instead of pretending it was a finished result.
 

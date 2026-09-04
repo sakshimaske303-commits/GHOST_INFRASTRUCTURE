@@ -14,11 +14,11 @@ More than 50 years since coal mining ended in Bochum in 1974, how long does that
 
 ## The Method
 
-Proximity to the historical sites was statistically compared with the accessibility of these sites at the present day with a Welch's t-test, followed by a correlation and logistic regression against the most obvious potential confounder, proximity to city centres, and then independently corroborated with a Local Moran's I (LMI) spatial-clustering analysis. It was based on a real 15-minute accessibility model which was created on top of the complete 13 historical coal mines, 4 worker-housing colonies which were digitized from Mindat.org and from German heritage archives and the whole 69,393 pedestrian nodes (OSMnx) in Bochum.
+Proximity to the historical sites was statistically compared with the accessibility of these sites at the present day with a Welch's t-test, followed by a correlation and logistic regression against the most obvious potential confounder, proximity to city centres, and then checked with a complementary Local Moran's I (LMI) spatial-clustering analysis. It was based on a real 15-minute accessibility model which was created on top of the complete 13 historical coal mines, 4 worker-housing colonies which were digitized from Mindat.org and from German heritage archives and the whole 69,393 pedestrian nodes (OSMnx) in Bochum.
 
 ## The Finding
 
-Within the range of accessibility zones, the low-accessibility zones were, on average, actually further from the historical industrial areas of cities than the high-accessibility zones, a medium-to-large, highly significant effect, which was independent of the city-center. That is directly opposed to the original hypothesis that before industrial sites could predict the state of neglect in the present, and independently verified.
+Within the range of accessibility zones, the low-accessibility zones were, on average, actually further from the historical industrial areas of cities than the high-accessibility zones, a medium-to-large, highly significant effect, which was independent of the city-center. That is directly opposed to the original hypothesis, which expected historical industrial sites to predict present-day neglect instead.
 
 | Metric | Value |
 |---|---|
@@ -27,7 +27,8 @@ Within the range of accessibility zones, the low-accessibility zones were, on av
 | Welch's t-test | t = 42.887, p < 0.00001 (Cohen's d = 0.589) |
 | Confound check — distance-to-center correlation | r = 0.063 (genuinely independent) |
 | Logistic regression — controlling for center | coefficient = -0.0005, p < 0.001 |
-| Local Moran's I corroboration | 97.1% of the nodes with low access were in a significant cold-spot cluster |
+| Local Moran's I check | 97.1% of the nodes with low access were in a significant cold-spot cluster |
+| Network-block bootstrap (spatial-dependence check) | 95% CI [247.24m, 873.73m] for the distance difference — excludes zero |
 
 The interpretation is a “path dependency of centrality”, rather than the originally proposed “path dependency of neglect” — 19th century industrial centres developed by necessity around the mine sites and colonies of the population, and this has resulted in a high street density and level of services that appear to be present in the modern day.
 
@@ -44,7 +45,8 @@ The mixed result is not only reported for the part that confirms the original ci
 - Full network-based accessibility model - 69,393 nodes in Bochum, 72,027 nodes in Essen - NOT a straight line radius!
 - There was an obvious city-center proximity that has been explicitly tested (correlation r = 0.063 in Bochum).
 - Logistic regression also finds independence in Bochum (with center distance, p < 0.001)
-- In both cities, Independent corroboration using Local Moran's I spatial clustering for k=8, 99 permutations.
+- In both cities, a complementary check using Local Moran's I spatial clustering (k=8, 999 permutations in Bochum, 99 in Essen).
+- Main t-test/regression result also tested with a network-block bootstrap (999 resamples of ~500-node contiguous street-network chunks, instead of resampling individual nodes) — the 95% confidence interval stays clear of zero.
 - Effect size was reported rather than simply significance (Cohen's d = 0.589 Bochum, 0.338 Essen)
 - Effect held — and increased — at all 3 cut points (10, 15, 20 minutes of walking).
 - Independently replicated in another city (Essen), with the part that did not fully replicate also reported honestly.
@@ -52,7 +54,7 @@ The mixed result is not only reported for the part that confirms the original ci
 
 ## Honest Limitation
 
-The connection across the time series is correlational, not causal: The confound check eliminates the confounding of being in the city center but doesn't eliminate all other possible confounding factor analyses. Unlike Bochum's 17-site dataset, Essen's 8-site subset mining register is not a significant proportion of the historical mining register in that city, and mapping of historical mine and colony site locations took place from secondary sources, with most locations sourced from Mindat.org, KuLaDig, Wikipedia, and regional heritage archives, rather than primary survey records. This finding here is now confirmed in Bochum, and, separately, replicated in a second Ruhr Valley city, Essen, but the more narrow claim that the effect is found irrespective of the proximity to the city center does not appear in Essen alone or in the context of a larger set of Essen results.
+The connection across the time series is correlational, not causal: The confound check eliminates the confounding of being in the city center but doesn't eliminate all other possible confounding factor analyses. Unlike Bochum's 17-site dataset, Essen's 8-site subset mining register is not a significant proportion of the historical mining register in that city, and mapping of historical mine and colony site locations took place from secondary sources, with most locations sourced from Mindat.org, KuLaDig, Wikipedia, and regional heritage archives, rather than primary survey records. This finding here is now confirmed in Bochum, and, separately, replicated in a second Ruhr Valley city, Essen, but the more narrow claim that the effect is found irrespective of the proximity to the city center does not appear in Essen alone or in the context of a larger set of Essen results. A network-block bootstrap (see the checklist above and `GI_Research_Paper.md` Section 7) was later added specifically to test whether treating the 69,393 street nodes as independent observations was inflating the confidence in this result — it does not: the 95% confidence interval for the observed distance difference stays well clear of zero even when whole connected chunks of the street network are resampled instead of single nodes.
 
 ## Real-World Relevance
 

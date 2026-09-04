@@ -15,7 +15,8 @@ _checks = [
     "Full Network-Based Model (69,393 nodes, not straight-line radius)",
     "Most Obvious Confound Explicitly Tested (city-center proximity)",
     "Logistic Regression Confirms Independence",
-    "Independent Corroboration (Local Moran's I, 99 permutations)",
+    "Complementary Check (Local Moran's I, 999 permutations)",
+    "Spatial-Dependence Bootstrap (network-block resampling, 95% CI excludes zero)",
     "Effect Size Reported, Not Just Significance (Cohen's d=0.589)",
     "Reversed-Hypothesis Result Reported Honestly",
 ]
@@ -88,14 +89,14 @@ card(
 
 st.markdown("---")
 
-st.markdown("<h3>Independent Corroboration: Local Moran's I Spatial Clustering</h3>", unsafe_allow_html=True)
+st.markdown("<h3>Complementary Check: Local Moran's I Spatial Clustering</h3>", unsafe_allow_html=True)
 
 card(
     card_body(
         "The t-test above shows distance to historical sites <em>differs</em> between accessibility "
         "groups. A separate question is whether low accessibility is spatially <em>clustered</em> — "
         "the specific test this project's own Objectives named. A Local Moran's I analysis "
-        "(KNN k=8, 99 permutations) answers this directly."
+        "(KNN k=8, 999 permutations) answers this directly."
     )
     + "<div style='height:12px;'></div>"
     + card_body(
@@ -110,6 +111,28 @@ card(
 lisa_image_path = os.path.join(PROJECT_ROOT, "outputs", "plots", "lisa_cluster_map.png")
 if os.path.exists(lisa_image_path):
     st.image(lisa_image_path, use_container_width=True, caption="Local Moran's I cluster map — significant Low-Low cold-spot clusters in blue")
+
+st.markdown("---")
+
+st.markdown("<h3>Spatial-Dependence Check: Network-Block Bootstrap</h3>", unsafe_allow_html=True)
+
+card(
+    card_body(
+        "The 69,393 street nodes above are not independent observations — a node right next to "
+        "another one on the same street is obviously correlated with it. To test whether that "
+        "affects the finding, the street network was split into ~2,600 contiguous blocks "
+        "(~500 connected nodes each) and whole blocks were resampled with replacement 999 times, "
+        "refitting the same statistics each time."
+    )
+    + "<div style='height:12px;'></div>"
+    + card_body(
+        "The observed distance difference (534.25 m) came back with a <strong>95% confidence "
+        "interval of [247.24 m, 873.73 m]</strong> — nowhere close to zero. The finding holds up "
+        "even when the network's own connected structure, not individual nodes, is treated as the "
+        "unit of resampling.",
+        large=True,
+    )
+)
 
 st.markdown("---")
 
