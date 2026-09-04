@@ -46,12 +46,18 @@ for minutes in THRESHOLDS_MIN:
     print(f"\n=== Threshold: {minutes} min ({max_dist}m network distance) ===")
 
     covered_nodes = set()
+    failed_nodes = 0
     for node in set(poi_nodes):
         try:
             lengths = nx.single_source_dijkstra_path_length(G, node, cutoff=max_dist, weight="length")
             covered_nodes.update(lengths.keys())
-        except Exception:
+        except Exception as e:
+            failed_nodes += 1
+            print(f"  Dijkstra failed for service node {node}: {e}")
             continue
+
+    if failed_nodes:
+        print(f"  WARNING: {failed_nodes} / {len(set(poi_nodes))} service nodes failed to compute a catchment (see above)")
 
     within = pd.Series(nodes_full.index.isin(covered_nodes), index=nodes_full.index, name="within_thresh")
     pct = within.sum() / len(within) * 100

@@ -1,3 +1,9 @@
 *.tif
 .streamlit/
 data/boundaries/gadm41_DEU.gpkg
+
+# Byte-compiled Python / OSMnx-Overpass HTTP response cache — not analysis
+# output, regenerated automatically on next run, shouldn't bloat the repo
+__pycache__/
+*.py[cod]
+cache/

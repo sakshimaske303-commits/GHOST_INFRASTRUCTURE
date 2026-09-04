@@ -24,7 +24,7 @@ abstract: >-
   Contrary to the hypothesis that historical industrial sites would predict
   present-day neglect, a Welch's t-test found the opposite (t=42.887,
   p<0.00001, Cohen's d=0.589), verified against city-center proximity as a
-  confound via logistic regression, and independently corroborated by a
+  confound via logistic regression, and corroborated by a complementary
   Local Moran's I spatial-clustering analysis showing 97.1% of
   low-accessibility nodes fall within statistically significant cold-spot
   clusters. The evidence supports a "path dependency of centrality" rather
