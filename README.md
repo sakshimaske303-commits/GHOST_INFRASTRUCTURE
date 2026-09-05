@@ -2,7 +2,7 @@
 
 **How 19th-Century Coal Geography Still Shapes Who Gets a "15-Minute Life" Today**
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21761320.svg)](https://doi.org/10.5281/zenodo.21761320)
+[![EarthArXiv](https://img.shields.io/badge/EarthArXiv-Preprint-B7410E.svg)](https://eartharxiv.org/repository/view/14809/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21761320.svg)](https://doi.org/10.5281/zenodo.21761320)
 
 ## Live Dashboard
 
