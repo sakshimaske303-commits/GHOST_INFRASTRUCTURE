@@ -1,0 +1,74 @@
+{
+  "250": {
+    "block_target_size": 250,
+    "n_blocks": 3469,
+    "mean_block_size": 20.0,
+    "min_block_size": 1,
+    "max_block_size": 250,
+    "n_bootstrap_requested": 999,
+    "n_bootstrap_successful_logit": 999,
+    "observed_difference_m": 534.25,
+    "bootstrap_ci_difference_m": [
+      299.73,
+      803.6
+    ],
+    "original_logit_coef_historical": -0.0004762646737611955,
+    "bootstrap_ci_logit_coef_historical": [
+      -0.0006800525986690468,
+      -0.0003024722353156949
+    ],
+    "original_logit_coef_center": -0.0002851620054291279,
+    "bootstrap_ci_logit_coef_center": [
+      -0.0004033471157193976,
+      -0.0001777549959453867
+    ]
+  },
+  "500": {
+    "block_target_size": 500,
+    "n_blocks": 2583,
+    "mean_block_size": 26.87,
+    "min_block_size": 1,
+    "max_block_size": 500,
+    "n_bootstrap_requested": 999,
+    "n_bootstrap_successful_logit": 999,
+    "observed_difference_m": 534.25,
+    "bootstrap_ci_difference_m": [
+      235.7,
+      826.02
+    ],
+    "original_logit_coef_historical": -0.0004762646737611955,
+    "bootstrap_ci_logit_coef_historical": [
+      -0.0007382371140057841,
+      -0.0002470750529412329
+    ],
+    "original_logit_coef_center": -0.0002851620054291279,
+    "bootstrap_ci_logit_coef_center": [
+      -0.0004118206799932265,
+      -0.00017324309867321506
+    ]
+  },
+  "1000": {
+    "block_target_size": 1000,
+    "n_blocks": 2073,
+    "mean_block_size": 33.47,
+    "min_block_size": 1,
+    "max_block_size": 1000,
+    "n_bootstrap_requested": 999,
+    "n_bootstrap_successful_logit": 999,
+    "observed_difference_m": 534.25,
+    "bootstrap_ci_difference_m": [
+      194.14,
+      923.55
+    ],
+    "original_logit_coef_historical": -0.0004762646737611955,
+    "bootstrap_ci_logit_coef_historical": [
+      -0.0008030309395347513,
+      -0.00025608861349406785
+    ],
+    "original_logit_coef_center": -0.0002851620054291279,
+    "bootstrap_ci_logit_coef_center": [
+      -0.000444442765338253,
+      -0.00014864239309248209
+    ]
+  }
+}
