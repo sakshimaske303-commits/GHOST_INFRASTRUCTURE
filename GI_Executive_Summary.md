@@ -46,7 +46,7 @@ The mixed result is not only reported for the part that confirms the original ci
 - There was an obvious city-center proximity that has been explicitly tested (correlation r = 0.063 in Bochum).
 - Logistic regression also finds independence in Bochum (with center distance, p < 0.001)
 - In both cities, a complementary check using Local Moran's I spatial clustering (k=8, 999 permutations in Bochum, 99 in Essen).
-- Main t-test/regression result also tested with a network-block bootstrap (999 resamples of 2,611 contiguous street-network chunks, grown toward a 500-node target but averaging roughly 27 nodes each because the pedestrian network fragments into many small components — instead of resampling individual nodes) — the 95% confidence interval stays clear of zero.
+- Main t-test/regression result also tested with a network-block bootstrap (999 resamples of 2,611 contiguous street-network chunks, grown toward a 500-node target but averaging roughly 27 nodes each because the pedestrian network fragments into many small components — instead of resampling individual nodes) — the 95% confidence interval stays clear of zero, and re-running the same bootstrap at 250-node and 1,000-node targets keeps that interval clear of zero at every target size tested.
 - Effect size was reported rather than simply significance (Cohen's d = 0.589 Bochum, 0.338 Essen)
 - Effect held — and increased — at all 3 cut points (10, 15, 20 minutes of walking).
 - Independently replicated in another city (Essen), with the part that did not fully replicate also reported honestly.
