@@ -72,6 +72,6 @@ plt.figtext(0.5, 0.02, "GHOST INFRASTRUCTURE — Sources: GADM, Mindat.org, Germ
             ha="center", fontsize=9, color="#7FB8BE")
 
 plt.tight_layout(rect=[0, 0.03, 1, 0.9])
-plt.savefig("outputs/plots/historical_geography.png", dpi=220, facecolor=BACKGROUND, bbox_inches="tight")
+plt.savefig("outputs/plots/historical_geography.png", dpi=300, facecolor=BACKGROUND, bbox_inches="tight")
 plt.close()
 print("Saved: outputs/plots/historical_geography.png")

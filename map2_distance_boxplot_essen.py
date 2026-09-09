@@ -1,3 +1,8 @@
+"""Essen equivalent of map2_distance_boxplot.py (Bochum). Written to close a
+reproducibility gap: the original outputs/plots/essen_distance_comparison_boxplot.png had
+no generating script in the repo. Modeled directly on map2_distance_boxplot.py, same
+style/palette, Essen accessibility data.
+"""
 import geopandas as gpd
 import matplotlib.pyplot as plt
 
@@ -6,7 +11,7 @@ CARD_COLOR = "#B4D5D6"
 ACCENT = "#7FB8BE"
 TEXT_DARK = "#111111"
 
-nodes = gpd.read_file("data/accessibility/bochum_accessibility_with_distance.gpkg")
+nodes = gpd.read_file("data/accessibility/essen_accessibility_with_distance.gpkg")
 
 low_access = nodes[nodes["within_15min"] == False]["dist_to_historical_m"]
 high_access = nodes[nodes["within_15min"] == True]["dist_to_historical_m"]
@@ -26,17 +31,17 @@ for element in ['whiskers', 'caps', 'medians']:
     plt.setp(bp[element], color=TEXT_DARK, linewidth=1.5)
 
 ax.set_ylabel("Distance to Nearest Historical Industrial Site (m)", color="white", fontsize=12, fontweight="bold")
-ax.set_title("Ghost Infrastructure Effect\nHigh-Accessibility Nodes Are Closer to Historical Sites",
+ax.set_title("Ghost Infrastructure Effect — Essen\nHigh-Accessibility Nodes Are Closer to Historical Sites",
              color="white", fontsize=15, fontweight="bold", pad=20)
 ax.tick_params(colors="white", labelsize=11)
 for spine in ax.spines.values():
     spine.set_color("white")
 
-plt.figtext(0.5, -0.02, "Welch's t-test: t=42.887, p<0.00001", ha="center", fontsize=10, color="#7FB8BE", fontweight="bold")
+plt.figtext(0.5, -0.02, "Welch's t-test: t=24.731, p<0.00001", ha="center", fontsize=10, color="#7FB8BE", fontweight="bold")
 
 plt.tight_layout(rect=[0, 0.05, 1, 1])
 
 plt.tight_layout()
-plt.savefig("outputs/plots/distance_comparison_boxplot.png", dpi=300, facecolor=BACKGROUND, bbox_inches="tight")
+plt.savefig("outputs/plots/essen_distance_comparison_boxplot.png", dpi=300, facecolor=BACKGROUND, bbox_inches="tight")
 plt.close()
-print("Saved: outputs/plots/distance_comparison_boxplot.png")
+print("Saved: outputs/plots/essen_distance_comparison_boxplot.png")

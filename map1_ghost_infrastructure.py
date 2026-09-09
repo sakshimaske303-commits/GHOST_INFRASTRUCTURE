@@ -50,6 +50,6 @@ plt.figtext(0.5, 0.02, "GHOST INFRASTRUCTURE — Sources: Mindat.org, OpenStreet
             ha="center", fontsize=9, color="#888888")
 
 plt.tight_layout(rect=[0, 0.03, 1, 0.9])
-plt.savefig("outputs/plots/ghost_infrastructure_overlay.png", dpi=220, facecolor=BACKGROUND, bbox_inches="tight")
+plt.savefig("outputs/plots/ghost_infrastructure_overlay.png", dpi=300, facecolor=BACKGROUND, bbox_inches="tight")
 plt.close()
 print("Saved: outputs/plots/ghost_infrastructure_overlay.png")

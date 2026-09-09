@@ -68,5 +68,5 @@ plt.figtext(0.5, -0.05,
             ha="center", fontsize=9.5, color=ACCENT, fontweight="bold", wrap=True)
 
 plt.tight_layout()
-plt.savefig("bochum_essen_comparison.png", dpi=200, facecolor=BACKGROUND, bbox_inches="tight")
+plt.savefig("bochum_essen_comparison.png", dpi=300, facecolor=BACKGROUND, bbox_inches="tight")
 print("Saved: bochum_essen_comparison.png")

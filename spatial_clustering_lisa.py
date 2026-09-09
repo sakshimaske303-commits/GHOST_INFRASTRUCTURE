@@ -78,10 +78,14 @@ def main():
 
     legend = ax.legend(loc="lower left", fontsize=9, framealpha=0.9, facecolor="#0A2C4D", edgecolor=ACCENT, labelcolor="white")
 
-    fig.text(0.5, 0.02, "Sakshi D. Maske — Independent Geospatial Researcher", color="#9FB3C8", fontsize=9, ha="center")
+    # NOTE: previously "Sakshi D. Maske -- Independent Geospatial Researcher" was baked into
+    # this figure as pixel text. Removed for double-anonymized peer review (EPB/SAGE requires
+    # the manuscript, including its figures, to carry no author-identifying information;
+    # author identity lives only on the separate, non-anonymized Title Page).
+    fig.text(0.5, 0.02, "GHOST INFRASTRUCTURE — Sources: OpenStreetMap (OSMnx), GADM", color="#9FB3C8", fontsize=9, ha="center")
 
     plt.tight_layout()
-    plt.savefig(OUT_PATH, dpi=200, facecolor=BACKGROUND, bbox_inches="tight")
+    plt.savefig(OUT_PATH, dpi=300, facecolor=BACKGROUND, bbox_inches="tight")
     print(f"Saved: {OUT_PATH}")
 
 
