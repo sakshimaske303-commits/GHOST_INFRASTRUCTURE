@@ -14,7 +14,7 @@ st.markdown("---")
 _checks = [
     "Full Network-Based Model (69,393 nodes, not straight-line radius)",
     "Most Obvious Confound Explicitly Tested (city-center proximity)",
-    "Logistic Regression Confirms Independence",
+    "Historical-Site Effect Holds After Controlling for the Confound",
     "Complementary Check (Local Moran's I, 999 permutations)",
     "Spatial-Dependence Bootstrap (network-block resampling, 95% CI excludes zero)",
     "Effect Size Reported, Not Just Significance (Cohen's d=0.589)",

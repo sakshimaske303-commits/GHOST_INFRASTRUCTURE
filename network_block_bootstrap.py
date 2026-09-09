@@ -178,9 +178,10 @@ def main():
         json.dump(results, f, indent=2)
     print(f"\nSaved: {OUT_JSON}")
 
-    print("\nNOTE: BLOCK_TARGET_SIZE=500 is a starting value, not a fixed rule. Before treating this")
-    print("as a final robustness result, re-run at e.g. 250 and 1000 and check the CI/direction hold up --")
-    print("that's a sensitivity check on the bootstrap itself, same spirit as threshold_sensitivity.py.")
+    print("\nNOTE: BLOCK_TARGET_SIZE=500 was the starting value used here. The sensitivity check at")
+    print("250 and 1000 node targets (network_block_bootstrap_sensitivity.py) has already been run and")
+    print("committed (outputs/network_block_bootstrap_sensitivity_results.json); the CI/direction hold up")
+    print("at every target size tested.")
 
 
 if __name__ == "__main__":

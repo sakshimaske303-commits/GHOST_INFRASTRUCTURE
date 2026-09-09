@@ -68,8 +68,9 @@ st.markdown("---")
 
 st.markdown("<h3>Part 2 — Does It Hold in a Second City?</h3>", unsafe_allow_html=True)
 card(card_body(
-    "The identical methodology (historical-site digitization, network accessibility model, Welch's "
-    "t-test, city-center confound check, Local Moran's I) was independently replicated in "
+    "The same methodology (historical-site digitization, network accessibility model, Welch's "
+    "t-test, city-center confound check, Local Moran's I, run at 99 permutations for Essen versus "
+    "999 for Bochum since p-values were already stable at 99) was independently replicated in "
     "<strong>Essen</strong> — a second Ruhr Valley city, 15km northeast of Bochum, sharing the same "
     "19th-century coal-mining industrial history. 4 major mines and 4 worker colonies were digitized "
     "from KuLaDig (NRW's state heritage-GIS database) and Wikipedia; Essen's 72,027-node street "

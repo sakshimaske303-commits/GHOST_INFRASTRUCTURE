@@ -28,7 +28,7 @@ Within the range of accessibility zones, the low-accessibility zones were, on av
 | Confound check — distance-to-center correlation | r = 0.063 (no meaningful correlation) |
 | Logistic regression — controlling for center | coefficient = -0.0005, p < 0.001 |
 | Local Moran's I check | 97.1% of the nodes with low access were in a significant cold-spot cluster |
-| Network-block bootstrap (spatial-dependence check) | 95% CI [247.24m, 873.73m] for the distance difference — excludes zero |
+| Network-block bootstrap (spatial-dependence check) | 95% CI [199.90m, 885.16m] for the distance difference — excludes zero |
 
 The interpretation is a “path dependency of centrality”, rather than the originally proposed “path dependency of neglect” — 19th century industrial centres developed by necessity around the mine sites and colonies of the population, and this has resulted in a high street density and level of services that appear to be present in the modern day.
 
@@ -44,9 +44,9 @@ The mixed result is not only reported for the part that confirms the original ci
 
 - Full network-based accessibility model - 69,393 nodes in Bochum, 72,027 nodes in Essen - NOT a straight line radius!
 - There was an obvious city-center proximity that has been explicitly tested (correlation r = 0.063 in Bochum).
-- Logistic regression also finds independence in Bochum (with center distance, p < 0.001)
+- Logistic regression finds the historical-site effect remains significant in Bochum after controlling for center distance (coefficient = -0.0005, p < 0.001)
 - In both cities, a complementary check using Local Moran's I spatial clustering (k=8, 999 permutations in Bochum, 99 in Essen).
-- Main t-test/regression result also tested with a network-block bootstrap (999 resamples of 2,611 contiguous street-network chunks, grown toward a 500-node target but averaging roughly 27 nodes each because the pedestrian network fragments into many small components — instead of resampling individual nodes) — the 95% confidence interval stays clear of zero, and re-running the same bootstrap at 250-node and 1,000-node targets keeps that interval clear of zero at every target size tested.
+- Main t-test/regression result also tested with a network-block bootstrap (999 resamples of 2,598 contiguous street-network chunks, grown toward a 500-node target but averaging roughly 27 nodes each because the pedestrian network fragments into many small components — instead of resampling individual nodes) — the 95% confidence interval stays clear of zero, and re-running the same bootstrap at 250-node and 1,000-node targets keeps that interval clear of zero at every target size tested.
 - Effect size was reported rather than simply significance (Cohen's d = 0.589 Bochum, 0.338 Essen)
 - Effect held — and increased — at all 3 cut points (10, 15, 20 minutes of walking).
 - Independently replicated in another city (Essen), with the part that did not fully replicate also reported honestly.
@@ -58,7 +58,7 @@ The connection across the time series is correlational, not causal: The confound
 
 ## Real-World Relevance
 
-Most of the cities in Europe share Bochum's and Essen's industrial-core form established in the 19th century, and accessibility investment mis-directed on an intuitive, but flawed, idea is a real and preventable expense. Former industrial areas are typically viewed as the most deprived places in cities and towns, with poor connectivity and access to services. This project tested that assumption directly, on real network data, for two cities and three accessibility thresholds, and the assumption did not win — in every case, the raw effect and the spatial clustering agreed with each other and pointed the opposite way.
+Many post-industrial European cities share Bochum's and Essen's 19th-century industrial-core form, though this project tested only these 2, and accessibility investment mis-directed on an intuitive, but flawed, idea is a real and preventable expense. Former industrial areas are typically viewed as the most deprived places in cities and towns, with poor connectivity and access to services. This project tested that assumption directly, on real network data, for two cities and three accessibility thresholds, and the assumption did not win — in every case, the raw effect and the spatial clustering agreed with each other and pointed the opposite way.
 
 ---
 
