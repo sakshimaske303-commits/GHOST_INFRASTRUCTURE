@@ -121,7 +121,7 @@ with rep2:
 st.markdown("<h4 style='color:#FFF2BA; margin-top: 1.2rem;'>What did NOT replicate</h4>", unsafe_allow_html=True)
 card(card_body(
     "The confound-independence result. In Bochum, distance-to-historical-site and distance-to-city-center "
-    "were nearly uncorrelated (r=0.063) — genuinely independent variables. In Essen, they're moderately "
+    "were nearly uncorrelated (r=0.063) — showing no meaningful correlation. In Essen, they're moderately "
     "correlated (<strong>r=0.405</strong>). Once both are entered into a logistic regression together, "
     "the historical-site coefficient's <strong>sign reverses</strong> in Essen — meaning the raw Essen effect "
     "is substantially entangled with city-center proximity, not independent of it the way Bochum's is.",

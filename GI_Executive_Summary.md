@@ -25,7 +25,7 @@ Within the range of accessibility zones, the low-accessibility zones were, on av
 | Low-accessibility nodes — avg. distance to site | 1,984 m (n = 9,858) |
 | High-accessibility nodes — avg. distance to site | 1,450 m (n = 59,535) |
 | Welch's t-test | t = 42.887, p < 0.00001 (Cohen's d = 0.589) |
-| Confound check — distance-to-center correlation | r = 0.063 (genuinely independent) |
+| Confound check — distance-to-center correlation | r = 0.063 (no meaningful correlation) |
 | Logistic regression — controlling for center | coefficient = -0.0005, p < 0.001 |
 | Local Moran's I check | 97.1% of the nodes with low access were in a significant cold-spot cluster |
 | Network-block bootstrap (spatial-dependence check) | 95% CI [247.24m, 873.73m] for the distance difference — excludes zero |

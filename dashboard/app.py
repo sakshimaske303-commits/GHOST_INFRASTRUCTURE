@@ -90,7 +90,7 @@ with col2:
 with col3:
     stat_card("Network Nodes", "69,393", "OSMnx street network")
 with col4:
-    stat_card("15-Min Coverage", "85.8%", "of the city")
+    stat_card("15-Min Coverage", "85.8%", "of network nodes")
 
 st.markdown("---")
 
@@ -160,7 +160,7 @@ with f1:
     )
 with f2:
     card(
-        kicker("Finding 2") + card_title("Genuinely Independent")
+        kicker("Finding 2") + card_title("Confound-Controlled")
         + card_body(
             "Verified via logistic regression: the effect holds even after controlling for "
             "distance to the city center — it isn't just a center-proximity proxy."

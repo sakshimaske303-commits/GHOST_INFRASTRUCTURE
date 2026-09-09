@@ -18,10 +18,11 @@ present-day neglect, a Welch's t-test across Bochum's complete 69,393-node pedes
 found the opposite: low-accessibility zones are significantly *further* from historical industrial
 sites (t=42.887, p<0.00001, Cohen's d=0.589) — a "path dependency of centrality" rather than a
 "path dependency of neglect." This is verified against its most obvious confound (city-center
-proximity, r=0.063, genuinely independent) and supported by a complementary Local Moran's I
+proximity, r=0.063, no meaningful correlation) and supported by a complementary Local Moran's I
 spatial-clustering analysis (97.1% of low-accessibility nodes fall in significant cold-spot
-clusters, at 999 permutations). A network-block bootstrap — resampling contiguous ~500-node street-network
-blocks 999 times instead of individual nodes — was also run to test whether the network's
+clusters, at 999 permutations). A network-block bootstrap — resampling contiguous street-network
+blocks (grown toward a 500-node target, averaging ~27 nodes each due to network fragmentation)
+999 times instead of individual nodes — was also run to test whether the network's
 own spatial autocorrelation was inflating this result; the 95% confidence interval for the
 observed distance difference ([247.24m, 873.73m]) stays clear of zero.
 

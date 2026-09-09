@@ -80,7 +80,7 @@ card(
     + "<div style='height:12px;'></div>"
     + card_body(
         "Correlation between distance-to-historical-site and distance-to-city-center: "
-        "<strong>r = 0.063</strong> — genuinely independent variables, not proxies for one "
+        "<strong>r = 0.063</strong> — no meaningful correlation, so the two are not proxies for one "
         "another. A logistic regression confirms the historical-site effect remains significant "
         "(coefficient = -0.0005, p &lt; 0.001) even after controlling for city-center distance.",
         large=True,
