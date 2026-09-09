@@ -1,74 +1,74 @@
 {
   "250": {
     "block_target_size": 250,
-    "n_blocks": 3469,
-    "mean_block_size": 20.0,
+    "n_blocks": 3525,
+    "mean_block_size": 19.69,
     "min_block_size": 1,
     "max_block_size": 250,
     "n_bootstrap_requested": 999,
     "n_bootstrap_successful_logit": 999,
     "observed_difference_m": 534.25,
     "bootstrap_ci_difference_m": [
-      299.73,
-      803.6
+      292.21,
+      803.04
     ],
     "original_logit_coef_historical": -0.0004762646737611955,
     "bootstrap_ci_logit_coef_historical": [
-      -0.0006800525986690468,
-      -0.0003024722353156949
+      -0.0007130559257135607,
+      -0.00027274226148282815
     ],
     "original_logit_coef_center": -0.0002851620054291279,
     "bootstrap_ci_logit_coef_center": [
-      -0.0004033471157193976,
-      -0.0001777549959453867
+      -0.0003970484579669947,
+      -0.000183148656866747
     ]
   },
   "500": {
     "block_target_size": 500,
-    "n_blocks": 2583,
-    "mean_block_size": 26.87,
+    "n_blocks": 2598,
+    "mean_block_size": 26.71,
     "min_block_size": 1,
     "max_block_size": 500,
     "n_bootstrap_requested": 999,
     "n_bootstrap_successful_logit": 999,
     "observed_difference_m": 534.25,
     "bootstrap_ci_difference_m": [
-      235.7,
-      826.02
+      199.9,
+      885.16
     ],
     "original_logit_coef_historical": -0.0004762646737611955,
     "bootstrap_ci_logit_coef_historical": [
-      -0.0007382371140057841,
-      -0.0002470750529412329
+      -0.0007549290810596845,
+      -0.0002121846574515098
     ],
     "original_logit_coef_center": -0.0002851620054291279,
     "bootstrap_ci_logit_coef_center": [
-      -0.0004118206799932265,
-      -0.00017324309867321506
+      -0.00043718970357650954,
+      -0.00014925658877261794
     ]
   },
   "1000": {
     "block_target_size": 1000,
-    "n_blocks": 2073,
-    "mean_block_size": 33.47,
+    "n_blocks": 2076,
+    "mean_block_size": 33.43,
     "min_block_size": 1,
     "max_block_size": 1000,
     "n_bootstrap_requested": 999,
     "n_bootstrap_successful_logit": 999,
     "observed_difference_m": 534.25,
     "bootstrap_ci_difference_m": [
-      194.14,
-      923.55
+      135.78,
+      884.2
     ],
     "original_logit_coef_historical": -0.0004762646737611955,
     "bootstrap_ci_logit_coef_historical": [
-      -0.0008030309395347513,
-      -0.00025608861349406785
+      -0.0008222593671702828,
+      -0.00019830099598177125
     ],
     "original_logit_coef_center": -0.0002851620054291279,
     "bootstrap_ci_logit_coef_center": [
-      -0.000444442765338253,
-      -0.00014864239309248209
+      -0.0004819643947325496,
+      -0.0001254511519056527
     ]
   }
 }

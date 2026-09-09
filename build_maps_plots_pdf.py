@@ -1,5 +1,5 @@
 """Combines the static plot/map figures into one PDF with a cover page + index.
-QGIS2Web overlay map (~21MB JS data layer) isn't captured as a static image; Figure 3 is a static render of the same layers instead.
+The interactive Folium overlay map (~21MB JS data layer) isn't captured as a static image; Figure 3 is a static render of the same layers instead.
 """
 
 import os
@@ -83,7 +83,7 @@ def cover_page(c, width, height):
     c.setFillColor(HexColor("#9FB3C8"))
     c.drawCentredString(
         width / 2, 1.3 * inch,
-        "Note: the project's interactive QGIS2Web overlay map is not captured here as a static"
+        "Note: the project's interactive Folium overlay map is not captured here as a static"
     )
     c.drawCentredString(
         width / 2, 1.1 * inch,

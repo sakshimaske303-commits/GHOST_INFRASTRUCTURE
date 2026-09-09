@@ -102,7 +102,8 @@ card(
     + card_body(
         "<strong>97.1%</strong> of all low-accessibility nodes fall inside a statistically "
         "significant Low-Low (\"cold-spot\") spatial cluster — confirming low accessibility is not "
-        "randomly scattered, but forms genuine, spatially contiguous zones that are measurably "
+        "randomly scattered, but forms statistically significant spatial clusters (under the KNN "
+        "k=8 specification above) that are measurably "
         "farther from historical industrial sites (1,992 m vs. 1,447 m for non-clustered nodes).",
         large=True,
     )

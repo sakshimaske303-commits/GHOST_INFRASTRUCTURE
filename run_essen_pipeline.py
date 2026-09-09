@@ -29,12 +29,18 @@ poi_nodes = ox.distance.nearest_nodes(G, pois.geometry.x, pois.geometry.y)
 
 print(f"\n=== STEP 2: 15-min accessibility ({MAX_DISTANCE_M}m) ===")
 covered_nodes = set()
+failed_nodes = 0
 for node in set(poi_nodes):
     try:
         lengths = nx.single_source_dijkstra_path_length(G, node, cutoff=MAX_DISTANCE_M, weight="length")
         covered_nodes.update(lengths.keys())
-    except Exception:
+    except Exception as e:
+        failed_nodes += 1
+        print(f"  Dijkstra failed for service node {node}: {e}")
         continue
+
+if failed_nodes:
+    print(f"WARNING: {failed_nodes} / {len(set(poi_nodes))} service nodes failed to compute a catchment (see above)")
 
 nodes["within_15min"] = nodes.index.isin(covered_nodes)
 pct_covered = (nodes["within_15min"].sum() / len(nodes)) * 100
