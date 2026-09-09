@@ -48,7 +48,7 @@ Interactive maps and headline charts are hosted via GitHub Pages:
 ## What This Project Does
 
 - Digitizes 13 historical coal mines and 4 worker housing colonies in Bochum from the Mindat.org archive and German heritage archives, stored as structurally separate GIS layers, plus 4 mines and 4 colonies in Essen from KuLaDig (Kultur.Landschaft.Digital) and Wikipedia for an independent multi-city replication
-- Creates a connecting web of 15 minutes walking time for the entire pedestrian street network in Bochum and Essen (72,027 nodes in Essen, 69,393 nodes in Bochum) and not the area that is traversed in a straight line (radius) as is often used in simplified scenarios.
+- Creates a connecting web of 15 minutes walking time for the OSMnx pedestrian street network retrieved for Bochum and Essen (72,027 nodes in Essen, 69,393 nodes in Bochum), using true network distance rather than the straight line radius often used in simplified scenarios.
 - Tests statistical significance of historical statistical link between industrial sites and accessibility
 - Correlates and/or conducts logistic regression analyses to explicitly determine that the observed finding is not due to the most readily available confounder (city-center proximity, in this case)
 - Runs a local spatial-cluster analysis (LISA) on finding at each node of network in both cities (using Local Moran's I)

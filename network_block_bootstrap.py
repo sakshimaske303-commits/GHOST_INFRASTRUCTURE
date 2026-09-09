@@ -20,7 +20,7 @@ OUT_JSON = os.path.join(BASE_DIR, "outputs", "network_block_bootstrap_results.js
 CITY_CENTER_LONLAT = (7.2162, 51.4818)
 
 N_BOOT = 999
-BLOCK_TARGET_SIZE = 500  # ~139 blocks at 69,393 nodes -- see note at bottom on sensitivity
+BLOCK_TARGET_SIZE = 500  # this is only a growth target per block, not the actual block size -- the network breaks into many small disconnected pieces, so real block count/size come out much smaller than 69,393 / 500; see note at bottom on sensitivity
 RANDOM_SEED = 42
 
 
@@ -33,7 +33,12 @@ def make_network_blocks(graph, node_ids, target_size, seed):
     blocks = []
 
     while unassigned:
-        start = rng.choice(list(unassigned))
+        # sorted() makes this deterministic across processes: unassigned holds
+        # string node IDs, and Python's string hash (and therefore raw set
+        # iteration order) is randomized per-process (PYTHONHASHSEED) unless
+        # sorted explicitly. Without this, seed=seed alone did not guarantee
+        # the same block partition run to run.
+        start = rng.choice(sorted(unassigned))
         block = []
         queue = [start]
         queued = {start}
@@ -43,7 +48,7 @@ def make_network_blocks(graph, node_ids, target_size, seed):
                 continue
             block.append(node)
             unassigned.discard(node)
-            neighbours = list(H.neighbors(node))
+            neighbours = sorted(H.neighbors(node))
             rng.shuffle(neighbours)
             for nb in neighbours:
                 if nb in unassigned and nb not in queued:

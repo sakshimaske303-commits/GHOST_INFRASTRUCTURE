@@ -34,7 +34,12 @@ def make_network_blocks(graph, node_ids, target_size, seed):
     unassigned = set(H.nodes)
     blocks = []
     while unassigned:
-        start = rng.choice(list(unassigned))
+        # sorted() makes this deterministic across processes: unassigned holds
+        # string node IDs, and Python's string hash (and therefore raw set
+        # iteration order) is randomized per-process (PYTHONHASHSEED) unless
+        # sorted explicitly. Without this, seed=seed alone did not guarantee
+        # the same block partition run to run.
+        start = rng.choice(sorted(unassigned))
         block = []
         queue = [start]
         queued = {start}
@@ -44,7 +49,7 @@ def make_network_blocks(graph, node_ids, target_size, seed):
                 continue
             block.append(node)
             unassigned.discard(node)
-            neighbours = list(H.neighbors(node))
+            neighbours = sorted(H.neighbors(node))
             rng.shuffle(neighbours)
             for nb in neighbours:
                 if nb in unassigned and nb not in queued:
