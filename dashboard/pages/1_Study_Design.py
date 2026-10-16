@@ -28,8 +28,7 @@ st.markdown("<h3>Why Bochum</h3>", unsafe_allow_html=True)
 card(card_body(
     "Bochum was a small agricultural town until iron, coal, and steel industries developed "
     "mid-19th century, becoming a defining Ruhr Valley industrial city through the 1950s. "
-    "The last coal mine in Bochum closed in 1974. Bochum is also directly relevant "
-    "to this research program's institutional context — home to Ruhr University Bochum.",
+    "The last coal mine in Bochum closed in 1974.",
     large=True,
 ))
 
@@ -38,11 +37,9 @@ st.markdown("---")
 st.markdown("<h3>The Research Question</h3>", unsafe_allow_html=True)
 
 card(card_body(
-    "Does the historical geography of Ruhr Valley coal and steel industry infrastructure — "
-    "mine locations and worker-housing colonies — continue to structurally predict which "
-    "present-day neighborhoods fall inside or outside a \"15-minute\" accessibility standard, "
-    "decades after industrial decline? (Industrial-era transportation networks were part of the "
-    "original conceptual scope; see Future Work on the Methodology & Data page.)",
+    "Is present-day 15-minute walking access in Bochum and Essen associated with the location of "
+    "historical coal-mining sites, beyond what general urban form explains, and, if not, what does "
+    "distinguish the places where access is missing?",
     large=True,
 ))
 
@@ -77,8 +74,8 @@ with m2:
     card(
         kicker("Step 2") + card_title("Network Accessibility")
         + card_body(
-            "69,393-node pedestrian street network built via OSMnx, tested against 786 essential "
-            "services using true network-distance isochrones."
+            "69,393-node pedestrian street network built via OSMnx, tested against 248 point-mapped "
+            "essential services (of 786 OSM service features) using true network-distance isochrones."
         )
     )
 with m3:

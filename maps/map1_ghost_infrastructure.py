@@ -1,5 +1,6 @@
 import geopandas as gpd
 import matplotlib.pyplot as plt
+from map_furniture import add_north_arrow, add_scale_bar
 
 BACKGROUND = "#0E1A1F"
 HISTORICAL_COLOR = "#F57C00"
@@ -32,12 +33,14 @@ colonies.plot(ax=ax, color="#FFD54F", markersize=180, marker="s",
               edgecolor="white", linewidth=1.5, zorder=4)
 
 ax.set_axis_off()
+add_scale_bar(ax, km=2)
+add_north_arrow(ax)
 
 handles = [
     plt.Line2D([0], [0], marker="^", color="w", markerfacecolor=HISTORICAL_COLOR, markersize=14, label="Historical Coal Mine (1829-1974)", linestyle="None"),
     plt.Line2D([0], [0], marker="s", color="w", markerfacecolor="#FFD54F", markersize=14, label="Worker Colony (1870-1915)", linestyle="None"),
-    plt.Line2D([0], [0], marker="o", color="w", markerfacecolor=LOW_ACCESS_COLOR, markersize=10, label="Low 15-Min Accessibility (14.2% of city)", linestyle="None"),
-    plt.Line2D([0], [0], marker="o", color="w", markerfacecolor=HIGH_ACCESS_COLOR, markersize=10, label="High 15-Min Accessibility", linestyle="None"),
+    plt.Line2D([0], [0], marker="o", color="w", markerfacecolor=LOW_ACCESS_COLOR, markersize=10, label="No 15-min access (14.2% of street nodes, point services)", linestyle="None"),
+    plt.Line2D([0], [0], marker="o", color="w", markerfacecolor=HIGH_ACCESS_COLOR, markersize=10, label="15-min access (point services)", linestyle="None"),
 ]
 legend = ax.legend(handles=handles, loc="lower left", fontsize=11, frameon=True,
                     facecolor="#141A22", edgecolor="#00ACC1", framealpha=0.9, labelcolor=TEXT_COLOR)

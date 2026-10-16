@@ -25,5 +25,4 @@ Sincerely,
 Sakshi D. Maske<br>
 Independent Geospatial Researcher<br>
 [sakshimaske303@gmail.com](mailto:sakshimaske303@gmail.com)<br>
-+91 7796374568<br>
-Jagdamba Colony, Ward 13, Karanja Ghadge, Wardha, Maharashtra 442203, India
+Maharashtra, India

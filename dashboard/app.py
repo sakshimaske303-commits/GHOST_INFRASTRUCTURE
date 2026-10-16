@@ -97,16 +97,12 @@ st.markdown("---")
 card(
     kicker("Why This Matters")
     + card_body(
-        "Urban planners often assume that former industrial zones are the neighborhoods most likely "
-        "to be left behind — under-served, poorly connected, needing the most investment. This project "
-        "tested that assumption directly, on real network data, and found the opposite: it's "
-        "neighborhoods <em>further</em> from historical industrial cores that form genuine accessibility "
-        "cold-spots today. Getting this backwards isn't academic — it's the difference between planning "
-        "resources reaching the areas that actually need them and reinforcing an intuitive but wrong "
-        "assumption about where \"neglect\" concentrates. And this isn't unique to Bochum: the raw effect "
-        "and its spatial-clustering signature both independently replicate in Essen, a second Ruhr Valley "
-        "city tested the same way — see the Robustness page for the full multi-city comparison, including "
-        "the one result that does <em>not</em> cleanly replicate, reported honestly rather than left out.",
+        "It is often assumed that a city's industrial past decides which neighbourhoods are well served "
+        "today. This project tested that idea for walking access in two Ruhr cities, Bochum and Essen, and "
+        "tested it properly: against random locations, for residents rather than street nodes, and with "
+        "satellite-derived settlement age. The apparent 'legacy' effect turned out to be general urban form. "
+        "The real access gaps are small and sit in areas built up after 1975, which is where planning "
+        "attention belongs.",
         large=True,
     ),
     dark=True,
@@ -134,12 +130,11 @@ with col_right:
     card(
         kicker("The Twist")
         + card_body(
-            "The hypothesis was that historical industrial sites would predict present-day "
-            "<span class='gi-highlight'>neglect</span>. The data said the opposite: proximity to "
-            "historical coal-mine and colony locations statistically predicts "
-            "<span class='gi-highlight'>better</span> 15-minute accessibility today — verified "
-            "against city-center proximity and corroborated by an independent spatial-clustering "
-            "(Local Moran's I) analysis.",
+            "A first comparison suggested that places near old mines have "
+            "<span class='gi-highlight'>better</span> access today. But 1,000 random sets of locations "
+            "in the same city do just as well, and the effect disappears when residents are counted. "
+            "Version 1 of this project reported the first result; version 2 tests it and reports what "
+            "actually holds.",
             large=True,
         ),
         dark=True,
@@ -152,26 +147,26 @@ st.markdown("<h3>Three Findings</h3>", unsafe_allow_html=True)
 f1, f2, f3 = st.columns(3)
 with f1:
     card(
-        kicker("Finding 1") + card_title("Reversed Effect")
+        kicker("Finding 1") + card_title("No Mining-Specific Legacy")
         + card_body(
-            "Low-accessibility zones are, on average, further from historical industrial sites — "
-            "not closer, as the original hypothesis assumed (Cohen's d=0.589)."
+            "Real mine and colony sites are not distinguishable from random built-up locations once "
+            "access is counted for residents, in either city."
         )
     )
 with f2:
     card(
-        kicker("Finding 2") + card_title("Confound-Controlled")
+        kicker("Finding 2") + card_title("Gaps Are Small for People")
         + card_body(
-            "Verified via logistic regression: the effect holds even after controlling for "
-            "distance to the city center — it isn't just a center-proximity proxy."
+            "Counting all mapped services, about 2% of Bochum's and under 1% of Essen's residents "
+            "lack 15-minute walking access (Zensus 2022)."
         )
     )
 with f3:
     card(
-        kicker("Finding 3") + card_title("Spatially Clustered")
+        kicker("Finding 3") + card_title("Newer Areas Lag Behind")
         + card_body(
-            "A Local Moran's I analysis confirms low accessibility forms genuine, statistically "
-            "significant cold-spot clusters — not random scatter — farther from historical sites."
+            "Residents of areas first built up after 1975 (GHSL satellite data) are 2–8 times more "
+            "likely to lack access."
         )
     )
 
@@ -181,14 +176,14 @@ st.markdown("<h3>Explore the Research</h3>", unsafe_allow_html=True)
 
 nav_items = [
     ("Study Design", "Bochum, methodology, why this city"),
-    ("Theoretical Foundations", "How mining subsidence and legacy landform shaped today's accessibility"),
+    ("Theoretical Foundations", "Background: how mining reshaped the Ruhr landscape"),
     ("Historical Geography", "13 mines, 4 worker colonies"),
     ("Accessibility Analysis", "The 15-minute network model"),
-    ("The Finding", "Statistical test + confound + spatial clustering"),
+    ("The Finding", "Naive comparison, null model, residents"),
     ("Explore Trends", "Live distance-threshold explorer"),
     ("Interactive Maps & Plots", "Live geospatial exploration plus the three headline charts"),
     ("Methodology & Data", "Sources, debugging journey, limitations"),
-    ("Robustness: Thresholds & Essen", "10/20-min sensitivity + a second-city replication"),
+    ("Robustness: Both Cities & Settlement Age", "Essen, urban form, GHSL settlement age"),
 ]
 
 cols = st.columns(3)

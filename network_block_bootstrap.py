@@ -15,12 +15,12 @@ NODES_PATH = os.path.join(BASE_DIR, "data", "accessibility", "bochum_accessibili
 GRAPH_PATH = os.path.join(BASE_DIR, "data", "osm_network", "bochum_walk_network.graphml")
 OUT_JSON = os.path.join(BASE_DIR, "outputs", "network_block_bootstrap_results.json")
 
-# Bochum Hauptbahnhof -- same city-center reference point as test_confound.py
+# City-center reference point (Rathaus / inner-city area, ~570 m NW of Bochum Hauptbahnhof) -- same point as test_confound.py
 # and threshold_sensitivity.py, so results are directly comparable.
 CITY_CENTER_LONLAT = (7.2162, 51.4818)
 
 N_BOOT = 999
-BLOCK_TARGET_SIZE = 500  # this is only a growth target per block, not the actual block size -- the network breaks into many small disconnected pieces, so real block count/size come out much smaller than 69,393 / 500; see note at bottom on sensitivity
+BLOCK_TARGET_SIZE = 500  # this is only a growth target per block, not the actual block size -- later blocks are hemmed in by nodes already assigned to earlier blocks (the network itself is one connected component), so real block count/size come out much smaller than 69,393 / 500; see note at bottom on sensitivity
 RANDOM_SEED = 42
 
 

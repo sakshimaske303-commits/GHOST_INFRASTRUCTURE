@@ -37,7 +37,7 @@ ax.tick_params(colors="white", labelsize=11)
 for spine in ax.spines.values():
     spine.set_color("white")
 
-plt.figtext(0.5, -0.02, "Welch's t-test: t=24.731, p<0.00001", ha="center", fontsize=10, color="#7FB8BE", fontweight="bold")
+plt.figtext(0.5, -0.02, "Welch's t-test: t=24.732, p<0.00001", ha="center", fontsize=10, color="#7FB8BE", fontweight="bold")
 
 plt.tight_layout(rect=[0, 0.05, 1, 1])
 

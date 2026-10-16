@@ -45,5 +45,5 @@ legend = ax.legend(loc="lower left", fontsize=9, framealpha=0.9, facecolor="#0A2
 # author identity lives only on the separate, non-anonymized Title Page).
 fig.text(0.5, 0.02, "GHOST INFRASTRUCTURE — Sources: KuLaDig, Wikipedia, OpenStreetMap (OSMnx), GADM", color="#9FB3C8", fontsize=9, ha="center")
 plt.tight_layout()
-plt.savefig("essen_lisa_cluster_map.png", dpi=300, facecolor=BACKGROUND, bbox_inches="tight")
-print("Saved: essen_lisa_cluster_map.png")
+plt.savefig("outputs/plots/essen_lisa_cluster_map.png", dpi=300, facecolor=BACKGROUND, bbox_inches="tight")
+print("Saved: outputs/plots/essen_lisa_cluster_map.png")

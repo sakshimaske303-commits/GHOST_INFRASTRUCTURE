@@ -7,3 +7,11 @@ data/boundaries/gadm41_DEU.gpkg
 __pycache__/
 *.py[cod]
 cache/
+
+# Zensus 2022 100 m CSV is 153 MB (over GitHub's 100 MB limit); scripts read the official zip directly
+data/population/Zensus2022_Bevoelkerungszahl/
+
+# GADM-derived boundaries: GADM does not permit redistribution.
+# Recreate locally with: python extract_city_boundaries.py
+data/boundaries/bochum_city.gpkg
+data/boundaries/essen_city.gpkg

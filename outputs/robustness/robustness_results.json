@@ -1,0 +1,238 @@
+{
+  "bochum": {
+    "n_nodes": 69393,
+    "n_sites": 17,
+    "A_null_model": {
+      "draws": 1000,
+      "site_pool": "street-network nodes",
+      "observed_cohens_d": 0.589,
+      "null_d_mean": 0.43,
+      "null_d_5_95": [
+        0.08,
+        0.79
+      ],
+      "observed_d_percentile": 77.5,
+      "share_null_d_ge_observed": 0.225,
+      "share_null_d_positive": 0.981,
+      "observed_coef_hist_given_center": -0.00047626467376119555,
+      "observed_p_hist_given_center": 0.0,
+      "share_null_coef_le_observed": 0.344
+    },
+    "B_urban_form": {
+      "observed_coef_hist_full_model": -0.00015696499191548833,
+      "observed_p_hist_full_model": 3.9841396845989996e-34,
+      "share_null_coef_full_le_observed": 0.254,
+      "observed_difference_m": 534.3,
+      "grid_bootstrap_cell_m": 2000,
+      "n_cells": 52,
+      "grid_bootstrap_ci95_m": [
+        197.1,
+        907.0
+      ],
+      "leave_one_site_out_d_min": 0.369,
+      "leave_one_site_out_d_max": 0.697,
+      "median_dist_boundary_low_vs_high_m": [
+        1064,
+        1925
+      ],
+      "median_nodes_within_500m_low_vs_high": [
+        244,
+        568
+      ],
+      "per_site_local_access": {
+        "Hannover Coal Mine": {
+          "n_nodes_within_750m": 333,
+          "pct_with_access_within_750m": 36.3
+        },
+        "Constantin der Grosse Coal Mine": {
+          "n_nodes_within_750m": 1086,
+          "pct_with_access_within_750m": 100.0
+        },
+        "Hannibal Coal Mine": {
+          "n_nodes_within_750m": 942,
+          "pct_with_access_within_750m": 99.8
+        },
+        "Utd. Engelsburg Coal Mine": {
+          "n_nodes_within_750m": 544,
+          "pct_with_access_within_750m": 33.3
+        },
+        "General Coal Mine": {
+          "n_nodes_within_750m": 1455,
+          "pct_with_access_within_750m": 99.9
+        },
+        "Hasenwinkel Coal Mine": {
+          "n_nodes_within_750m": 1295,
+          "pct_with_access_within_750m": 97.6
+        },
+        "Friederica Coal Mine": {
+          "n_nodes_within_750m": 1354,
+          "pct_with_access_within_750m": 99.9
+        },
+        "Lothringen Coal Mine": {
+          "n_nodes_within_750m": 1035,
+          "pct_with_access_within_750m": 88.9
+        },
+        "Dannenbaum Coal Mine": {
+          "n_nodes_within_750m": 1243,
+          "pct_with_access_within_750m": 98.0
+        },
+        "Neu-Iserlohn Coal Mine": {
+          "n_nodes_within_750m": 130,
+          "pct_with_access_within_750m": 0.0
+        },
+        "Heinrich Gustav Coal Mine": {
+          "n_nodes_within_750m": 795,
+          "pct_with_access_within_750m": 83.9
+        },
+        "Mansfeld Coal Mine": {
+          "n_nodes_within_750m": 1203,
+          "pct_with_access_within_750m": 99.8
+        },
+        "Holland Coal Mine": {
+          "n_nodes_within_750m": 1070,
+          "pct_with_access_within_750m": 100.0
+        },
+        "Dahlhauser Heide": {
+          "n_nodes_within_750m": 625,
+          "pct_with_access_within_750m": 90.9
+        },
+        "Kolonie Hannover": {
+          "n_nodes_within_750m": 330,
+          "pct_with_access_within_750m": 34.2
+        },
+        "Am Ruebenkamp": {
+          "n_nodes_within_750m": 361,
+          "pct_with_access_within_750m": 42.4
+        },
+        "Am Schamberge": {
+          "n_nodes_within_750m": 2506,
+          "pct_with_access_within_750m": 100.0
+        }
+      }
+    },
+    "C_service_definition": {
+      "n_service_features": 786,
+      "n_point_features": 248,
+      "points_only_recompute_match_v1_share": 1.0,
+      "points_only": {
+        "coverage_pct": 85.79,
+        "n_low": 9858,
+        "mean_dist_low_m": 1984.1,
+        "mean_dist_high_m": 1449.8,
+        "welch_t": 42.887,
+        "cohens_d": 0.589
+      },
+      "all_features": {
+        "coverage_pct": 96.73,
+        "n_low": 2271,
+        "mean_dist_low_m": 2823.8,
+        "mean_dist_high_m": 1481.8,
+        "welch_t": 42.205,
+        "cohens_d": 1.499,
+        "null_d_mean": 0.784,
+        "observed_d_percentile": 95.7,
+        "share_null_d_ge_observed": 0.043
+      }
+    }
+  },
+  "essen": {
+    "n_nodes": 72027,
+    "n_sites": 8,
+    "A_null_model": {
+      "draws": 1000,
+      "site_pool": "street-network nodes",
+      "observed_cohens_d": 0.338,
+      "null_d_mean": 0.589,
+      "null_d_5_95": [
+        0.082,
+        0.977
+      ],
+      "observed_d_percentile": 16.9,
+      "share_null_d_ge_observed": 0.831,
+      "share_null_d_positive": 0.967,
+      "observed_coef_hist_given_center": 0.00011406171287250472,
+      "observed_p_hist_given_center": 1.5828101538730648e-60,
+      "share_null_coef_le_observed": 0.829
+    },
+    "B_urban_form": {
+      "observed_coef_hist_full_model": -6.277021337810975e-05,
+      "observed_p_hist_full_model": 7.573654766128623e-13,
+      "share_null_coef_full_le_observed": 0.356,
+      "observed_difference_m": 563.5,
+      "grid_bootstrap_cell_m": 2000,
+      "n_cells": 75,
+      "grid_bootstrap_ci95_m": [
+        -1.6,
+        1146.9
+      ],
+      "leave_one_site_out_d_min": 0.011,
+      "leave_one_site_out_d_max": 0.45,
+      "median_dist_boundary_low_vs_high_m": [
+        1206,
+        2340
+      ],
+      "median_nodes_within_500m_low_vs_high": [
+        147,
+        462
+      ],
+      "per_site_local_access": {
+        "Zeche Zollverein (Schacht XII)": {
+          "n_nodes_within_750m": 768,
+          "pct_with_access_within_750m": 98.3
+        },
+        "Zeche Carl Funke": {
+          "n_nodes_within_750m": 279,
+          "pct_with_access_within_750m": 65.9
+        },
+        "Zeche Vereinigte Helene & Amalie": {
+          "n_nodes_within_750m": 826,
+          "pct_with_access_within_750m": 100.0
+        },
+        "Zeche Pörtingsiepen": {
+          "n_nodes_within_750m": 131,
+          "pct_with_access_within_750m": 9.2
+        },
+        "Siedlung Carl Funke": {
+          "n_nodes_within_750m": 525,
+          "pct_with_access_within_750m": 87.8
+        },
+        "Mathias-Stinnes-Siedlung": {
+          "n_nodes_within_750m": 529,
+          "pct_with_access_within_750m": 92.6
+        },
+        "Kolonie Zollverein III": {
+          "n_nodes_within_750m": 618,
+          "pct_with_access_within_750m": 100.0
+        },
+        "Kolonie Beisen": {
+          "n_nodes_within_750m": 358,
+          "pct_with_access_within_750m": 100.0
+        }
+      }
+    },
+    "C_service_definition": {
+      "n_service_features": 1410,
+      "n_point_features": 366,
+      "points_only_recompute_match_v1_share": 1.0,
+      "points_only": {
+        "coverage_pct": 88.52,
+        "n_low": 8267,
+        "mean_dist_low_m": 3693.4,
+        "mean_dist_high_m": 3129.9,
+        "welch_t": 24.732,
+        "cohens_d": 0.338
+      },
+      "all_features": {
+        "coverage_pct": 97.71,
+        "n_low": 1649,
+        "mean_dist_low_m": 4064.9,
+        "mean_dist_high_m": 3174.2,
+        "welch_t": 16.878,
+        "cohens_d": 0.532,
+        "null_d_mean": 0.861,
+        "observed_d_percentile": 22.3,
+        "share_null_d_ge_observed": 0.777
+      }
+    }
+  }
+}

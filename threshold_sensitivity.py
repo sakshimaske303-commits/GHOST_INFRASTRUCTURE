@@ -109,7 +109,7 @@ for minutes in THRESHOLDS_MIN:
     print(f"Welch's t-test: t={t_stat:.3f}, p={p_value:.2e}, Cohen's d={cohens_d:.3f}")
     print(f"Logit: hist coef={coef_hist:.6f} (p={p_hist:.2e}), odds%/100m={odds_pct_per_100m:.2f}%")
 
-with open("threshold_sensitivity_results.json", "w") as f:
+with open("outputs/threshold_sensitivity_results.json", "w") as f:
     json.dump(results, f, indent=2, default=str)
 
 print("\n\n=== SUMMARY TABLE ===")
@@ -119,4 +119,4 @@ for m, r in results.items():
           f"t={r['t_stat']}, p={r['p_value']:.2e}, d={r['cohens_d']}, "
           f"odds%/100m(hist)={r['odds_pct_per_100m_historical']}%")
 
-print("\nSaved: threshold_sensitivity_results.json")
+print("\nSaved: outputs/threshold_sensitivity_results.json")

@@ -7,7 +7,7 @@ from scipy import stats
 print("Loading data...")
 nodes = gpd.read_file("data/accessibility/bochum_accessibility_with_distance.gpkg")
 
-# Bochum city center (Hauptbahnhof area)
+# Bochum city-center reference point (Rathaus / inner-city area, ~570 m NW of the Hauptbahnhof)
 city_center = gpd.GeoDataFrame(
     {"geometry": [gpd.points_from_xy([7.2162], [51.4818])[0]]},
     crs="EPSG:4326"

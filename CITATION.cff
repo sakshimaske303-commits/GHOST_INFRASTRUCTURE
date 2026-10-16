@@ -1,10 +1,11 @@
 cff-version: 1.2.0
 message: "If you use this software or its findings, please cite it using the metadata below."
-title: "Ghost Infrastructure: Historical Industrial Geography and the Persistence of Path-Dependent Accessibility in Bochum, Germany"
+title: "Ghost Infrastructure? Testing Whether 19th-Century Coal-Mining Geography Shapes 15-Minute Walking Access in Bochum and Essen, Germany"
 type: software
 authors:
   - family-names: "Maske"
     given-names: "Sakshi D."
+    orcid: "https://orcid.org/0009-0002-5683-5966"
 repository-code: "https://github.com/sakshimaske303-commits/GHOST_INFRASTRUCTURE"
 url: "https://github.com/sakshimaske303-commits/GHOST_INFRASTRUCTURE"
 identifiers:
@@ -13,45 +14,30 @@ identifiers:
     description: "Zenodo archive of GHOST INFRASTRUCTURE v1.1.0"
 doi: "10.5281/zenodo.21761320"
 abstract: >-
-  A historical-cartographic and spatial-network study testing whether Bochum's
-  19th and 20th-century coal-mining industrial geography — mine locations and
-  worker-housing colonies (Zechensiedlungen) — continues to structurally
-  predict present-day "15-minute city" walking accessibility, more than five
-  decades after the region's last coal mine closed. Thirteen historical coal
-  mines and four worker colonies were digitized from archival sources, and
-  present-day accessibility was modeled using true network-distance
-  isochrones across Bochum's complete 69,393-node pedestrian street network.
-  Contrary to the hypothesis that historical industrial sites would predict
-  present-day neglect, a Welch's t-test found the opposite (t=42.887,
-  p<0.00001, Cohen's d=0.589), verified against city-center proximity as a
-  confound via logistic regression, and corroborated by a complementary
-  Local Moran's I spatial-clustering analysis showing 97.1% of
-  low-accessibility nodes fall within statistically significant cold-spot
-  clusters. The evidence supports a "path dependency of centrality" rather
-  than a "path dependency of neglect." Two robustness extensions were added
-  in v1.1.0. First, the finding holds — and strengthens — at 10-minute and
-  20-minute walking thresholds, not only the original 15-minute threshold
-  (Cohen's d ranging 0.413-0.661). Second, the full methodology was
-  independently replicated in Essen, a second Ruhr Valley city (72,027-node
-  network, 4 mines + 4 worker colonies digitized from KuLaDig and Wikipedia).
-  The raw reversed effect and the spatial-clustering result both replicate in
-  Essen; the confound-independence result does not — Essen's historical-site
-  distance correlates moderately with city-center distance (r=0.405, versus
-  Bochum's r=0.063), and the historical-site effect's sign reverses once
-  city-center distance is controlled for. Both results are reported in full.
+  Tests whether present-day 15-minute walking access in Bochum and Essen
+  (Ruhr, Germany) is associated with the location of historical coal mines and
+  worker colonies beyond what general urban form explains. Accessibility is
+  modelled on the full OpenStreetMap pedestrian networks, residents come from the
+  Zensus 2022 100 m grid, and settlement age from GHSL built-up surface (1975,
+  2020). A naive comparison suggests a legacy effect (Cohen's d = 0.589 in
+  Bochum), but a null model of 1,000 random site sets reproduces it (22.5% of
+  random sets reach the real effect in Bochum, 83.1% in Essen), and for
+  residents the real sites are not distinguishable from random built-up
+  locations in either city. Access gaps are instead concentrated among residents
+  of areas first built up after 1975 (two to eight times higher rates of no
+  access). Version 2.0 replaces the v1.1 "path dependency of centrality" claim
+  after an internal review.
 keywords:
-  - path dependency
   - 15-minute city
-  - urban accessibility
+  - walking accessibility
+  - path dependence
   - historical GIS
+  - null model
+  - Monte Carlo
+  - GHSL
+  - Zensus 2022
+  - Ruhr
   - network analysis
-  - post-industrial geography
-  - spatial statistics
-  - Local Moran's I
-  - Germany
-  - Ruhr Valley
-  - multi-city replication
-  - robustness analysis
-license: CC-BY-4.0
-version: 1.1.0
-date-released: "2026-08-22"
+license: MIT
+version: 2.0.0
+date-released: "2026-10-16"

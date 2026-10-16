@@ -1,5 +1,6 @@
 import geopandas as gpd
 import matplotlib.pyplot as plt
+from map_furniture import add_north_arrow, add_scale_bar
 
 BACKGROUND = "#2E3A61"
 LAND_COLOR = "#F5EFD8"
@@ -20,6 +21,8 @@ y_pad = (bounds[3] - bounds[1]) * 0.1
 ax.set_xlim(bounds[0] - x_pad, bounds[2] + x_pad)
 ax.set_ylim(bounds[1] - y_pad, bounds[3] + y_pad)
 ax.set_axis_off()
+add_scale_bar(ax, km=2)
+add_north_arrow(ax)
 
 fig.text(0.5, 0.94, "STUDY AREA: BOCHUM", fontsize=22, fontweight="bold", color=TEXT_COLOR, ha="center")
 fig.text(0.5, 0.905, "North Rhine-Westphalia, Germany — Ruhr Valley",

@@ -5,12 +5,13 @@ style/palette, Essen boundary + historical-site data (4 mines, 4 worker colonies
 """
 import geopandas as gpd
 import matplotlib.pyplot as plt
+from map_furniture import add_north_arrow, add_scale_bar
 
 BACKGROUND = "#2E3A61"
 LAND_COLOR = "#F5EFD8"
 MINE_COLOR = "#B65A2A"
 COLONY_COLOR = "#7FB8BE"
-TEXT_COLOR = "#000000"
+TEXT_COLOR = "#FFFFFF"
 
 boundary = gpd.read_file("data/boundaries/essen_city.gpkg")
 mines = gpd.read_file("data/historical_georeferenced/essen_coal_mines.gpkg")
@@ -75,6 +76,8 @@ y_pad = (bounds[3] - bounds[1]) * 0.08
 ax.set_xlim(bounds[0] - x_pad, bounds[2] + x_pad)
 ax.set_ylim(bounds[1] - y_pad, bounds[3] + y_pad)
 ax.set_axis_off()
+add_scale_bar(ax, km=2, loc=(0.05, 0.06))  # lower left: the legend is lower right
+add_north_arrow(ax)
 
 handles = [
     plt.Line2D([0], [0], marker="^", color="w", markerfacecolor=MINE_COLOR, markersize=14, label="Coal Mine (1779-1986)", linestyle="None"),
@@ -87,7 +90,7 @@ for text in legend.get_texts():
     text.set_color("#FFFFFF")
 
 fig.text(0.5, 0.95, "ESSEN'S INDUSTRIAL GEOGRAPHY", fontsize=24, fontweight="bold", color=TEXT_COLOR, ha="center")
-fig.text(0.5, 0.915, "Coal Mines and Worker Colonies, 1779–1986 (4 mines + 4 colonies, multi-city replication dataset)",
+fig.text(0.5, 0.915, "Coal mines (1779–1986) and worker colonies (1880–1910): 4 + 4 sites, plotted as points",
           fontsize=13, color="#B0BEC5", ha="center")
 
 plt.figtext(0.5, 0.02, "GHOST INFRASTRUCTURE — Sources: GADM, KuLaDig, Wikipedia",

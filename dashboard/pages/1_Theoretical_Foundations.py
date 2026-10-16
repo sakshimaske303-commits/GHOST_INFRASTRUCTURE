@@ -12,7 +12,7 @@ apply_custom_style()
 
 page_header(
     "⛏️", "WHAT MINING LEAVES BEHIND",
-    "The Anthropogenic Geomorphology Underneath Ghost Infrastructure's Finding",
+    "Background: How Mining Reshaped the Ruhr Landscape (context, not a tested result)",
 )
 
 st.markdown("---")
@@ -20,18 +20,12 @@ st.markdown("---")
 # ============================================================
 # DIAGRAM
 # ============================================================
-IMG_PATH = os.path.join(ROOT_DIR, "outputs", "plots", "imgg1.png")
 col_a, col_b, col_c = st.columns([0.2, 5.9, 0.2])
 with col_b:
-    if os.path.exists(IMG_PATH):
-        st.image(IMG_PATH, use_container_width=True)
-    else:
-        st.warning("Diagram not found at outputs/plots/imgg1.png")
-    st.markdown(
-        f"<p style='text-align:center; color:{PALETTE['text_muted']}; font-size:0.85rem; margin-top:6px;'>"
-        "Mining subsidence (Bergsenkung) schematic — concentric surface depression contours above a worked-out underground void.</p>",
-        unsafe_allow_html=True,
-    )
+    # imgg1.png is no longer displayed: it is an illustration, not a data-derived map, and its
+    # map-like panels (with scale bars) could be mistaken for project results.
+    # See DEFENSIBILITY_PLAN.md (item S5) for the keep/delete decision.
+    pass
 
 st.markdown("---")
 
@@ -73,7 +67,7 @@ st.markdown("---")
 # ============================================================
 # SECTION 3 — TIE TO THE PROJECT'S REVERSED FINDING
 # ============================================================
-st.markdown("<h3>Why a 150-Year-Old Landform Still Predicts Accessibility Today</h3>", unsafe_allow_html=True)
+st.markdown("<h3>A Possible Mechanism (Untested Hypothesis)</h3>", unsafe_allow_html=True)
 
 card(
     kicker("Connecting the Theory to the Finding")
@@ -84,12 +78,10 @@ card(
         "settlement pattern is the leading hypothesized <strong>legacy geomorphology</strong> behind "
         "present-day Bochum's road grid, though direct digitization of the historical rail and road "
         "network — needed to test transportation connectivity independently of proximity to mines "
-        "and colonies — is still future work. This hypothesized mechanism is consistent with Ghost "
-        "Infrastructure's central, hypothesis-reversing finding: proximity to historical mining "
-        "sites statistically predicts <em>better</em> 15-minute accessibility today, not worse — "
-        "because those sites plausibly came with the transport infrastructure a walkable "
-        "neighbourhood needs, laid down more than a century before urban planners ever used the "
-        "term.",
+        "and colonies — is still future work. This mechanism has <strong>not</strong> been tested in "
+        "this project: it is one possible explanation for the statistical association reported on "
+        "The Finding page, and that association may also reflect general urban form rather than "
+        "anything specific to mining.",
         large=True,
     ),
     dark=True,

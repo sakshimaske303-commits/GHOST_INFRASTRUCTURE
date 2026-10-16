@@ -26,7 +26,7 @@ with col1:
 with col2:
     stat_card("Street Edges", "169,668")
 with col3:
-    stat_card("Services Checked", "786")
+    stat_card("Point Services Used", "248")
 with col4:
     stat_card("15-Min Coverage", "85.8%")
 
@@ -41,6 +41,13 @@ with s2:
     card(card_body("<strong>Education</strong><br>Schools, kindergartens"))
 with s3:
     card(card_body("<strong>Daily Needs</strong><br>Supermarkets, convenience stores, parks"))
+card(card_body(
+    "<strong>Important:</strong> these 8 categories were requested from OpenStreetMap (786 features), "
+    "but only the 248 features mapped as <em>points</em> are used by the model. In Bochum every "
+    "hospital and every park, and most schools, are mapped as polygons, so they are not in the "
+    "current model. The 248 points are 75 pharmacies, 75 supermarkets, 58 kindergartens, "
+    "26 convenience stores, 11 schools and 3 clinics."
+))
 
 st.markdown("---")
 

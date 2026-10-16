@@ -162,6 +162,6 @@ results = {
     "lisa_lh_outlier": int(lh_sig),
     "pct_low_access_in_ll_cluster": round(pct_low_in_ll, 1),
 }
-with open("essen_results.json", "w") as f:
+with open("outputs/essen_results.json", "w") as f:
     json.dump(results, f, indent=2, default=str)
-print("\nSaved: essen_results.json")
+print("\nSaved: outputs/essen_results.json")

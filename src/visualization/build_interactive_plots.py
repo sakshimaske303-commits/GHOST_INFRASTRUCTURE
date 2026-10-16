@@ -92,7 +92,7 @@ def build_bochum_essen_comparison():
         "n_nodes": 69393, "n_sites": 17, "pct_covered": 85.8,
         "t_stat": 42.887, "cohens_d": 0.589,
         "corr_hist_center": 0.063,
-        "odds_hist": 4.9, "odds_center": 3.0,
+        "odds_hist": 4.9, "odds_center": 2.9,
         "lisa_pct_sig": 14.8, "pct_low_in_ll": 97.1,
     }
     with open("outputs/essen_results.json") as f:

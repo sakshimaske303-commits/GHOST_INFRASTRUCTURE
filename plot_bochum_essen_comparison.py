@@ -10,10 +10,10 @@ bochum = {
     "n_nodes": 69393, "n_sites": 17, "pct_covered": 85.8,
     "t_stat": 42.887, "cohens_d": 0.589,
     "corr_hist_center": 0.063,
-    "odds_hist": 4.9, "odds_center": 3.0,
+    "odds_hist": 4.9, "odds_center": 2.9,
     "lisa_pct_sig": 14.8, "pct_low_in_ll": 97.1,
 }
-with open("essen_results.json") as f:
+with open("outputs/essen_results.json") as f:
     essen = json.load(f)
 
 fig, axes = plt.subplots(1, 3, figsize=(17, 6))
@@ -62,11 +62,11 @@ for s in ax3.spines.values(): s.set_color("white")
 
 fig.suptitle("Ghost Infrastructure: Bochum vs. Essen Multi-City Comparison", color="white", fontsize=16, fontweight="bold", y=1.03)
 plt.figtext(0.5, -0.05,
-            f"Essen: {essen['n_nodes']:,} nodes, {essen['n_historical_sites']} historical sites (Phase 1 subset vs Bochum's 17) | "
+            f"Essen: {essen['n_nodes']:,} nodes, {essen['n_historical_sites']} historical sites (vs Bochum's 17) | "
             f"Welch's t-test both cities p<0.00001 | Essen confound-controlled logit: historical-site coefficient sign REVERSES "
             f"(entangled with city-center, unlike Bochum)",
             ha="center", fontsize=9.5, color=ACCENT, fontweight="bold", wrap=True)
 
 plt.tight_layout()
-plt.savefig("bochum_essen_comparison.png", dpi=300, facecolor=BACKGROUND, bbox_inches="tight")
-print("Saved: bochum_essen_comparison.png")
+plt.savefig("outputs/plots/bochum_essen_comparison.png", dpi=300, facecolor=BACKGROUND, bbox_inches="tight")
+print("Saved: outputs/plots/bochum_essen_comparison.png")

@@ -1,0 +1,60 @@
+{
+  "bochum": {
+    "n_cells": 6924,
+    "n_cells_classifiable": 6874,
+    "n_cells_excluded_no_builtup_2020": 50,
+    "residents_excluded": 418,
+    "pct_residents_in_post1975_cells": 11.78,
+    "points_only": {
+      "residents_pre1975": 311625,
+      "pct_without_access_pre1975": 10.35,
+      "residents_post1975": 41618,
+      "pct_without_access_post1975": 21.97,
+      "coef_post1975": -0.06301819033107343,
+      "p_post1975": 0.0001970070476201754,
+      "coef_hist": 5.208976224313151e-05,
+      "p_hist": 1.3100718251198474e-16,
+      "odds_ratio_post1975": 0.939
+    },
+    "all_services": {
+      "residents_pre1975": 311625,
+      "pct_without_access_pre1975": 1.66,
+      "residents_post1975": 41618,
+      "pct_without_access_post1975": 5.12,
+      "coef_post1975": -0.13609118074595258,
+      "p_post1975": 2.921340670918019e-05,
+      "coef_hist": -0.00022043552962771137,
+      "p_hist": 3.361363839880323e-92,
+      "odds_ratio_post1975": 0.873
+    }
+  },
+  "essen": {
+    "n_cells": 9755,
+    "n_cells_classifiable": 9686,
+    "n_cells_excluded_no_builtup_2020": 69,
+    "residents_excluded": 384,
+    "pct_residents_in_post1975_cells": 12.86,
+    "points_only": {
+      "residents_pre1975": 497286,
+      "pct_without_access_pre1975": 4.35,
+      "residents_post1975": 73361,
+      "pct_without_access_post1975": 14.21,
+      "coef_post1975": -0.10533548465426969,
+      "p_post1975": 3.7058040572434115e-10,
+      "coef_hist": -3.0881514394833706e-05,
+      "p_hist": 1.962677203346398e-12,
+      "odds_ratio_post1975": 0.9
+    },
+    "all_services": {
+      "residents_pre1975": 497286,
+      "pct_without_access_pre1975": 0.35,
+      "residents_post1975": 73361,
+      "pct_without_access_post1975": 2.85,
+      "coef_post1975": -0.9704533310735245,
+      "p_post1975": 4.202903409021173e-127,
+      "coef_hist": -5.2026925751440485e-05,
+      "p_hist": 3.544131340896084e-06,
+      "odds_ratio_post1975": 0.379
+    }
+  }
+}

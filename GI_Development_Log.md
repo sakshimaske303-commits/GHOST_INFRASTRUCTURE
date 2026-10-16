@@ -22,6 +22,8 @@ The log follows the project's actual build order: formulating the research quest
 14. [Entry 14](#entry-14)
 15. [Entry 15](#entry-15)
 16. [Entry 16](#entry-16)
+17. [Entry 17](#entry-17)
+18. [Entry 18](#entry-18)
 
 ## Entry 1
 
@@ -45,7 +47,7 @@ The result is 13 coal mines and 4 worker colonies, stored as 2 separate GIS laye
 
 Downloaded Bochum's current pedestrian street network via OSMnx: 69,393 nodes and 169,668 edges. Retrieved 786 essential service locations from the same source, covering hospitals, clinics, pharmacies, primary schools, kindergartens, supermarkets, corner stores, and parks.
 
-Built the accessibility model using true network distance (Dijkstra's algorithm) instead of straight line buffers. Straight line distance overestimates walkability, because it ignores building and block layout. Each node's accessibility is computed as the true walking network distance to the nearest of the 786 service locations.
+Built the accessibility model using true network distance (Dijkstra's algorithm) instead of straight line buffers. Straight line distance overestimates walkability, because it ignores building and block layout. Each node's accessibility is computed as the true walking network distance to the nearest of the service locations. [Correction, Entry 17: of the 786 features downloaded, only the 248 mapped as points were used.]
 
 ## Entry 4
 
@@ -93,7 +95,7 @@ The reversed relationship held at both thresholds, and strengthened somewhat at 
 
 ## Entry 10
 
-Selected Essen for a second city replication, per the project's own Future Work list, since it lies 15 km northeast of Bochum, shares the same 19th century coal mining history, and has comparably strong heritage documentation.
+Selected Essen for a second city replication, per the project's own Future Work list, since it lies about 15 km west of Bochum [corrected in Entry 17; originally written as "northeast"], shares the same 19th century coal mining history, and has comparably strong heritage documentation.
 
 Initial data collection was blocked by outages in OpenStreetMap's Overpass API and Nominatim services, Wikidata's live endpoints, and a 403 error from Mindat.org (the source used for the Bochum mine list). KuLaDig, North Rhine-Westphalia's official state heritage database, remained available and provided WGS84 coordinates for the major heritage listed mine shafts; German Wikipedia articles for worker colonies also reliably included geo tagged coordinates, unlike the corresponding mine shaft articles.
 
@@ -147,10 +149,39 @@ Completed the block size sensitivity check previously listed as future work. Wro
 
 Results: 250 nodes, CI [292.21, 803.04]; 500 nodes, CI [199.90, 885.16] (identical to the Entry 14 result, as expected since this is the same 500 node target under the same seed); 1,000 nodes, CI [135.78, 884.20]. All 3 exclude 0 and retain the same sign on the historical site coefficient; the interval widens somewhat as block size increases, consistent with fewer, larger resampling units. Moved this from Future Work into Section 7 as a completed robustness result. (Correction: this entry originally reported different, non-reproducible numbers here. The cause was `make_network_blocks()` drawing its random starting node from an unsorted Python set; that set's iteration order depends on the process's string hash seed, which varies run to run regardless of the fixed numpy seed, so the block partition itself was not actually reproducible. Fixed by sorting the node IDs before the random draw in both `network_block_bootstrap.py` and `network_block_bootstrap_sensitivity.py`; the numbers above are from the corrected, reproducible run.)
 
-Also corrected a wording error in the Limitations section, which described bootstrap blocks as averaging roughly 500 nodes each; the script's own output shows the true average is approximately 27 nodes per block, since the pedestrian network's many small disconnected fragments prevent most blocks from growing near the 500 node target. Added a clarifying note in Section 3.3 that the accessibility flag is a single binary indicator, at least 1 service of any kind within 15 minutes. It is not a per category or weighted score. The original text had not made this clear enough.
+Also corrected a wording error in the Limitations section, which described bootstrap blocks as averaging roughly 500 nodes each; the script's own output shows the true average is approximately 27 nodes per block, since the pedestrian network's many small disconnected fragments prevent most blocks from growing near the 500 node target. [Correction, Entry 17: the network is one connected component; blocks stay small because they are hemmed in by earlier blocks.] Added a clarifying note in Section 3.3 that the accessibility flag is a single binary indicator, at least 1 service of any kind within 15 minutes. It is not a per category or weighted score. The original text had not made this clear enough.
 
 ## Entry 16
 
 While reviewing the Essen historical site count (quoted throughout the paper, this log, and `essen_results.json` as "8 sites: 4 mines + 4 colonies"), checked the current `essen_coal_mines.gpkg` and `essen_zechensiedlungen.gpkg` files directly and found only 6 sites (3 mines, 3 colonies). Zeche Pörtingsiepen and Kolonie Beisen, both digitized and named in Section 3.7 of the paper, were missing from the current GeoPackage files, most likely because an earlier export was saved over the final one without being noticed. `essen_accessibility_with_distance.gpkg` and `essen_results.json` still contained the correct 8 site derived numbers from when the pipeline was last run against the complete data, so the paper's reported figures were never incorrect. But rerunning `run_essen_pipeline.py` against the repository as it stood at that moment would have brought back the earlier 6 site result (r=0.475), not the reported 8 site result (r=0.405).
 
 Reverified both missing sites' locations: Zeche Pörtingsiepen (Fischlaken, 51.394868°N, 7.043953°E; German Wikipedia and historischesportal.essen.de) and Kolonie Beisen (Katernberg, 51.49247°N, 7.06959°E; KuLaDig, associated with Zeche Zollverein). Added both back into the 2 GeoPackage files with the same schema as the existing entries, then reran the historical distance, correlation, logistic regression, and Local Moran's I steps of `run_essen_pipeline.py` against the corrected 8 site data. Result: mean_dist_low=3,693.4 m, mean_dist_high=3,129.9 m, t=24.732, d=0.338, r=0.4048, logistic coefficient=+0.000114, mean local I=0.917, 95.5% of low accessibility nodes in significant Low Low clusters. The numbers match the paper and `essen_results.json` almost exactly, so these are the correct 2 sites, not a rough approximation. Regenerated `essen_accessibility_with_distance.gpkg` and `essen_results.json` from the corrected files. The full pipeline can now be reproduced directly from the repository's current data. It no longer depends on a frozen, non reproducible output.
+
+## Entry 17
+
+Ran a full forensic review of the project (code re-executed independently from the raw GeoPackage and GraphML files; every headline number for both cities reproduced exactly). Corrected the following factual errors across the paper, manuscript, executive summary, README and dashboard:
+
+- Services: 786 is the number of OSM service features downloaded, but `compute_isochrones.py` keeps only Point geometries, so **248** services were actually used (75 pharmacies, 75 supermarkets, 58 kindergartens, 26 convenience stores, 11 schools, 3 clinics). All hospitals and parks, and most schools, are mapped as polygons and are not in the model. Essen: 366 of 1,410 features.
+- Essen lies about 15 km **west** of Bochum, not northeast (Entry 10 and the paper).
+- The walk network is **one connected component**. The small bootstrap blocks (median size 1, mean about 27) are caused by later blocks being hemmed in by already-assigned nodes, not by network fragmentation (Entry 15).
+- The city-center point (7.2162 E, 51.4818 N) is about 570 m northwest of Bochum Hauptbahnhof, in the Rathaus area. Re-running with the true Hauptbahnhof gives r=0.022 and an unchanged conclusion.
+- Figure 8 / S3 caption had the left and right panels swapped. The effect size rises as the threshold widens (0.413, 0.589, 0.661); it is not "stronger at every threshold" (the 10 minute value is below the 15 minute value).
+- Essen explanation 1 (sites closer to the center) is contradicted by the data: Essen's sites average 5.65 km from the center versus 4.63 km for all nodes.
+- Dashboard showed a stale bootstrap interval ([247.24, 873.73] m); the committed result is [199.90, 885.16] m.
+- `coal_mines_essen.csv` and `zechensiedlungen_essen.csv` still held only 6 sites; the 2 missing rows (Zeche Pörtingsiepen, Kolonie Beisen) were added to match the 8-site GeoPackages.
+- Script output paths were made consistent (`outputs/`).
+
+The review also found substantive weaknesses: a random-site null model shows that 17 random locations in the built-up area reproduce the reversed effect in about 98% of draws; the Local Moran's I result on a binary outcome is mechanically guaranteed; and urban form, population and service definition are not controlled for. These are addressed by a fixed analysis plan with a defined stopping point in `DEFENSIBILITY_PLAN.md`, rather than by open-ended additions.
+
+## Entry 18
+
+Ran the fixed v2 analysis plan (`DEFENSIBILITY_PLAN.md`) once, verified every script on my own machine, and froze the results in `outputs/robustness/`.
+
+- **Null model** (`robustness_v2.py`): 1,000 random sets of 17 (Bochum) or 8 (Essen) locations from the street network reproduce the naive "reversed" effect. 22.5% of random sets reach Bochum's d = 0.589, and 83.1% reach Essen's d = 0.338. With urban-form controls (distance to the boundary, local street density), the Bochum coefficient shrinks from -4.76e-4 to -1.57e-4, and 25.4% of random sets match it.
+- **Service definition:** counting all 786 service features (polygons as centroids) raises coverage to 96.7% (Bochum) and 97.7% (Essen). Bochum's real sites then beat 95.7% of random sets at street-node level, the only result to cross the 95% line.
+- **Population weighting** (`robustness_v2_population.py`, Zensus 2022 100 m grid): for residents, the real sites are not distinguishable from random populated locations in any of the 4 cases. The Bochum all-services signal falls to the 89.4% level. Only 2.1% (Bochum) and 0.69% (Essen) of residents lack 15-minute access when all services are counted.
+- **Settlement age** (`robustness_v2_settlement_age.py`, GHSL 1975/2020): residents of areas first built up after 1975 are 2 to 8 times more likely to lack access, in all 4 cases.
+
+Under the decision rule fixed before Phase 3, the industrial-legacy hypothesis is not supported in either city; the apparent effect is general urban form. The paper, executive summary, README, dashboard and CITATION were rewritten once from these frozen numbers. The licence is now split into MIT for code and CC BY 4.0 for text, figures and compiled site data, with ODbL, dl-de/by-2-0 and GHSL notices for third-party data. GADM-derived boundaries are no longer redistributed (`extract_city_boundaries.py` recreates them). Personal contact details were removed from the public title page and cover letter, and the AI-generated illustration `imgg1.png` was removed from the dashboard.
+
+From here the analysis is closed. The only remaining steps are regenerating figures and PDFs, committing and tagging v2.0.

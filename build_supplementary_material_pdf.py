@@ -55,9 +55,9 @@ ITEMS = [
         "file": "outputs/plots/threshold_sensitivity_comparison.png",
         "label": "Figure S3",
         "title": "Walking-Threshold Sensitivity: Ghost Infrastructure Effect, Bochum",
-        "caption": "Effect size comparison of distance to nearest historical site by "
-                    "accessibility group (left) and mean distance to nearest historical "
-                    "site at 10, 15, and 20 minute thresholds (right).",
+        "caption": "Mean distance to the nearest historical site by accessibility group at the "
+                    "10, 15, and 20 minute thresholds (left) and effect size (Cohen's d) "
+                    "at each threshold (right).",
     },
     {
         "file": "outputs/plots/essen_ghost_infrastructure_overlay.png",

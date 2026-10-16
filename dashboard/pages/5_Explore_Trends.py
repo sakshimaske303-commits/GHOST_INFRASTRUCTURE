@@ -68,8 +68,8 @@ st.plotly_chart(fig, use_container_width=True)
 
 lead(
     f"At a {threshold}m threshold: {len(close_nodes):,} nodes are classified \"close,\" "
-    f"{len(far_nodes):,} nodes are classified \"far.\" The gap between the two bars visualizes the "
-    "ghost infrastructure effect at this specific threshold."
+    f"{len(far_nodes):,} nodes are classified \"far.\" The gap between the two bars shows the naive "
+    "association only; The Finding page shows that random locations produce a similar gap."
 )
 
 st.markdown("---")

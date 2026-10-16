@@ -5,11 +5,8 @@ from folium.plugins import HeatMap
 
 OUT = "outputs/maps/bochum_interactive_map.html"
 
-TILE_URL = "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-TILE_ATTR = (
-    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors '
-    '&copy; <a href="https://carto.com/attributions">CARTO</a>'
-)
+TILE_URL = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+TILE_ATTR = "Tiles &copy; Esri &mdash; Esri, HERE, Garmin, &copy; OpenStreetMap contributors"
 BOUNDARY_STYLE = {"color": "#7FB8BE", "fillColor": "#F5EFD8", "fillOpacity": 0.06, "weight": 2}
 
 
@@ -31,7 +28,7 @@ def build():
 
     center = boundary.geometry.iloc[0].centroid
     m = folium.Map(location=[center.y, center.x], zoom_start=12, tiles=None)
-    folium.TileLayer(TILE_URL, attr=TILE_ATTR, min_zoom=0, max_zoom=20, max_native_zoom=20).add_to(m)
+    folium.TileLayer(TILE_URL, attr=TILE_ATTR, min_zoom=0, max_zoom=20, max_native_zoom=16).add_to(m)
 
     folium.GeoJson(
         boundary.__geo_interface__,

@@ -49,9 +49,9 @@ else:
 
 card(card_body(
     "The same 17 historical sites overlaid on 69,393 present-day street-network nodes, colored "
-    "by 15-minute accessibility status. Green dots dominate the interior; red dots — genuine "
-    "accessibility gaps — concentrate toward the periphery, further from the historical "
-    "industrial core."
+    "by 15-minute accessibility status (point-mapped services). Red nodes, without access, sit mostly "
+    "at the low-density edge of the city; several historical sites lie next to such areas as well. "
+    "The Finding page tests whether the sites differ from random locations."
 ))
 
 st.markdown("---")

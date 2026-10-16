@@ -1,126 +1,95 @@
 # GHOST INFRASTRUCTURE
 
-**How 19th-Century Coal Geography Still Shapes Who Gets a "15-Minute Life" Today**
+**Does 19th-century coal-mining geography still shape who can walk to everyday services? A null-model test in Bochum and Essen, Germany (v2.0)**
 
 [![EarthArXiv](https://img.shields.io/badge/EarthArXiv-Preprint-B7410E.svg)](https://eartharxiv.org/repository/view/14809/) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21761320.svg)](https://doi.org/10.5281/zenodo.21761320)
 
-## Live Dashboard
+**Live dashboard:** `https://ghostinfrastructure-areytvp4x8ofu6l5tosj2z.streamlit.app/`
 
-**Live Dashboard**: `https://ghostinfrastructure-areytvp4x8ofu6l5tosj2z.streamlit.app/`
+---
 
-*(Copy and paste this URL directly into your browser's address bar for correct rendering — clicking through GitHub's link preview can occasionally cause a temporary layout glitch on first load, which resolves after a single page refresh.)*
+## In one paragraph
 
-## Project Documentation
+The Ruhr cities of Bochum and Essen grew around coal mines and workers' housing colonies, and it is often assumed that this industrial past still shapes which neighbourhoods are well served. A naive comparison seems to confirm a "legacy": street nodes without 15-minute walking access to essential services lie farther from the old mining sites (Cohen's d = 0.589 in Bochum). This project tests that claim properly, and it does not hold. A null model of 1,000 random site sets shows that random locations in the built-up city produce the same pattern (22.5% of random sets reach the real effect in Bochum, 83.1% in Essen). Once access is counted for residents (Zensus 2022 100 m grid), the real sites are not distinguishable from random locations in either city. What does distinguish the access gaps is settlement age: residents of areas first built up after 1975 (GHSL, satellite-derived) are two to eight times more likely to lack access. With all mapped services counted, only 2.1% of Bochum's and 0.69% of Essen's residents lack 15-minute access.
 
-| Document | What's Inside |
+## Research question
+
+*Is present-day 15-minute walking access in Bochum and Essen associated with the location of historical coal-mining sites, beyond what general urban form explains, and, if not, what does distinguish the places where access is missing?*
+
+| Hypothesis | Result |
 |---|---|
-| [`GI_Executive_Summary.md`](./GI_Executive_Summary.md) / [`.pdf`](./GI_Executive_Summary.pdf) | One-page snapshot — project overview, question, method, headline finding, robustness checklist, and links (start here) |
-| [`GI_Research_Paper.md`](./GI_Research_Paper.md) | Formal academic paper — literature review, statistical methodology, results, discussion |
-| [`GI_Development_Log.md`](./GI_Development_Log.md) | Full technical development log — every bug, debugging session, and methodology iteration |
+| **H1** Industrial legacy: real mine and colony sites beat at least 95% of random site sets, for both service definitions and for residents | **Not supported** in either city: the signal is explained by general urban form |
+| **H2** Settlement age: residents of post-1975 development more often lack access | **Supported** in both cities and under both service definitions |
 
----
+## Data
 
-The research project GHOST INFRASTRUCTURE investigates on the analytical level if the spatial distribution of coal mining areas and workers' quarters (Zechensiedlungen), which are characteristic elements of the industrial geography of Bochum’s 19th and 20th century, continues to structurally reflect the degree of present-day "15-minute city" accessibility – more than 50 years after the final closure of the last coal mine in the region.
+| Dataset | Use | Source / licence |
+|---|---|---|
+| 13 coal mines + 4 worker colonies (Bochum); 4 + 4 (Essen) | Historical sites (points) | Mindat.org, Wikipedia, Route Industriekultur, ruhr-bauten.de, KuLaDig; compiled by the author |
+| OSM pedestrian network + essential services | Network accessibility (1,125 m, 15 min) | © OpenStreetMap contributors, ODbL; extracts of 18 Jul 2026 (Bochum) and 13 Aug 2026 (Essen) |
+| Zensus 2022, 100 m population grid | Residents per cell | © Statistische Ämter des Bundes und der Länder, dl-de/by-2-0 |
+| GHSL GHS-BUILT-S R2023A, 1975 and 2020, tile R3_C19 | Settlement age (Earth observation: Landsat + Sentinel-2) | © European Union, JRC; reuse with acknowledgement |
+| GADM v4.1 level 4 | City boundaries | GADM; **not redistributed** (see below) |
 
-But instead of using the term “industrial legacy” as a qualitative narrative metric, this project provides a new spatially and statistically quantifiable alternative measure: it tests something derived from historical geography (the digitized data) against a measure of urban accessibility derived from the network.
+## Method
 
-This core finding is tested for robustness, both across three walking-time thresholds - 10 – 15 – 20 minutes - and using an independent although comparable multi-city replication in Essen. Both extensions are reported in full, including the parts that are not easily replicable — see "What This Project Does" below.
+1. **Accessibility:** a node has access if a service is within 1,125 m of network distance. Two service definitions: point-mapped features only (v1), and all features with polygon centroids.
+2. **Naive comparison** (v1): Welch's t-test, Cohen's d, and a logit with distance to the centre.
+3. **Null model:** 1,000 random site sets drawn from street-network nodes (seed 42).
+4. **Urban-form controls:** distance to the city boundary, local street density, a 2 km grid-cluster bootstrap, and leave-one-site-out.
+5. **Population weighting:** Zensus cells as the unit, with a null model drawn from populated cells.
+6. **Settlement age:** a cell is post-1975 if its GHSL built-up surface in 1975 was below 50% of its 2020 value.
 
----
+The specification and the decision rule were fixed in advance; see [`DEFENSIBILITY_PLAN.md`](./DEFENSIBILITY_PLAN.md).
 
-## Interactive Maps & Plots
+## Reproduce
 
-Interactive maps and headline charts are hosted via GitHub Pages:
+```bash
+pip install -r requirements.txt
+python extract_city_boundaries.py      # needs your own GADM download, see below
+python robustness_v2.py                # A-C: null model, urban form, service definition (15-30 min)
+python robustness_v2_population.py     # D: population weighting
+python robustness_v2_settlement_age.py # E: settlement age (GHSL)
+python plot_settlement_age.py          # Figure 6
+cd dashboard && streamlit run app.py
+```
 
-**Maps**
-- [Bochum — Historical Sites + Accessibility Overlay (Python/folium)](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/maps/bochum_interactive_map.html)
-- [Essen — Historical Sites + Accessibility Overlay (Python/folium)](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/maps/essen_interactive_map.html)
+Data you have to add yourself (not in the repository):
 
-**Plots**
-- [Bochum vs. Essen Multi-City Comparison](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/plots/interactive/bochum_essen_comparison.html)
-- [Walking-Time-Threshold Sensitivity](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/plots/interactive/threshold_sensitivity.html)
-- [Distance-to-Historical-Site Comparison](https://sakshimaske303-commits.github.io/GHOST_INFRASTRUCTURE/outputs/plots/interactive/distance_comparison_boxplot.html)
+- **GADM:** download `gadm41_DEU.gpkg` from https://gadm.org and place it in `data/boundaries/`. GADM's licence does not allow redistribution, so the city boundaries are extracted locally by `extract_city_boundaries.py`.
+- **Zensus 2022:** the repository includes the official zip `data/population/Zensus2022_Bevoelkerungszahl.zip`. The scripts read it directly; do not commit the unzipped 153 MB CSV.
+- **GHSL:** `data/ghsl/` contains the two official tile zips for R3_C19. The scripts read them directly.
 
-*(All five are also embedded together on the dashboard's Interactive Maps & Plots page.)*
+All frozen results are in `outputs/robustness/`.
 
----
-
-## What This Project Does
-
-- Digitizes 13 historical coal mines and 4 worker housing colonies in Bochum from the Mindat.org archive and German heritage archives, stored as structurally separate GIS layers, plus 4 mines and 4 colonies in Essen from KuLaDig (Kultur.Landschaft.Digital) and Wikipedia for an independent multi-city replication
-- Creates a connecting web of 15 minutes walking time for the OSMnx pedestrian street network retrieved for Bochum and Essen (72,027 nodes in Essen, 69,393 nodes in Bochum), using true network distance rather than the straight line radius often used in simplified scenarios.
-- Tests statistical significance of historical statistical link between industrial sites and accessibility
-- Correlates and/or conducts logistic regression analyses to explicitly determine that the observed finding is not due to the most readily available confounder (city-center proximity, in this case)
-- Runs a local spatial-cluster analysis (LISA) on finding at each node of network in both cities (using Local Moran's I)
-- Tests its robustness at 3 walking-time cutpoints (10, 15, 20 minutes-cut) and finds that its effect remains and is enhanced at each cut
-- Represents all results using a live distance-threshold explorer in an interactive dashboard, Python (folium) maps, and Plotly interactive plots
-
-## Key Finding
-
-An “inverted” effect, confirmed by a complementary spatial-statistical test. The hypothesis was historical industrial sites would be predictive of current site neglect. Contrary to the hypothesis, the evidence showed the opposite — the distance of low accessibility zones from historical industrial sites (1,984m) was on average, *further* than the distance that high accessibility zones were from historical industrial sites (1,450m): a medium-to-large, practically meaningful effect (Welch's t-test: Cohen's d=0.589; t=42.887, p<0.00001 — see the note below on how to read that p-value). This holds up against city-center proximity as a confound: there was practically no correlation between the two (r=0.063), and no presence of a "path dependency of neglect" as originally hypothesized, but a "path dependency of centrality". This is also supported by a complementary Local Moran's I spatial-clustering analysis — the same accessibility data viewed through a different statistical lens — which shows that 97.1% of low-accessibility nodes are contained within statistically significant spatial cold-spot clusters that support the notion that low accessibility is not random; it creates statistically significant, spatially clustered low-accessibility zones (under a K-nearest-neighbor Local Moran's I specification), further from historical industrial sites. (Note: with 69,393 network nodes that are spatially correlated with their neighbors rather than independent observations, the p-values above are not the p-values of 69,393 independent samples — they should be read as evidence of a real, sizeable effect, with the effect size (Cohen's d) and the robustness/replication checks below carrying more weight than the p-value itself; see the Limitations section of `GI_Research_Paper.md` for the full discussion.)
-
-Replicated - with a sincere nuance - in a second city. The same method applied to Essen generates the same raw reversed effect (Cohen's d=0.338) and the same result for the spatial clustering (95.5% vs. Bochum's 97.1%). However, it does not replicate the confounds-independence result: There exists a modest correlation between historical-site distance and city-center distance in Essen (r=0.405) but not in Bochum (r=0.063); controlling for city-center distance causes the sign of the historical-site effect to flip. The underlying "centrality legacy" mechanism itself appears to generalize across both cities; the stronger claim that it is independent of city-center proximity, on current evidence, does not.
-
-The dashboard's Methodology page lists full methodology, as well as two independently-verified anomalies in the maps that are identified as genuine historical geography and not data errors, in the Project Overview of the `GI_Executive_Summary.md` and in the `GI_Development_Log.md`.
-
-## Repository Structure
+## Repository structure
 
 ```text
 GHOST_INFRASTRUCTURE/
+├── GI_Research_Paper.md             # The paper (v2.0)
+├── GI_Executive_Summary.md          # Two-page summary
+├── GI_Development_Log.md            # Full development history, including the v2 review
+├── DEFENSIBILITY_PLAN.md            # Fixed analysis spec, decision rule and stop line for v2.0
+├── robustness_v2*.py                # v2 analyses (A-E)
+├── plot_settlement_age.py           # Figure 6
+├── extract_city_boundaries.py       # Boundaries from your own GADM download
+├── outputs/robustness/              # Frozen v2 results (JSON) and figures
+├── maps/                            # Static map scripts (Bochum + Essen)
 ├── dashboard/                       # Streamlit dashboard
-├── data/
-│   ├── historical_georeferenced/    # Bochum: 13 mines, 4 colonies; Essen: 4 mines, 4 colonies (GeoPackage)
-│   ├── accessibility/               # Network accessibility models, both cities
-│   ├── boundaries/                  # Bochum + Essen city boundaries (GADM)
-│   └── osm_network/                 # Street networks + essential services (OSMnx), both cities
-├── outputs/
-│   ├── plots/                       # Static visualizations, including multi-city + threshold comparisons
-│   │   └── interactive/             # Plotly interactive HTML charts
-│   └── maps/                        # Interactive folium map exports
-├── GI_Research_Paper.md             # Formal academic research paper
-├── GI_Development_Log.md            # Full technical development log
-├── map*.py                          # Visualization scripts
-├── spatial_clustering_lisa.py       # Local Moran's I (LISA) spatial-clustering analysis (Bochum)
-├── threshold_sensitivity.py         # 10/20-min robustness check (Bochum)
-├── download_network_essen.py        # Essen OSM network download
-├── run_essen_pipeline.py            # Full Essen accessibility + statistics pipeline
-└── requirements.txt
+├── data/                            # Historical sites, OSM network/services, Zensus zip, GHSL zips
+└── (v1 scripts)                     # compute_isochrones.py, spatial_correlation_test.py, test_confound.py,
+                                     # threshold_sensitivity.py, run_essen_pipeline.py, spatial_clustering_lisa*.py,
+                                     # network_block_bootstrap*.py: kept for the record; see paper Section 9
 ```
 
-## Tech Stack
+## What changed from v1.1
 
-Python · GeoPandas · OSMnx · NetworkX · Statsmodels · Plotly · Folium · Streamlit · GitHub Pages
+v1.1 reported the naive comparison as evidence of a "path dependency of centrality". An internal forensic review (October 2026) found that this claim had not been tested against random locations. It also found that only 248 of the 786 OSM service features had been used, and that the Local Moran's I "corroboration" was mechanically guaranteed by the construction of the variable. v2.0 adds the null model, population and settlement-age data, and reports the result as it is. Details: paper Section 9 and `GI_Development_Log.md`, Entries 17–18.
 
-## Data Sources
+## Licence
 
-| Dataset | Provider |
-|---|---|
-| Coal Mine Locations (Bochum) | Mindat.org |
-| Worker Colonies (Zechensiedlungen), Bochum | Wikipedia, Route Industriekultur, ruhr-bauten.de |
-| Coal Mine Locations & Worker Colonies (Essen) | KuLaDig (Kultur.Landschaft.Digital, NRW state heritage GIS), Wikipedia |
-| City Boundary | GADM v4.1 |
-| Street Network & Essential Services | OpenStreetMap via OSMnx |
-
-## Running Locally
-
-```bash
-git clone https://github.com/sakshimaske303-commits/GHOST_INFRASTRUCTURE.git
-cd GHOST_INFRASTRUCTURE
-pip install -r requirements.txt
-cd dashboard
-streamlit run app.py
-```
+Code: MIT. Text, figures and the compiled historical-site data: CC BY 4.0. Third-party data keep their own licences (table above). See [`LICENSE`](./LICENSE). Citation metadata: [`CITATION.cff`](./CITATION.cff).
 
 ## Author
 
-**Sakshi D. Maske**
-
-Independent Geospatial Researcher
-
-## License
-
-This project is licensed under [CC BY 4.0](LICENSE). See `CITATION.cff` for citation metadata.
-
----
-
-*This project's full development process — including every debugging session and independently-verified map anomaly — is documented in `GI_Development_Log.md` for full transparency and reproducibility.*
+**Sakshi D. Maske**, Independent Geospatial Researcher

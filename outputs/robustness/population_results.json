@@ -1,0 +1,60 @@
+{
+  "bochum": {
+    "n_cells": 6924,
+    "n_residents": 353661,
+    "median_cell_to_nearest_node_m": 22.4,
+    "points_only": {
+      "pct_residents_without_access": 11.74,
+      "residents_without_access": 41521,
+      "weighted_mean_dist_low_m": 1785.9,
+      "weighted_mean_dist_high_m": 1445.3,
+      "weighted_cohens_d": 0.404,
+      "null_d_mean": 0.299,
+      "share_null_d_ge_observed": 0.352,
+      "coef_hist_given_center_logres": 4.9634094109390764e-05,
+      "p_hist_given_center_logres": 2.104815034488359e-15,
+      "share_null_coef_le_observed": 0.586
+    },
+    "all_services": {
+      "pct_residents_without_access": 2.07,
+      "residents_without_access": 7315,
+      "weighted_mean_dist_low_m": 2305.3,
+      "weighted_mean_dist_high_m": 1468.0,
+      "weighted_cohens_d": 0.994,
+      "null_d_mean": 0.527,
+      "share_null_d_ge_observed": 0.106,
+      "coef_hist_given_center_logres": -0.00022681828104519216,
+      "p_hist_given_center_logres": 4.980451079821218e-99,
+      "share_null_coef_le_observed": 0.236
+    }
+  },
+  "essen": {
+    "n_cells": 9755,
+    "n_residents": 571031,
+    "median_cell_to_nearest_node_m": 29.4,
+    "points_only": {
+      "pct_residents_without_access": 5.64,
+      "residents_without_access": 32228,
+      "weighted_mean_dist_low_m": 3675.7,
+      "weighted_mean_dist_high_m": 3046.9,
+      "weighted_cohens_d": 0.392,
+      "null_d_mean": 0.327,
+      "share_null_d_ge_observed": 0.43,
+      "coef_hist_given_center_logres": -3.068963493332772e-05,
+      "p_hist_given_center_logres": 2.5426823576055937e-12,
+      "share_null_coef_le_observed": 0.357
+    },
+    "all_services": {
+      "pct_residents_without_access": 0.69,
+      "residents_without_access": 3958,
+      "weighted_mean_dist_low_m": 4455.5,
+      "weighted_mean_dist_high_m": 3072.8,
+      "weighted_cohens_d": 0.861,
+      "null_d_mean": 0.694,
+      "share_null_d_ge_observed": 0.413,
+      "coef_hist_given_center_logres": -5.622201691950995e-05,
+      "p_hist_given_center_logres": 2.7749317713477535e-07,
+      "share_null_coef_le_observed": 0.342
+    }
+  }
+}

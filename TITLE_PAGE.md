@@ -1,15 +1,14 @@
 
 ## Article Title
 
-Ghost Infrastructure: Historical Industrial Geography and the Persistence of Path Dependent Accessibility in Bochum, Germany
+Ghost Infrastructure? Testing Whether 19th-Century Coal-Mining Geography Shapes 15-Minute Walking Access in Bochum and Essen, Germany
 
 ## Author
 
 **Sakshi D. Maske** (Corresponding Author)<br>
 Independent Geospatial Researcher<br>
-Jagdamba Colony, Ward 13, Karanja Ghadge, Wardha, Maharashtra 442203, India<br>
+Maharashtra, India<br>
 Email: [sakshimaske303@gmail.com](mailto:sakshimaske303@gmail.com)<br>
-Phone: +91 7796374568<br>
 ORCID: [https://orcid.org/0009-0002-5683-5966](https://orcid.org/0009-0002-5683-5966)
 
 ## Acknowledgments
